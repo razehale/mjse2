@@ -1,0 +1,1689 @@
+{
+  "version": "1.0",
+  "source": "Master_Syllabus_Ledger_v1.0",
+  "lessons": {
+    "L1": {
+      "lesson_id": "L1",
+      "arc": 1,
+      "lesson_name": "Long Walk",
+      "status": "full",
+      "briefing": {
+        "student_view": {
+          "objective": "First flight experience, basic circuit around KHMP",
+          "must_do_actions": [
+            "Complete REP preflight walk-around (interior inspection + external walk-around)",
+            "Remove wheel chocks, tiedowns, and pitot tube cover",
+            "Fly a simple circuit around KHMP on Runway 24",
+            "Takeoff at 55 KIAS, climb at 74 KIAS",
+            "Maintain pattern altitude 1,882 MSL (1,000 AGL)",
+            "Approach at 65 KIAS",
+            "Land on Runway 24"
+          ],
+          "target_numbers": [
+            "Preflight walk-around completion (all items checked, chocks/tiedowns/pitot cover removed)",
+            "Takeoff speed adherence (55 KIAS rotation)",
+            "Climb speed adherence (74 KIAS)",
+            "Pattern altitude maintenance (1,882 MSL \u00b1100 ft)",
+            "Approach speed adherence (65 KIAS)",
+            "Landing on Runway 24"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": "[CFI MILES: INSERT COACHING]"
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "What the student just experienced on their first flight \u2014 connecting the physical sensations to the controls and forces acting on the aircraft",
+          "reveal_topics": [
+            "Why Does the Airplane Climb? \u2014 Increasing angle of attack increases lift; lift exceeds weight; drag also increases requiring more thrust. The engine doesn't 'pull' the airplane up \u2014 lift does.",
+            "Angle of Attack vs. Pitch Attitude \u2014 Pitch attitude is nose position relative to horizon (what you see); angle of attack is wing angle relative to airflow (what creates lift). They are related but NOT the same.",
+            "Preview: In later lessons, fly by pitch + power combinations, not just 'pulling back to climb.'"
+          ]
+        },
+        "cfi_notes": "[CFI MILES: INSERT COACHING]"
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Aircraft Familiarization",
+            "instructional_intent": "Identify all major external components and specifications of the Cessna 172S (engine, propeller, fuel capacity, weights, speeds, range)"
+          },
+          {
+            "concept_name": "Preflight Inspection (REP Walk-Around)",
+            "instructional_intent": "Perform a thorough preflight inspection using checklist \u2014 interior inspection (fuel, master switch, controls, fuel selector) and external walk-around (pilot door, left wing, nose, right wing, tail, engine) with understanding of why each item matters"
+          },
+          {
+            "concept_name": "Primary Flight Controls",
+            "instructional_intent": "Explain the function of ailerons (roll), elevator (pitch), rudder (yaw), and trim tab \u2014 including common misconceptions like using rudder for steering in flight"
+          },
+          {
+            "concept_name": "Four Forces of Flight",
+            "instructional_intent": "Understand lift, weight, thrust, and drag and their equilibrium in steady level flight"
+          },
+          {
+            "concept_name": "Airspeed vs. Groundspeed",
+            "instructional_intent": "Distinguish IAS, CAS, TAS, and groundspeed; understand why you fly using IAS but navigate using groundspeed"
+          },
+          {
+            "concept_name": "Basic Weather Minimums (VFR)",
+            "instructional_intent": "Understand 14 CFR 91.155 Class G airspace weather minimums for KHMP including visibility and cloud clearance requirements"
+          },
+          {
+            "concept_name": "Airport Operations at KHMP",
+            "instructional_intent": "Know field elevation (882 MSL), runway (24/06, 5,000\u00d7100 ft), CTAF (122.8 MHz), pattern altitude (1,882 MSL), left traffic, and standard traffic pattern radio calls"
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapters 6-7",
+          "AFH: Chapter 3",
+          "Cessna 172S POH: Section 2 (Limitations), Section 7 (Systems)",
+          "14 CFR 91.155: VFR weather minimums",
+          "REP User Manual: Preflight procedures"
+        ],
+        "chapter_ids": [
+          "GS-101",
+          "GS-102",
+          "GS-103",
+          "GS-104",
+          "GS-105",
+          "GS-106",
+          "GS-107"
+        ]
+      },
+      "next_steps": "Cleared for L2 \u2014 Configurator",
+      "quiz": [
+        {
+          "question": "[Placeholder Q1 for L1]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q2 for L1]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q3 for L1]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q4 for L1]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q5 for L1]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        }
+      ]
+    },
+    "L2": {
+      "lesson_id": "L2",
+      "arc": 1,
+      "lesson_name": "Configurator",
+      "status": "full",
+      "briefing": {
+        "student_view": {
+          "objective": "Learn flaps and trim; fly 3 complete traffic patterns with configuration management",
+          "must_do_actions": [
+            "Fly 3 complete traffic patterns on Runway 24",
+            "Deploy flaps incrementally: 0\u00b0 (takeoff) \u2192 10\u00b0 (downwind) \u2192 20\u00b0 (base) \u2192 30\u00b0 (final)",
+            "Use trim to relieve yoke pressure at each configuration change",
+            "Maintain downwind speed 90 KIAS",
+            "Maintain approach speed 65 KIAS",
+            "Execute go-around if landing is unstable (full power, flaps 20\u00b0, climb at 74 KIAS)",
+            "Perform at least one go-around as part of GTGL sequence"
+          ],
+          "target_numbers": [
+            "Flap deployment at correct pattern legs (10\u00b0 downwind, 20\u00b0 base, 30\u00b0 final)",
+            "Trim usage after each configuration change",
+            "Downwind speed 90 KIAS \u00b15 knots",
+            "Approach speed 65 KIAS \u00b15 knots",
+            "Go-around execution (full power, correct flap management, climb at 74 KIAS)",
+            "Completion of GTGL sequence"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": "[CFI MILES: INSERT COACHING]"
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "How flaps changed the airplane's behavior in the pattern \u2014 connecting the physical sensation of slowing down when flaps are deployed to the aerodynamics",
+          "reveal_topics": [
+            "Why Flaps Create Drag \u2014 Parasitic drag increases exponentially with flap deflection; disrupts smooth airflow, creates turbulent wake, forms pressure differential behind flap.",
+            "Induced drag actually decreases slightly because flaps increase lift coefficient, reducing angle of attack needed for same lift.",
+            "Net Effect: Total drag increases significantly, allowing steeper descents at slower airspeeds.",
+            "Advanced Concept: Flaps don't make you descend \u2014 they allow you to descend without accelerating. Without power reduction, airplane slows but temporarily maintains altitude."
+          ]
+        },
+        "cfi_notes": "[CFI MILES: INSERT COACHING]"
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Flaps: Purpose and Aerodynamics",
+            "instructional_intent": "Explain flap settings (0\u00b0/10\u00b0/20\u00b0/30\u00b0/40\u00b0), aerodynamic effects (increased lift, increased drag, decreased stall speed), and deployment speeds (VFE 110 KIAS)"
+          },
+          {
+            "concept_name": "Trim: The Student's Best Friend",
+            "instructional_intent": "Teach correct trim technique \u2014 establish pitch with yoke first, then trim to zero pressure. Address common mistake of flying with trim instead of yoke."
+          },
+          {
+            "concept_name": "Pitch + Power = Performance",
+            "instructional_intent": "Foundational concept: pitch controls airspeed, power controls altitude. Provide combinations for maintaining altitude, climbing, and descending at constant airspeed."
+          },
+          {
+            "concept_name": "Traffic Pattern Procedures",
+            "instructional_intent": "Standard left traffic for Runway 24 \u2014 segment profiles for takeoff, crosswind, downwind, base, and final including altitude, airspeed, flap setting, and power setting for each leg"
+          },
+          {
+            "concept_name": "Density Altitude and Performance",
+            "instructional_intent": "Explain density altitude concept, calculation method (pressure altitude + temperature correction), and its impact on takeoff roll, climb rate, and landing distance"
+          },
+          {
+            "concept_name": "Go-Around Decision-Making",
+            "instructional_intent": "When to go around (unstable approach, misalignment, excessive sink rate, bounced landing, runway not clear). Go-around procedure: full power, carb heat off, flaps 20\u00b0, pitch for Vy 74 KIAS, incremental flap retraction. Emphasize: no shame in a go-around."
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapter 5 (Aerodynamics), Chapter 11 (Weight & Balance)",
+          "AFH: Chapter 9 (Traffic Patterns)",
+          "Cessna 172S POH: Section 5 (Performance Charts)",
+          "14 CFR 91.126: Operating on or in vicinity of an airport"
+        ],
+        "chapter_ids": [
+          "GS-108",
+          "GS-109",
+          "GS-110",
+          "GS-111",
+          "GS-112",
+          "GS-113"
+        ]
+      },
+      "next_steps": "Cleared for L3 \u2014 Edge of the Envelope",
+      "quiz": [
+        {
+          "question": "[Placeholder Q1 for L2]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q2 for L2]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q3 for L2]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q4 for L2]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q5 for L2]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        }
+      ]
+    },
+    "L3": {
+      "lesson_id": "L3",
+      "arc": 1,
+      "lesson_name": "Edge of the Envelope",
+      "status": "full",
+      "briefing": {
+        "student_view": {
+          "objective": "Explore the edges of the flight envelope: slow flight, power-off stalls, and steep turns at 3,500 MSL",
+          "must_do_actions": [
+            "Climb to 3,500 MSL (safety altitude, 2,618 AGL)",
+            "Perform slow flight at 50-55 KIAS (5-10 knots above stall)",
+            "Execute power-off stall and recovery (PARE: Pitch down, Add power, Rudder, Elevator)",
+            "Perform steep turns at 45\u00b0 bank (\u00b15\u00b0)",
+            "Maintain altitude \u00b1100 feet, heading \u00b110\u00b0 during slow flight",
+            "Maintain altitude \u00b1100 feet, airspeed \u00b110 knots during steep turns",
+            "Know best glide speed: 68 KIAS"
+          ],
+          "target_numbers": [
+            "Slow flight: airspeed 50-55 KIAS, altitude \u00b1100 ft, heading \u00b110\u00b0",
+            "Power-off stall: recognition and recovery using PARE",
+            "Steep turns: 45\u00b0 bank \u00b15\u00b0, altitude \u00b1100 ft, airspeed \u00b110 knots, rollout \u00b110\u00b0 of entry heading",
+            "Best glide speed demonstration (68 KIAS)",
+            "Safety altitude adherence (recovery by 2,500 MSL minimum)"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": "[CFI MILES: INSERT COACHING]"
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "What the airplane felt like near its limits \u2014 connecting the physical sensations (buffet, mushy controls, increased G-force) to the aerodynamic principles",
+          "reveal_topics": [
+            "The Backside of the Power Curve \u2014 At very slow airspeeds (<65 KIAS in C172), induced drag dominates. To fly slower, you need more power (not less). This is 'Region of Reversed Command.'",
+            "On final approach at 65 KIAS, you're near the backside. If you correct high sink rate with elevator only (pulling back), you slow into reversed command region \u2014 need more power.",
+            "Correct response: Add power and adjust pitch. 'Chasing airspeed with pitch' on approach is dangerous.",
+            "Advanced Concept: The stall horn is a 'high angle of attack' warning, not a 'low airspeed' warning. You can trigger it at 90 KIAS in a 60\u00b0 bank turn because load factor increases the effective weight."
+          ]
+        },
+        "cfi_notes": "[CFI MILES: INSERT COACHING]"
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Angle of Attack and the Stall",
+            "instructional_intent": "Critical concept: stalls are caused by exceeding the critical angle of attack (~16-18\u00b0), not low airspeed. A stall can occur at any airspeed, any altitude, any attitude. Cover stall warning signs (buffet, mushy controls, stall horn, high deck angle) and PARE recovery."
+          },
+          {
+            "concept_name": "Slow Flight: Controlled Flight at Minimum Airspeed",
+            "instructional_intent": "Learn to recognize and operate near stall speed \u2014 high angle of attack, high induced drag, sluggish controls. ACS standards: airspeed 50-55 KIAS, altitude \u00b1100 ft, heading \u00b110\u00b0. Common mistakes: maintaining altitude with elevator (secondary stall), over-banking, fixating on airspeed."
+          },
+          {
+            "concept_name": "Power-Off Stalls (Approach-to-Landing Stalls)",
+            "instructional_intent": "Simulates poorly executed go-around or stretching a glide. Most dangerous phase is approach to landing. Critical lesson: never stretch a glide with elevator. Include spin awareness \u2014 uncoordinated flight + stall = incipient spin."
+          },
+          {
+            "concept_name": "Steep Turns: Load Factor and Energy Management",
+            "instructional_intent": "ACS: 45\u00b0 bank \u00b15\u00b0, altitude \u00b1100 ft, airspeed \u00b110 knots, rollout \u00b110\u00b0. Load factor at 45\u00b0 = 1.41G, stall speed increases 19%. Must increase back pressure and add ~200 RPM to compensate. Energy management: potential energy (altitude) + kinetic energy (airspeed)."
+          },
+          {
+            "concept_name": "Best Glide Speed and Emergency Planning",
+            "instructional_intent": "Best glide speed 68 KIAS provides maximum L/D ratio. Glide ratio ~9:1 (1.5 NM per 1,000 ft AGL). Emergency landing procedure: airspeed, landing site, restart attempt, Mayday 121.5, secure aircraft. FAA NTSB 830 reporting requirements."
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapter 5 (Aerodynamics of Flight, Stalls)",
+          "AFH: Chapter 4 (Slow Flight), Chapter 5 (Stalls)",
+          "Cessna 172S POH: Section 3 (Emergency Procedures)",
+          "AC 61-67C: Stall and Spin Awareness Training",
+          "NTSB 830: Aircraft Accident Reporting"
+        ],
+        "chapter_ids": [
+          "GS-114",
+          "GS-115",
+          "GS-116",
+          "GS-117",
+          "GS-118"
+        ]
+      },
+      "next_steps": "Cleared for L4 \u2014 Arc 1 Check Flight",
+      "quiz": [
+        {
+          "question": "[Placeholder Q1 for L3]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q2 for L3]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q3 for L3]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q4 for L3]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q5 for L3]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        }
+      ]
+    },
+    "L4": {
+      "lesson_id": "L4",
+      "arc": 1,
+      "lesson_name": "Arc 1 Check Flight",
+      "status": "full",
+      "briefing": {
+        "student_view": {
+          "objective": "Arc 1 proficiency check: 5 consecutive touch-and-goes on Runway 24, followed by simulated engine failure after 5th takeoff with emergency landing on Runway 06",
+          "must_do_actions": [
+            "Complete preflight risk assessment (PAVE checklist)",
+            "Fly 5 consecutive touch-and-goes on Runway 24",
+            "Execute proper touch-and-go procedure (nosewheel touchdown, full power, incremental flap retraction)",
+            "Handle simulated engine failure after 5th takeoff (~300 AGL)",
+            "Pitch immediately for best glide (68 KIAS)",
+            "Identify Runway 06 as landing surface (heading ~060\u00b0)",
+            "Execute emergency landing on Runway 06, full stop",
+            "Perform post-landing actions (fuel off, mags off, master off, exit, CTAF announcement)"
+          ],
+          "target_numbers": [
+            "PAVE checklist completion",
+            "Touch-and-go procedure execution (5 consecutive, proper flap/power management)",
+            "Engine failure response (immediate best glide 68 KIAS)",
+            "Landing site selection (Runway 06)",
+            "Emergency landing execution (full stop on Runway 06)",
+            "Post-landing emergency actions"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": "[CFI MILES: INSERT COACHING]"
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "Why the student's decision to land on Runway 06 (instead of turning back) was correct \u2014 demonstrating good Aeronautical Decision Making",
+          "reveal_topics": [
+            "The Impossible Turn \u2014 Altitude loss in 180\u00b0 turn: standard rate turn = 60 sec, descent ~600 FPM = 600 ft lost best case. Realistic: 800-1,000 ft due to tighter turn, higher bank/stall speed, stress/panic.",
+            "Conclusion: Unless at least 1,000 AGL, turning back is extremely dangerous.",
+            "NTSB Data: Turnback attempts after engine failure account for ~20% of fatal GA accidents \u2014 pilots underestimate altitude loss and stall/spin during the turn.",
+            "Advanced Concept: The Impossible Turn is only impossible due to poor training. If practiced at altitude (know your aircraft's turnback altitude), it can be done safely. Without practice, always land straight ahead."
+          ]
+        },
+        "cfi_notes": "[CFI MILES: INSERT COACHING]"
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Preflight Risk Assessment (PAVE Checklist)",
+            "instructional_intent": "Assess risk using PAVE: Pilot (IMSAFE, alcohol 8-hr rule per 14 CFR 91.17), Aircraft (airworthiness, equipment ATOMATOFLAMES + FLAPS, fuel, W&B, maintenance), enVironment (weather, terrain, airport), External Pressures (passengers, boss, get-home-itis). If \u22652 high-risk items \u2192 delay; if \u22651 critical \u2192 cancel."
+          },
+          {
+            "concept_name": "Required Equipment (ATOMATOFLAMES + FLAPS)",
+            "instructional_intent": "Day VFR required instruments (Airspeed, Tachometer, Oil pressure, Manifold pressure, Altimeter, Temperature, Oil temp, Fuel gauge, Landing gear indicator, Anti-collision lights, Magnetic compass, ELT, Safety belts). Night additions (Fuses, Landing light, Anti-collision, Position lights, Source of power). 90-day currency for passengers."
+          },
+          {
+            "concept_name": "Touch-and-Go Procedures",
+            "instructional_intent": "Landing \u2192 nosewheel touches \u2192 full power \u2192 flaps to 10\u00b0 \u2192 verify airspeed \u2192 rotate 55 KIAS \u2192 climb 74 KIAS \u2192 retract remaining flaps after positive rate. Common mistakes: power before nosewheel, retracting all flaps at once, not verifying positive rate. When NOT to do T&Gs."
+          },
+          {
+            "concept_name": "Simulated Engine Failure After Takeoff",
+            "instructional_intent": "Engine failure at 300 AGL: Can NOT turn back to Runway 24. FAA guidance: below 500 AGL land straight ahead \u00b130\u00b0. KHMP-specific: Runway 06 is directly ahead. Procedure: best glide 68 KIAS, identify Runway 06, slight turn to align, no restart attempt (insufficient altitude), flaps as needed, land full stop."
+          },
+          {
+            "concept_name": "Personal Minimums and Go/No-Go Decision-Making",
+            "instructional_intent": "New pilots should set higher personal minimums than FAA regulatory minimums (suggested: ceiling 3,000 AGL, vis 5 SM, wind 10 kt, crosswind 5 kt, temp above 0\u00b0C). Go/no-go framework: review METAR/TAF, check PAVE, compare to personal minimums, if any doubt \u2192 don't go. Includes METAR analysis example."
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapter 2 (ADM), Chapter 17 (Aeromedical Factors)",
+          "AFH: Chapter 17 (Emergency Procedures)",
+          "AC 60-22: Aeronautical Decision Making",
+          "14 CFR 61.57: Recent Flight Experience (Currency)",
+          "14 CFR 91.17: Alcohol and Drugs",
+          "14 CFR 91.151: Fuel Requirements for VFR"
+        ],
+        "chapter_ids": [
+          "GS-119",
+          "GS-120",
+          "GS-121",
+          "GS-122",
+          "GS-123"
+        ]
+      },
+      "next_steps": "Cleared for L5 \u2014 Begin Arc 2",
+      "quiz": [
+        {
+          "question": "[Placeholder Q1 for L4]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q2 for L4]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q3 for L4]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q4 for L4]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        },
+        {
+          "question": "[Placeholder Q5 for L4]",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": 0,
+          "explanation": ""
+        }
+      ]
+    },
+    "L5": {
+      "lesson_id": "L5",
+      "arc": 2,
+      "lesson_name": "Crosswind Circuits",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Crosswind landings using crab and slip techniques with winds from 200\u00b0 at 10 knots",
+          "must_do_actions": [
+            "Calculate crosswind component using clock method",
+            "Fly traffic patterns with crosswind correction",
+            "Maintain crab angle on final approach to track runway centerline",
+            "Transition from crab to side slip in the flare (~10 ft AGL)",
+            "Touch down on upwind main wheel first, then downwind wheel, then nosewheel",
+            "Apply wind correction throughout the pattern (headwind/tailwind/crosswind legs)"
+          ],
+          "target_numbers": [
+            "Crosswind component calculation accuracy",
+            "Crab angle maintenance on final approach (runway centerline tracking)",
+            "Crab-to-slip transition in flare",
+            "Touchdown sequence (upwind main wheel first)",
+            "Directional control maintained after touchdown",
+            "Wind correction applied on all pattern legs"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "How crosswind correction felt in the airplane \u2014 connecting the physical inputs (aileron into wind, opposite rudder) to the aerodynamic forces at play",
+          "reveal_topics": [
+            "Why Crosswinds Are Dangerous \u2014 The danger isn't the landing itself, it's loss of directional control after touchdown.",
+            "Side load on landing gear \u2192 potential collapse. Weathervaning: vertical stabilizer acts like weather vane, crosswind pushes tail, nose turns into wind uncontrollably.",
+            "Critical period: 0-5 seconds after touchdown (still high speed, limited rudder authority).",
+            "Advanced Concept: Maximum demonstrated crosswind is NOT a limitation \u2014 it's simply the highest crosswind tested during certification. You can legally land in higher crosswinds, but it requires exceptional skill."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Wind Triangle and Heading Corrections",
+            "instructional_intent": "Understand True Course, True Heading, Wind Correction Angle, Groundspeed, and TAS. Calculate WCA using rule of thumb formula. In practice, adjust crab visually to track centerline."
+          },
+          {
+            "concept_name": "Crosswind Component Calculation (Clock Method)",
+            "instructional_intent": "Maximum demonstrated crosswind for C172S: 15 knots. Clock method: 0\u00b0 = 0%, 30\u00b0 = 50%, 45\u00b0 = 70%, 60\u00b0 = 90%, 90\u00b0 = 100%. Apply to determine crosswind component and assess within limits."
+          },
+          {
+            "concept_name": "Crosswind Landing Techniques",
+            "instructional_intent": "Two methods: Crab (point nose into wind on final) and Slip (lower upwind wing, opposite rudder to align nose). Combined standard technique: crab on final \u2192 transition to slip in flare \u2192 land on upwind wheel first."
+          },
+          {
+            "concept_name": "Forward Slip vs. Side Slip",
+            "instructional_intent": "Forward slip: lose altitude without increasing airspeed (clear obstacles). Side slip: track runway centerline in crosswind. Both are cross-controlled states (aileron and rudder in opposite directions)."
+          },
+          {
+            "concept_name": "Wind Effects in Traffic Pattern",
+            "instructional_intent": "How wind affects each pattern leg: headwind on final (slower GS, steeper descent), tailwind on upwind (faster GS, shallower climb), crosswind on crosswind/base legs (drift compensation, early/late turn adjustments)."
+          }
+        ],
+        "study_resources": [
+          "AFH: Chapter 8 (Crosswind Techniques)",
+          "PHAK: Chapter 5 (Wind Effects)",
+          "Cessna 172S POH: Section 2 (Limitations - Crosswind)"
+        ],
+        "chapter_ids": [
+          "GS-201",
+          "GS-202",
+          "GS-203",
+          "GS-204",
+          "GS-205"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L6": {
+      "lesson_id": "L6",
+      "arc": 2,
+      "lesson_name": "Precision Patterns",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Precision pattern work: \u00b150 feet altitude, \u00b15 knots airspeed, \u00b15\u00b0 heading throughout the traffic pattern",
+          "must_do_actions": [
+            "Fly traffic patterns with precision tolerances",
+            "Maintain downwind at 1,882 MSL \u00b150 ft, 90 KIAS \u00b15 knots",
+            "Maintain base at 70 KIAS \u00b15 knots",
+            "Maintain final at 65 KIAS \u00b15 knots",
+            "Use continuous trim to nail target numbers",
+            "Execute systematic instrument scan (attitude, airspeed, altitude)",
+            "Anticipate power/pitch changes at pattern transitions (abeam numbers, turning base, turning final)"
+          ],
+          "target_numbers": [
+            "Altitude maintenance: downwind 1,882 MSL \u00b150 ft",
+            "Airspeed maintenance: downwind 90 \u00b15, base 70 \u00b15, final 65 \u00b15 KIAS",
+            "Heading maintenance: \u00b15\u00b0",
+            "Trim usage (continuous, hands-off test)",
+            "Instrument scan discipline (no fixation)",
+            "Consistent pattern entries and transitions"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "How trim and anticipation made the pattern smoother \u2014 connecting the precision numbers to the feeling of a stabilized approach",
+          "reveal_topics": [
+            "Why VASI/PAPI Use 3\u00b0 Glidepath \u2014 Optimized for obstacle clearance (20:1 ratio), energy management (descent at approach speed without excess power), and comfort (~300-500 FPM descent).",
+            "Math: 3\u00b0 = 318 FPM per 60 knots GS. At 65 KIAS: ~345 FPM.",
+            "Shallower (2\u00b0): risk of landing long. Steeper (4\u00b0): high descent rate, hard landing.",
+            "Advanced Concept: Aircraft with higher approach speeds use the same 3\u00b0 glidepath but higher descent rates (jets at 120 knots = ~640 FPM)."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Instrument Scan Technique",
+            "instructional_intent": "Primary instruments by phase (level flight, climb, descent, turn). Radial scan pattern centered on attitude indicator. Avoid fixation (staring at one instrument). Scan rate ~1-2 seconds per instrument."
+          },
+          {
+            "concept_name": "Trim for Precision",
+            "instructional_intent": "Correct technique: set power \u2192 adjust pitch for target airspeed \u2192 trim to zero pressure \u2192 hands-off test (should hold \u00b12 knots). Common mistakes: using trim to change pitch, not re-trimming after config changes, chasing trim."
+          },
+          {
+            "concept_name": "Power + Pitch Combinations (Pattern Reference)",
+            "instructional_intent": "Memorize power/pitch/flap settings per leg: Upwind (2,500 RPM, 0\u00b0, +7\u00b0), Crosswind (2,500, 0\u00b0, +7\u00b0), Downwind (2,300, 10\u00b0, level), Base (1,700, 20\u00b0, -3\u00b0), Final (1,500, 30\u00b0, -4\u00b0). Anticipating transitions abeam numbers, turning base, turning final."
+          },
+          {
+            "concept_name": "Visual Glidepath Indicators (VASI/PAPI)",
+            "instructional_intent": "VASI: Red/White = on glidepath, White/White = high, Red/Red = low. PAPI: 4-light system, 2 white 2 red = on glidepath. KHMP has no VASI/PAPI \u2014 use visual references (aim point stationary in windscreen)."
+          },
+          {
+            "concept_name": "Consistent Pattern Entries",
+            "instructional_intent": "Three standard entries: straight-in (from south, join final 2+ mi out), 45\u00b0 entry to downwind (most common, Arc 2 standard), overhead break (not used in C172). Proper radio announcements for each."
+          }
+        ],
+        "study_resources": [
+          "AFH: Chapter 7 (Instrument Scan)",
+          "Instrument Flying Handbook: Chapter 5 (Scan Techniques)"
+        ],
+        "chapter_ids": [
+          "GS-206",
+          "GS-207",
+          "GS-208",
+          "GS-209",
+          "GS-210"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L7": {
+      "lesson_id": "L7",
+      "arc": 2,
+      "lesson_name": "Arc 2 Check Flight",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Arc 2 proficiency check: 5 solo (simulated) patterns with professional radio communications and precise airspeeds/landings",
+          "must_do_actions": [
+            "Fly 5 traffic patterns solo (simulated)",
+            "Make professional radio calls at all required positions (entering pattern, downwind, base, final, clear of runway)",
+            "Maintain precise airspeeds throughout pattern",
+            "Execute smooth, consistent landings",
+            "Demonstrate right-of-way awareness and pattern traffic management",
+            "Handle pattern conflicts (extending downwind, going around if needed)"
+          ],
+          "target_numbers": [
+            "CTAF radio call accuracy and timing",
+            "Pattern precision (airspeed, altitude, heading per L6 standards)",
+            "Landing consistency (5 patterns)",
+            "Right-of-way awareness and traffic management",
+            "Go-around execution when needed",
+            "Solo readiness demonstration"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "Quality of radio calls and pattern discipline \u2014 connecting professional communication to safety in a busy traffic environment",
+          "reveal_topics": [
+            "Why Most Accidents Happen in the Pattern \u2014 ~50% of GA accidents occur during takeoff/landing. Reasons: low altitude (no recovery margin), high workload (config, radio, traffic, airspeed), visual illusions (base-to-final overshoot, wide downwind, narrow runway), task saturation.",
+            "Mitigation: Stabilized approach criteria (if not stable by 500 AGL \u2192 go around), sterile cockpit (no non-essential talk below 1,000 AGL), callouts ('Airspeed alive', 'On speed', 'On glidepath').",
+            "Advanced Concept: Airlines use Stabilized Approach Criteria (500 AGL: on speed, on glidepath, on centerline, landing config, <1,000 FPM). If not met \u2192 mandatory go-around. Adopt this discipline."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "CTAF Communications (Non-Towered Airports)",
+            "instructional_intent": "CTAF 122.8 at KHMP. When to make calls (10 mi out, entering pattern, downwind, base, final, clear of runway). Call structure: who you're calling, who you are, where you are, intentions, repeat airport. Pro tips: brief calls, phonetic alphabet, listen before transmitting."
+          },
+          {
+            "concept_name": "Right-of-Way Rules (14 CFR 91.113)",
+            "instructional_intent": "Priority order: distress, balloons, gliders, airships, powered aircraft. Head-on: both turn right. Converging: right has right-of-way. Overtaking: pass to right. Landing: lower aircraft has priority. Pattern conflict examples."
+          },
+          {
+            "concept_name": "Solo Flight Requirements (14 CFR 61.87)",
+            "instructional_intent": "Required training areas, proficiency demonstration, endorsements (pre-solo training 61.87(c), pre-solo knowledge test 61.87(b), solo flight). Solo limitations: make/model, daytime, 25 NM, no passengers, no compensation. Student solo accident rate ~2x higher than dual."
+          },
+          {
+            "concept_name": "Pattern Traffic Management",
+            "instructional_intent": "Spacing: 1-mile on final. Sequencing priority: final > base > downwind. Extend downwind or go around if too close. Non-standard patterns (right traffic, straight-in, helicopter). Conflict resolution examples."
+          },
+          {
+            "concept_name": "Lost Communication Procedures",
+            "instructional_intent": "Radio fails in pattern: squawk 7600, watch for light gun signals (if towered), make standard pattern, land. Light gun signal meanings (steady/flashing green, red, white; alternating red/green). Not applicable at KHMP (untowered) but required knowledge for checkride."
+          }
+        ],
+        "study_resources": [
+          "AIM: Chapter 4 (Air Traffic Control)",
+          "14 CFR 91.113: Right-of-Way Rules",
+          "14 CFR 61.87: Solo Flight Requirements",
+          "AC 90-66B: Non-Towered Airport Flight Operations"
+        ],
+        "chapter_ids": [
+          "GS-211",
+          "GS-212",
+          "GS-213",
+          "GS-214",
+          "GS-215"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L8": {
+      "lesson_id": "L8",
+      "arc": 3,
+      "lesson_name": "VOR Basics",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Track VOR radials, intercept courses, and identify station passage using Providence VOR (PVD)",
+          "must_do_actions": [
+            "Tune and identify Providence VOR (PVD)",
+            "Track VOR radials inbound and outbound",
+            "Intercept assigned VOR courses (30-45\u00b0 intercept angle)",
+            "Identify station passage (TO/FROM flag reversal)",
+            "Maintain needle centered with small corrections (5-10\u00b0)",
+            "Perform VOR accuracy check"
+          ],
+          "target_numbers": [
+            "VOR tuning and identification",
+            "Radial tracking accuracy (needle centered \u00b11 dot)",
+            "Course intercept technique (proper angle and timing)",
+            "Station passage identification",
+            "Wind drift compensation during tracking",
+            "VOR check completion"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "How VOR tracking felt in practice \u2014 the relationship between needle deflection, heading corrections, and wind drift",
+          "reveal_topics": [
+            "Why VOR Is Dying \u2014 GPS has made VOR nearly obsolete. VOR disadvantages: ground-based/line-of-sight, limited accuracy (\u00b12\u00b0 = \u00b12 NM at 60 NM), expensive ($100K+/year per station).",
+            "GPS advantages: satellite-based (anywhere), precise (\u00b130 ft), cheap (no ground infrastructure).",
+            "FAA MON (Minimum Operational Network): reducing from ~1,000 to ~300 VORs by 2030, keeping essential VORs for GPS backup.",
+            "Why learn VOR? Backup if GPS fails, understanding radio nav principles (ILS, ADF, DME), required for Private Pilot checkride.",
+            "Advanced Concept: Modern aircraft use RNAV (GPS) instead of VOR \u2014 fly direct to GPS waypoints. VOR skills are still foundational for spatial awareness."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "VOR Theory (How It Works)",
+            "instructional_intent": "VHF Omnidirectional Range (108.0-117.95 MHz). Transmits reference and variable signals; aircraft receiver compares phase difference = magnetic bearing FROM station. Components: CDI, OBS, TO/FROM indicator."
+          },
+          {
+            "concept_name": "Radials (Definition and Usage)",
+            "instructional_intent": "Radial = magnetic bearing FROM a VOR station. Intercept technique: set OBS, observe CDI/TO-FROM, turn to intercept at 30-45\u00b0, center needle, track with small corrections. If needle drifts right \u2192 turn right."
+          },
+          {
+            "concept_name": "CDI Interpretation",
+            "instructional_intent": "CDI sensitivity: each dot \u2248 2\u00b0 deviation, full deflection \u2248 10\u00b0. Interpret combinations of OBS setting, TO/FROM flag, and CDI position to determine position relative to VOR. Common mistakes: chasing the needle, ignoring TO/FROM flag, not accounting for wind."
+          },
+          {
+            "concept_name": "VOR Accuracy Checks (14 CFR 91.171)",
+            "instructional_intent": "IFR: VOR checked within 30 days. Four methods: VOT (\u00b14\u00b0), ground checkpoint (\u00b14\u00b0), airborne checkpoint (\u00b16\u00b0), dual VOR check (\u22644\u00b0 difference). VFR: no requirement but good practice."
+          },
+          {
+            "concept_name": "VOR Service Volumes",
+            "instructional_intent": "Three classes: Terminal (1,000-12,000 AGL, 25 NM), Low (1,000-18,000 AGL, 40 NM), High (1,000-60,000 AGL, 40-130 NM). PVD is Class H. Limitations: line-of-sight, mountains, beyond radius."
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapter 16 (Navigation - VOR)",
+          "AIM: Chapter 1-1-3 (VOR)",
+          "14 CFR 91.171: VOR Equipment Check"
+        ],
+        "chapter_ids": [
+          "GS-301",
+          "GS-302",
+          "GS-303",
+          "GS-304",
+          "GS-305"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L9": {
+      "lesson_id": "L9",
+      "arc": 3,
+      "lesson_name": "Pilotage & Dead Reckoning",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Navigate from KHMP to a visual checkpoint (water tower 15 NM northwest) using only chart, compass, and timer \u2014 no GPS",
+          "must_do_actions": [
+            "Plot course on sectional chart using plotter",
+            "Calculate magnetic heading with wind correction (E6B or digital)",
+            "Calculate time en route using time-speed-distance formula",
+            "Fly heading, start timer at departure",
+            "Identify visual checkpoint at calculated time",
+            "Use pilotage (chart-to-ground) at checkpoints every 10-15 NM to verify position",
+            "Navigate without GPS"
+          ],
+          "target_numbers": [
+            "Course plotting accuracy on sectional chart",
+            "Heading calculation accuracy (wind correction, magnetic variation)",
+            "Time-speed-distance calculation accuracy",
+            "Visual checkpoint identification",
+            "Track maintenance (within \u00b13 NM of course)",
+            "No GPS usage during navigation exercise"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "How well the dead reckoning calculations matched reality \u2014 comparing predicted vs. actual checkpoint arrival, and the importance of visual verification",
+          "reveal_topics": [
+            "Why GPS Made Pilots Worse Navigators \u2014 Before GPS, pilots studied charts, understood wind, maintained situational awareness. With GPS: 'direct-to' button replaces route planning, magenta line replaces chart reading, ETA countdown replaces mental math.",
+            "NTSB Case (2018): Pilot depended entirely on GPS, GPS failed due to military jamming, pilot disoriented, ran out of fuel, fatal crash.",
+            "Lesson: Always have backup nav plan (chart, compass, checkpoints).",
+            "Advanced Concept: Modern autopilots fly GPS routes perfectly, but if you don't monitor, you won't notice when GPS drifts or fails. Trust but verify."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Sectional Chart Symbols",
+            "instructional_intent": "Airport symbols (magenta = uncontrolled, blue = controlled), airspace markings, terrain (contour lines, spot elevations, obstacles), VFR checkpoints (water towers, bridges, stadiums, power plants, lakes/rivers)."
+          },
+          {
+            "concept_name": "Using a Plotter",
+            "instructional_intent": "Plotter = protractor + ruler. Measuring course: draw line, align plotter edge, read magnetic course at nearest meridian. Measuring distance: align scale, count NM (1 NM = 1 minute of latitude = 6,076 ft)."
+          },
+          {
+            "concept_name": "Wind Correction and Headings",
+            "instructional_intent": "Heading types: TC \u2192 TH (wind correction) \u2192 MH (magnetic variation) \u2192 CH (compass deviation). Magnetic variation: 14\u00b0W at KHMP ('West is best' = add westerly variation). Use E6B for wind correction angle."
+          },
+          {
+            "concept_name": "Time-Speed-Distance Calculations",
+            "instructional_intent": "Formulas: Distance = Speed \u00d7 Time, Time = Distance / Speed. E6B usage for TSD calculations. Example: 15 NM at 100 knots GS = 9 minutes."
+          },
+          {
+            "concept_name": "Dead Reckoning Technique",
+            "instructional_intent": "Navigate by course, speed, time, and wind estimates. Process: plot course, calculate heading, calculate time, fly heading with timer, look for checkpoint, update position. Accuracy: \u00b15\u00b0 heading error over 30 NM \u2248 2.5 NM off course. Pilotage + DR = robust VFR navigation."
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapter 16 (Navigation)",
+          "Sectional Chart Legend",
+          "E6B Flight Computer Instructions"
+        ],
+        "chapter_ids": [
+          "GS-306",
+          "GS-307",
+          "GS-308",
+          "GS-309",
+          "GS-310"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L10": {
+      "lesson_id": "L10",
+      "arc": 3,
+      "lesson_name": "Arc 3 Check Flight",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Cross-country flight to practice area (20 NM northwest) and return to KHMP with full flight planning, weather briefing, and weight & balance",
+          "must_do_actions": [
+            "Complete VFR flight plan (FAA Form 7233-1)",
+            "Obtain and interpret weather briefing (METAR, TAF, NOTAMs)",
+            "Calculate weight & balance for the flight",
+            "Navigate to practice area and return",
+            "Conduct maneuvers in practice area",
+            "Close flight plan within 30 minutes of ETA"
+          ],
+          "target_numbers": [
+            "Flight plan accuracy and completeness",
+            "Weather briefing interpretation",
+            "METAR/TAF/NOTAM decode accuracy",
+            "Weight & balance within limits",
+            "Navigation accuracy to/from practice area",
+            "Flight plan closure within 30 minutes of ETA"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "Quality of flight planning process \u2014 how accurate were the weather, navigation, and W&B calculations compared to actual flight conditions",
+          "reveal_topics": [
+            "Why Weight & Balance Killed So Many Pilots \u2014 NTSB Case (2019, Cessna 182): 300 lbs over gross, hot day, short runway \u2192 couldn't climb, hit trees, 4 fatalities.",
+            "Aft CG Danger: elevator may not have enough authority to recover from stall \u2192 unrecoverable stall \u2192 flat spin \u2192 fatal crash (2015 Piper Cherokee case).",
+            "Lesson: NEVER skip W&B. If over gross or out of CG \u2192 REMOVE WEIGHT.",
+            "Advanced Concept: Fuel burn shifts CG. If you start with forward CG and burn fuel, CG moves aft. Plan for most critical W&B (usually landing weight, aft CG)."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "VFR Flight Plan (FAA Form 7233-1)",
+            "instructional_intent": "When required (not required for VFR but recommended >50 NM). How to file (1800wxbrief.com, phone, radio). All 15 flight plan fields explained. Critical: must close within 30 minutes of ETA or SAR initiated."
+          },
+          {
+            "concept_name": "Weather Briefing (1800wxbrief.com)",
+            "instructional_intent": "Three types: Standard (comprehensive, >6 hr from departure), Abbreviated (update), Outlook (>6 hr future). Standard briefing contents: adverse conditions, synopsis, current conditions (METARs), en route forecast, destination forecast (TAF), NOTAMs, winds aloft."
+          },
+          {
+            "concept_name": "METAR Decoding",
+            "instructional_intent": "Full decode of METAR components: station, date/time, wind, visibility, sky condition, temp/dewpoint, altimeter, remarks. Example: KHMP 101735Z 24008KT 10SM FEW045 SCT250 22/14 A2990 RMK AO2."
+          },
+          {
+            "concept_name": "TAF Decoding",
+            "instructional_intent": "Terminal Aerodrome Forecast decoding: validity period, wind/vis/sky groups, FROM groups (FM), TEMPO groups, BECMG groups. Interpret forecast changes and temporary conditions."
+          },
+          {
+            "concept_name": "NOTAM Interpretation",
+            "instructional_intent": "Three types: NOTAM(D), FDC NOTAM, Pointer NOTAM. Decode format. Assess impact on flight (e.g., VOR outage, runway closure, TFR)."
+          },
+          {
+            "concept_name": "Weight & Balance",
+            "instructional_intent": "Why it matters: overweight (longer takeoff, reduced climb, higher stall speed), aft CG (reduced stability, uncontrollable pitch-up), forward CG (higher stall speed). Cessna 172S limits: 2,550 lbs max, CG 35.0-47.3 in. Sample W&B calculation method."
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapter 11 (Weight & Balance)",
+          "AIM: Chapter 7 (Weather Services)",
+          "AC 00-45H: Aviation Weather Services",
+          "1800wxbrief.com: Leidos Flight Service"
+        ],
+        "chapter_ids": [
+          "GS-311",
+          "GS-312",
+          "GS-313",
+          "GS-314",
+          "GS-315",
+          "GS-316"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L11": {
+      "lesson_id": "L11",
+      "arc": 4,
+      "lesson_name": "System Failures",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Handle simulated system failures: electrical failure (alternator offline), partial panel (vacuum failure), and engine roughness diagnosis",
+          "must_do_actions": [
+            "Diagnose and respond to alternator failure (low voltage light, ammeter discharge)",
+            "Reduce electrical load and prioritize essential systems",
+            "Fly partial panel (no attitude indicator, no heading indicator) using turn coordinator, altimeter, airspeed, magnetic compass",
+            "Diagnose engine roughness (carburetor ice, magneto failure, fuel contamination, spark plug fouling)",
+            "Apply carb heat for suspected carb ice",
+            "Follow Aviate, Navigate, Communicate priority",
+            "Land safely at KHMP"
+          ],
+          "target_numbers": [
+            "Alternator failure diagnosis and load shedding",
+            "Partial panel flying proficiency (altitude \u00b1100 ft, heading \u00b110\u00b0)",
+            "Engine roughness diagnosis accuracy",
+            "Carb heat application timing",
+            "Aviate/Navigate/Communicate priority adherence",
+            "Safe landing after system failures"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "How the student handled the stress of multiple failures \u2014 connecting the physiological stress response to the importance of checklist discipline and prioritization",
+          "reveal_topics": [
+            "Why 'Impossible' Emergencies Happen \u2014 Most fatal accidents aren't single failures, they're cascading failures + poor decisions.",
+            "Case (2017, Cirrus SR22): Electrical failure \u2192 pilot fixated on troubleshooting \u2192 battery died \u2192 continued into IMC \u2192 spatial disorientation \u2192 loss of control.",
+            "Lesson: Land ASAP when systems fail. Don't try to 'fix it in flight.'",
+            "Advanced Concept: Cirrus CAPS (parachute) has saved 100+ lives. If in unmanageable emergency (spin, structural failure, IMC without instruments), pull the chute. Ego kills pilots."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Electrical System",
+            "instructional_intent": "Components: alternator (28V DC, 60A), battery (24V, ~30 min backup), voltage regulator, ammeter, circuit breakers. Normal operation vs. alternator failure. Response: reduce load, land ASAP, troubleshoot (check circuit breaker). Priority systems to keep on."
+          },
+          {
+            "concept_name": "Vacuum System",
+            "instructional_intent": "Powers gyro instruments (AI, HI/DG). Engine-driven vacuum pump, gauge (4.5-5.5 inHg normal). Failure: gauge drops to zero, AI and HI drift/tumble. Partial panel technique: pitch from airspeed, bank from turn coordinator, heading from magnetic compass (with compass errors)."
+          },
+          {
+            "concept_name": "Engine Roughness Diagnosis",
+            "instructional_intent": "Four common causes and responses: (A) Carb ice \u2014 RPM drop, rough, carb heat ON; (B) Magneto failure \u2014 sudden RPM drop, test LEFT/RIGHT, fly on good mag, land ASAP; (C) Fuel contamination \u2014 sputtering, switch tanks, fuel pump, land ASAP; (D) Spark plug fouling \u2014 rough idle, lean mixture, increase RPM."
+          },
+          {
+            "concept_name": "Emergency Checklist Discipline",
+            "instructional_intent": "Aviate, Navigate, Communicate. Engine failure memory items: airspeed 68 KIAS, landing site, restart (fuel/mixture/mags/primer), Mayday 121.5, secure (fuel off/mags off/master off). Bold items = memory, normal items = read when time permits."
+          },
+          {
+            "concept_name": "Human Factors in Emergencies",
+            "instructional_intent": "Stress response: fight or flight, tunnel vision, auditory exclusion, cognitive narrowing. Mitigation: train until automatic, verbalize steps, prioritize (don't fixate on restart if you should be flying). DECIDE model: Detect, Estimate, Choose, Identify, Do, Evaluate."
+          }
+        ],
+        "study_resources": [
+          "Cessna 172S POH: Section 3 (Emergency Procedures), Section 7 (Systems Description)",
+          "AFH: Chapter 17 (Emergency Procedures)"
+        ],
+        "chapter_ids": [
+          "GS-401",
+          "GS-402",
+          "GS-403",
+          "GS-404",
+          "GS-405"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L12": {
+      "lesson_id": "L12",
+      "arc": 4,
+      "lesson_name": "Weather Systems",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Flight postponement decision \u2014 weather is below personal minimums (2,000 ft ceiling, 3 SM vis, gusts to 20 knots). Ground-only lesson studying why this weather is dangerous.",
+          "must_do_actions": [
+            "Evaluate current weather conditions against personal minimums",
+            "Make go/no-go decision (correct answer: NO-GO)",
+            "Study frontal systems, thunderstorm hazards, and icing conditions",
+            "Interpret weather charts (surface analysis, prog charts, radar summary)",
+            "Re-evaluate using PAVE checklist to confirm no-go decision"
+          ],
+          "target_numbers": [
+            "Correct no-go decision based on weather assessment",
+            "Frontal system identification",
+            "Thunderstorm hazard knowledge",
+            "Icing condition recognition",
+            "Weather chart interpretation",
+            "PAVE checklist application"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "Why the no-go decision was correct \u2014 reinforcing that canceling a flight IS a safe decision, not a failure",
+          "reveal_topics": [
+            "Why Pilots Fly Into Weather They Shouldn't \u2014 Get-Home-Itis is the most deadly hazard in GA. Scenario: pilot at distant airport, weather deteriorating, 'I can make it', scud running, inadvertent IMC, spatial disorientation, fatal crash.",
+            "NTSB Data: ~30% of fatal GA accidents involve VFR into IMC.",
+            "Why it happens: plan continuation bias, sunk cost fallacy, social pressure, get-home-itis.",
+            "Solution: alternate transportation, no external commitments, non-negotiable personal minimums.",
+            "Advanced Concept: Airlines have 'Dispatch Authority' \u2014 dispatcher can ground a flight even if captain wants to go. As solo VFR pilot, you ARE the dispatch. Be ruthlessly conservative."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Frontal Systems",
+            "instructional_intent": "Cold front (cold air displaces warm: towering cumulus, thunderstorms, rapid temp drop, winds SW\u2192NW). Warm front (warm air overrides cold: stratus, steady rain, fog, poor vis for 100-200 NM). Occluded front (cold overtakes warm: complex mix). Stationary front (prolonged poor conditions)."
+          },
+          {
+            "concept_name": "Thunderstorm Hazards",
+            "instructional_intent": "Three requirements: moisture, instability, lifting. Three stages: cumulus (updrafts), mature (most dangerous, updrafts + downdrafts), dissipating. Hazards: severe turbulence, icing, hail, wind shear/microburst (4,000+ FPM), lightning. Avoidance: never penetrate embedded TS, avoid by 20 NM. If unavoidable: maneuvering speed, wings level."
+          },
+          {
+            "concept_name": "Icing Conditions",
+            "instructional_intent": "Types: rime ice (freezing fog, milky white), clear ice (freezing rain, transparent, heavy), mixed (most dangerous). Occurs 0\u00b0C to -20\u00b0C in visible moisture. Effects: increased weight, disrupted airflow, higher stall speed, reduced thrust, instrument blockage. Cessna 172S NOT certified for known icing. Response: exit immediately, add power, alternate static source, declare emergency if severe."
+          },
+          {
+            "concept_name": "Weather Charts",
+            "instructional_intent": "Surface analysis (current fronts, pressure, isobars). Prog chart (forecast at 12/24/36/48 hr). Radar summary (precipitation areas, intensity, movement). Winds aloft forecast (format: 2314 = 230\u00b0 at 14 kt, -04\u00b0C)."
+          },
+          {
+            "concept_name": "Go/No-Go Decision Making",
+            "instructional_intent": "Personal minimums for student VFR: ceiling 3,000 AGL, vis 5 SM, winds <10 kt, gusts <5 kt, crosswind <5 kt, temp above freezing. Today's simulated weather fails on ceiling (2,000), visibility (3 SM), and wind gusts (20 kt). Decision: NO-GO. PAVE re-check confirms."
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapter 12 (Weather Theory), Chapter 13 (Weather Hazards)",
+          "AC 00-6B: Aviation Weather",
+          "AC 00-24C: Thunderstorms",
+          "AC 91-74B: Pilot Guide to Icing"
+        ],
+        "chapter_ids": [
+          "GS-406",
+          "GS-407",
+          "GS-408",
+          "GS-409",
+          "GS-410"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L13": {
+      "lesson_id": "L13",
+      "arc": 4,
+      "lesson_name": "Night Operations",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Night pattern work (3 patterns) and lost procedures at night with reduced visual references",
+          "must_do_actions": [
+            "Fly 3 traffic patterns at night",
+            "Adapt to reduced depth perception and altitude judgment",
+            "Use landing lights for depth perception near ground",
+            "Demonstrate awareness of night landing illusions",
+            "Practice lost procedures (simulated loss of visual references)",
+            "Use VOR and/or GPS 'Nearest Airport' for position recovery"
+          ],
+          "target_numbers": [
+            "Night pattern flying proficiency (3 patterns)",
+            "Night illusion awareness and mitigation",
+            "Landing light usage for depth perception",
+            "Lost procedure execution",
+            "Position recovery using VOR/GPS",
+            "Night equipment verification"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "How night flying changed depth perception and decision-making \u2014 what felt different compared to daytime patterns",
+          "reveal_topics": [
+            "Why Night Flying Is Statistically Safer (but more dangerous in emergencies) \u2014 Night accident rate per hour is LOWER than day (less traffic, better visibility of lit airports, smoother air, more cautious pilots).",
+            "BUT: Fatal accident rate is HIGHER at night \u2014 harder to find emergency landing sites, spatial disorientation in clouds, wildlife strikes at dusk.",
+            "Lesson: Night flying is safe if proficient and prepared, but emergencies are more dangerous.",
+            "Advanced Concept: Some pilots advocate for instrument rating before extensive night flying. Rationale: night + clouds = IMC conditions, and VFR pilots aren't trained for instrument flight."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Night Vision Physiology",
+            "instructional_intent": "Rods vs. cones: cones for color/central/bright, rods for BW/peripheral/low-light. Dark adaptation: cones ~7 min, rods ~30 min. Low oxygen reduces night vision (>5,000 MSL consider supplemental O2). Night blind spot: center of vision has no rods, look 5-10\u00b0 off-center. Red cockpit lights preserve adaptation."
+          },
+          {
+            "concept_name": "Night Landing Illusions",
+            "instructional_intent": "Featureless terrain: illusion of being higher \u2192 fly low. Bright runway lights: appear closer \u2192 fly low. Black hole approach (no lights between you and runway): no depth cues \u2192 low steep approach. Mitigation: VASI/PAPI, instruments (altimeter, VSI), consistent pattern, landing light."
+          },
+          {
+            "concept_name": "Required Equipment for Night Flight",
+            "instructional_intent": "Night definition: 1 hr after sunset to 1 hr before sunrise. Required (FLAPS): Fuses, Landing light (if for hire), Anti-collision lights, Position lights (nav lights: red/green/white), Source of power. Recommended: flashlight with red lens, backup battery."
+          },
+          {
+            "concept_name": "Night Currency",
+            "instructional_intent": "14 CFR 61.57(b): to carry passengers at night, need 3 takeoffs and landings to full stop within 90 days, between 1 hr after sunset and 1 hr before sunrise, same category/class."
+          },
+          {
+            "concept_name": "Lost Procedures at Night",
+            "instructional_intent": "If uncertain of position: climb (better radio reception), circle (maintain position), contact ATC (121.5 MHz), confess ('I am a student pilot and I am lost'), squawk 7700 if critical. Use VOR to determine radial/position. GPS backup: 'Nearest Airport' function. Fuel management: don't wait until low fuel to admit lost."
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapter 17 (Aeromedical Factors - Vision)",
+          "AFH: Chapter 11 (Night Operations)",
+          "14 CFR 61.57: Night Currency",
+          "14 CFR 91.209: Aircraft Lights"
+        ],
+        "chapter_ids": [
+          "GS-411",
+          "GS-412",
+          "GS-413",
+          "GS-414",
+          "GS-415"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L14": {
+      "lesson_id": "L14",
+      "arc": 4,
+      "lesson_name": "Arc 4 Check Flight",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Comprehensive emergency scenario: simulated electrical failure at night combined with engine roughness \u2014 diagnose, prioritize, and land safely",
+          "must_do_actions": [
+            "Handle simulated electrical failure at night (battery dying)",
+            "Diagnose and respond to engine roughness (suspected carb ice)",
+            "Prioritize using Aviate, Navigate, Communicate",
+            "Reduce electrical load, apply carb heat",
+            "Navigate to KHMP (nearest airport) using available instruments",
+            "Declare Mayday on 121.5 MHz",
+            "Land safely with remaining battery for landing light",
+            "Apply ADM and DECIDE model throughout"
+          ],
+          "target_numbers": [
+            "Electrical failure management (load shedding, battery preservation)",
+            "Engine roughness diagnosis and response (carb heat)",
+            "Aviate/Navigate/Communicate priority adherence",
+            "ADM/DECIDE model application",
+            "Mayday call execution",
+            "Safe landing under compounded failures",
+            "Post-flight risk analysis quality"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "How the student managed stress under compounded failures \u2014 analyzing decision quality, prioritization, and whether the accident chain was broken",
+          "reveal_topics": [
+            "The 'Normalization of Deviance' \u2014 Gradual acceptance of risk because 'nothing bad happened last time.' Example: skip preflight \u2192 skip fuel sump \u2192 skip runup \u2192 miss contaminated fuel \u2192 engine quits \u2192 crash.",
+            "NASA Study: Most GA accidents involve procedural deviations that became routine.",
+            "Mitigation: checklist discipline (every flight, no shortcuts), safety culture (call out deviations), fresh eyes (have another pilot review procedures).",
+            "Advanced Concept: Airlines use Standard Operating Procedures (SOPs) with no deviation tolerance. If you deviate, you debrief why. Adopt this mindset."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Aeronautical Decision Making (ADM)",
+            "instructional_intent": "Five hazardous attitudes (anti-authority, impulsivity, invulnerability, macho, resignation) with antidotes. DECIDE model revisited with emergency scenario application example (electrical failure: detect \u2192 estimate 30 min battery \u2192 choose land ASAP \u2192 identify nearest airport \u2192 do \u2192 evaluate)."
+          },
+          {
+            "concept_name": "Compounded Emergencies",
+            "instructional_intent": "Single failure = manageable (follow checklist). Multiple failures = overwhelming (task saturation). Prioritization (Maslow for Aviation): fly the airplane \u2192 navigate \u2192 communicate \u2192 troubleshoot (only if time permits). Apply to tonight's scenario: electrical + engine roughness + night."
+          },
+          {
+            "concept_name": "Accident Chain Theory",
+            "instructional_intent": "Swiss Cheese Model: multiple defense layers with holes; accident occurs when holes align. Example chain: missed preflight \u2192 skipped weather brief \u2192 low fuel + headwind \u2192 press on instead of divert \u2192 fuel exhaustion. Breaking the chain: recognize multiple risk factors, act early, don't let ego/pressure drive decisions."
+          },
+          {
+            "concept_name": "Personal Minimums Refinement",
+            "instructional_intent": "Progression from Arc 1 (5,000/10SM/5kt) to Arc 4 (3,000/5SM/10kt) to Private Pilot (2,000/3SM/15kt) to Instrument Pilot. Start conservative, gradually expand with proficiency, never go below FAA minimums."
+          },
+          {
+            "concept_name": "Post-Flight Risk Analysis",
+            "instructional_intent": "After every flight: what went well, what could improve, unnecessary risks, same decisions again? Red flags: felt rushed, skipped checklist items, surprised by weather/performance, worked around problems, 'got away with that.' Log lessons, seek feedback, study accident reports."
+          }
+        ],
+        "study_resources": [
+          "PHAK: Chapter 2 (ADM and CRM)",
+          "AC 60-22: Aeronautical Decision Making",
+          "FAA Risk Management Handbook (FAA-H-8083-2)",
+          "NTSB Accident Database: ntsb.gov"
+        ],
+        "chapter_ids": [
+          "GS-416",
+          "GS-417",
+          "GS-418",
+          "GS-419",
+          "GS-420"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L15": {
+      "lesson_id": "L15",
+      "arc": 5,
+      "lesson_name": "Cross-Country Planning",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Ground-only lesson: Plan a 150 NM cross-country with 3 legs (KHMP \u2192 KBID \u2192 KACK \u2192 KHMP). No flying \u2014 complete nav log, W&B, fuel calculations, and weather brief.",
+          "must_do_actions": [
+            "Plan complete 3-leg cross-country route",
+            "Prepare full navigation log (checkpoint, course, distance, altitude, TAS, wind, GS, time, fuel per leg)",
+            "Calculate fuel burn, time en route, and verify adequate fuel with 30-min reserve",
+            "Calculate weight & balance for XC flight",
+            "Select VFR cruising altitudes per 14 CFR 91.159",
+            "Identify checkpoints and alternate airports along each leg",
+            "Prepare passenger briefing (SAFETY)",
+            "Obtain simulated weather briefing"
+          ],
+          "target_numbers": [
+            "Navigation log completeness and accuracy",
+            "Fuel calculation accuracy (burn, reserve, remaining)",
+            "Weight & balance within limits",
+            "VFR cruising altitude selection per 91.159",
+            "Alternate airport identification",
+            "Passenger briefing completeness (SAFETY)",
+            "Weather briefing interpretation"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "Quality and completeness of the flight planning package \u2014 is the student ready to execute this cross-country safely?",
+          "reveal_topics": [
+            "Why Most XC Accidents Are Fuel Exhaustion \u2014 NTSB Data: ~40% of XC accidents involve fuel starvation/exhaustion. Common causes: no fuel check (assumed gauges accurate), headwind underestimate, diversion added distance, insufficient reserve, 'I can make it' syndrome.",
+            "Case (2020, Cessna 172): Planned 2.5 hr with 3 hr fuel, encountered 30-knot headwind (forecast 15), flight time 3.2 hr, ran out 5 mi from destination, forced landing in trees.",
+            "Mitigation: visual fuel check (dipstick not just gauges), conservative planning (add 50% to forecast headwind), mandatory 1-hour reserve (not 30 min), divert early.",
+            "Advanced Concept: Airlines use Minimum Fuel vs. Emergency Fuel declarations. Adopt this: if fuel gets low, declare minimum fuel early \u2014 don't wait until emergency."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Cross-Country Definition",
+            "instructional_intent": "14 CFR 61.1: XC for private pilot requires straight-line distance >50 NM from departure with landing at destination. Example route: KHMP \u2192 KBID (50 NM) \u2192 KACK (40 NM) \u2192 KHMP (60 NM), total 150 NM."
+          },
+          {
+            "concept_name": "Navigation Log Preparation",
+            "instructional_intent": "Complete nav log with columns: checkpoint, course (\u00b0M), distance (NM), altitude (MSL), TAS, wind, GS, time, fuel. Example filled out for Leg 1 (KHMP \u2192 KBID) with water tower and coastline checkpoints. Verify total fuel vs. available with reserve."
+          },
+          {
+            "concept_name": "Altitude Selection (VFR Cruising Altitudes)",
+            "instructional_intent": "14 CFR 91.159: magnetic course 0-179\u00b0 \u2192 odd thousands + 500 (3,500, 5,500\u2026), 180-359\u00b0 \u2192 even thousands + 500 (4,500, 6,500\u2026). Considerations: terrain clearance (1,000 ft above highest obstacle within 4 NM), cloud clearance, density altitude, oxygen (above 12,500 for >30 min)."
+          },
+          {
+            "concept_name": "Diversion Planning",
+            "instructional_intent": "Identify \u22652 alternates along route (within \u00b110 NM, paved runway >2,500 ft, fuel if needed). Example alternates: Leg 1 KOQU/KEWB, Leg 2 KMVY, Leg 3 KPVD. Diversion criteria: weather, fuel, medical, aircraft malfunction."
+          },
+          {
+            "concept_name": "Passenger Briefing (SAFETY)",
+            "instructional_intent": "SAFETY: Seatbelts, Air vents, Fire extinguisher, Exit (how to open door), Traffic (point out aircraft), You're in charge (sterile cockpit during critical phases). Additional: headset, motion sickness, questions anytime except takeoff/landing."
+          }
+        ],
+        "study_resources": [
+          "14 CFR 91.151: Fuel Requirements",
+          "14 CFR 91.159: VFR Cruising Altitudes",
+          "AIM: Chapter 5 (Flight Planning)"
+        ],
+        "chapter_ids": [
+          "GS-501",
+          "GS-502",
+          "GS-503",
+          "GS-504",
+          "GS-505"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L16": {
+      "lesson_id": "L16",
+      "arc": 5,
+      "lesson_name": "Dual Cross-Country",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Fly the planned XC route (KHMP \u2192 KBID \u2192 KACK \u2192 KHMP) with CFI. Expect a simulated diversion when weather at KACK deteriorates.",
+          "must_do_actions": [
+            "Execute the planned cross-country flight from L15",
+            "Navigate using pilotage and dead reckoning (chart, compass, timer)",
+            "Use VOR and GPS as backup navigation aids",
+            "Handle simulated diversion from KACK to KMVY (Martha's Vineyard) due to weather",
+            "Calculate new heading, distance (~15 NM), time (~8 min), fuel (~1 gal) for diversion",
+            "Communicate diversion to ATC",
+            "Demonstrate fuel management (monitor every 15 minutes, compare to plan)",
+            "Arrive at unfamiliar airports (review Chart Supplement, CTAF, overfly to identify)"
+          ],
+          "target_numbers": [
+            "Cross-country navigation accuracy (pilotage + DR)",
+            "Diversion decision quality and execution",
+            "Heading/distance/time/fuel calculation for diversion",
+            "ATC communication (flight following, diversion announcement)",
+            "Fuel management monitoring",
+            "Unfamiliar airport arrival procedure",
+            "VOR/GPS backup navigation proficiency"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "How the student handled the diversion \u2014 quality of decision-making, heading/fuel calculations, and communication when the plan changed",
+          "reveal_topics": [
+            "Why GPS Killed Pilotage Skills \u2014 Before GPS, pilots constantly scanned for checkpoints, compared chart to ground, maintained situational awareness. After GPS: 'magenta line' flying, heads-down, loss of awareness.",
+            "Case (2021, Military GPS Jamming): Civilian pilots near test area lost GPS, many declared emergencies, unable to navigate, several diverted uncertain of position.",
+            "Lesson: GPS is a tool, not a crutch. Always maintain pilotage skills.",
+            "Advanced Concept: Military pilots practice GPS-denied navigation (inertial, TACAN). Consider practicing XC with GPS turned off to maintain proficiency."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "In-Flight Diversion",
+            "instructional_intent": "Response to deteriorating destination weather: decide to divert, measure/estimate heading (chart/GPS), calculate distance/time/fuel, communicate with ATC, execute. Quick diversion method: estimate heading visually, turn, refine with landmarks, confirm with GPS/VOR."
+          },
+          {
+            "concept_name": "Lost Procedures (Expanded)",
+            "instructional_intent": "If uncertain: climb, circle, check VOR (tune nearest, identify radial), contact ATC 121.5 MHz, confess ('I am a student pilot and uncertain of my position'), squawk 7700 if critical. ATC will ask: last position, heading, airspeed, altitude, fuel. ATC provides: radar vectors, weather, frequency."
+          },
+          {
+            "concept_name": "Fuel Management En Route",
+            "instructional_intent": "Monitor every 15 minutes, compare to plan. If consumption higher \u2192 divert early. Fuel totalizer (if equipped) more accurate than float gauges. Switching tanks every 30 min for balance. Leaning above 3,000 MSL reduces burn 10-15%. Never switch tanks during critical phases."
+          },
+          {
+            "concept_name": "Radio Communication En Route",
+            "instructional_intent": "Flight following: ATC tracks on radar, provides traffic advisories, free service. Position reports format. Changing frequencies (handoff procedure). Request: 'Boston Approach, Skyhawk 2177U, request flight following.'"
+          },
+          {
+            "concept_name": "Arriving at Unfamiliar Airports",
+            "instructional_intent": "Preparation: review Chart Supplement (runway, pattern, CTAF, FBO), check NOTAMs, overfly at pattern altitude + 500 to identify runway/windsock/traffic. Entry: standard 45\u00b0 to downwind with radio announcement. After landing: transient parking, secure aircraft, close flight plan."
+          }
+        ],
+        "study_resources": [
+          "AIM: Chapter 5 (Flight Following, Position Reports)",
+          "Chart Supplement (formerly Airport/Facility Directory)"
+        ],
+        "chapter_ids": [
+          "GS-506",
+          "GS-507",
+          "GS-508",
+          "GS-509",
+          "GS-510"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    },
+    "L17": {
+      "lesson_id": "L17",
+      "arc": 5,
+      "lesson_name": "Solo Cross-Country",
+      "status": "stub",
+      "briefing": {
+        "student_view": {
+          "objective": "Solo cross-country flight (KHMP \u2192 KBID \u2192 KACK \u2192 KHMP) with CFI endorsement. Post-flight: checkride preparation and oral exam review.",
+          "must_do_actions": [
+            "Obtain required solo XC endorsements (pre-solo XC training 61.93(c)(1), solo XC make/model, route-specific first-time)",
+            "Execute solo cross-country flight (150 NM total, 3 full-stop landings, one leg >50 NM)",
+            "Demonstrate all Private Pilot ACS task areas",
+            "Review oral exam topics after flight (certificates/documents ARROW, airworthiness inspections, weather, performance, regulations, aerodynamics, systems)",
+            "Review flight test maneuvers and ACS tolerances (altitude \u00b1100 ft, heading \u00b110\u00b0, airspeed \u00b110 knots, bank \u00b15\u00b0 in steep turns)",
+            "Identify remaining weaknesses and create study plan"
+          ],
+          "target_numbers": [
+            "Solo XC completion (150 NM, 3 full-stops, one leg >50 NM)",
+            "All ACS task areas demonstrated",
+            "Solo endorsement requirements met",
+            "Oral exam topic knowledge",
+            "Flight test maneuver proficiency to ACS standards",
+            "Weakness identification and study plan creation"
+          ],
+          "gate_requirements": {
+            "flight_score": ">= 3/5",
+            "quiz_score": ">= 4/5 (80%)",
+            "debrief_viewed": true
+          }
+        },
+        "cfi_notes": ""
+      },
+      "debrief": {
+        "reveal": {
+          "primary_focus": "Celebrating the student's achievement while grounding expectations \u2014 the Private Pilot license is a license to learn, not proof of mastery",
+          "reveal_topics": [
+            "Why the Checkride Is Just the Beginning \u2014 Private Pilot = License to Learn. NTSB data: highest accident rate is 50-200 hours total time (post-private, pre-commercial).",
+            "Why? Overconfidence ('I passed, I'm great'), complacency (stop studying/practicing), new challenges (first passengers, first XC alone, first IMC encounter).",
+            "'Killing Zone' (50-350 hours): most dangerous period for GA pilots. Accidents spike (fuel exhaustion, VFR into IMC, stall/spin).",
+            "Mitigation: humility (checkride = minimum standard, not mastery), mentorship (fly with experienced pilots), conservatism (don't push limits early).",
+            "Advanced Concept: Airlines require 1,500 hours for ATP. Even with Private Pilot, you're a beginner. Treat every flight as a learning opportunity."
+          ]
+        },
+        "cfi_notes": ""
+      },
+      "ground_school": {
+        "concepts": [
+          {
+            "concept_name": "Solo Cross-Country Requirements (14 CFR 61.93)",
+            "instructional_intent": "Endorsements required: pre-solo XC training (61.93(c)(1)), solo XC (make/model specific), route-specific (first time). Limitations: 50 NM minimum from departure, full-stop at each airport, recommended flight plan, weather per CFI discretion. Long solo XC for Private Pilot: 150 NM total, 3 full-stop, one leg >50 NM."
+          },
+          {
+            "concept_name": "Checkride Overview (Private Pilot Practical Test)",
+            "instructional_intent": "Two parts: Oral Exam (~2 hr, knowledge) and Flight Test (~1.5 hr, skill). Oral topics: certificates/documents (ARROW), airworthiness, weather, performance, regulations, aerodynamics, systems. Flight maneuvers: preflight, taxi, runup, normal/crosswind takeoff, slow flight, stalls, steep turns, ground reference, navigation, emergencies, landing."
+          },
+          {
+            "concept_name": "Common Checkride Failures",
+            "instructional_intent": "Top 5 failure items: slow flight (altitude +100/-0), steep turns (rollout \u00b110\u00b0 of entry heading), soft-field takeoff (premature liftoff), diversion (poor heading/fuel estimate), airspace (can't identify on chart). Mitigation: practice to ACS standards, memorize V-speeds, study airspace, know systems cold."
+          },
+          {
+            "concept_name": "Post-Checkride: What's Next?",
+            "instructional_intent": "Private Pilot privileges (carry passengers, share expenses) and limitations (no compensation). Next ratings: Instrument, Commercial, Multi-Engine, CFI. Continuing education: WINGS program, Flight Review (24 months per 14 CFR 61.56), Rusty Pilots Program."
+          },
+          {
+            "concept_name": "Lifelong Learning as a Pilot",
+            "instructional_intent": "Currency \u2260 proficiency. Currency = legal minimums, proficiency = actual skill. Stay proficient: fly regularly (monthly), practice emergencies with CFI, fly with other pilots, take recurrent training. Resources: accident reports (NTSB, AOPA), podcasts, books (Stick and Rudder, The Killing Zone), simulator."
+          }
+        ],
+        "study_resources": [
+          "FAA-S-ACS-6C: Private Pilot Airman Certification Standards",
+          "Oral Exam Guide (ASA or Gleim)",
+          "FAA-H-8083 Series (PHAK, AFH, IFH, Risk Management Handbook)",
+          "14 CFR 61: Certification of Pilots",
+          "14 CFR 91: General Operating Rules"
+        ],
+        "chapter_ids": [
+          "GS-511",
+          "GS-512",
+          "GS-513",
+          "GS-514",
+          "GS-515"
+        ]
+      },
+      "next_steps": "",
+      "quiz": []
+    }
+  }
+}
