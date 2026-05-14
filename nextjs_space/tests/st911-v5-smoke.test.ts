@@ -15,7 +15,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { evaluateFlight } from '../lib/s2s-engine/index';
 import { loadTelemetry, col } from '../lib/s2s-engine/telemetry-parser';
-import { parseTelemetryCSV } from '../lib/telemetry-parser';
 
 const CSV_PATH = '/home/ubuntu/Uploads/s2s_telemetry_20260511_173825.csv';
 
@@ -75,21 +74,21 @@ assert(hdgTrue.length === df.length, `hdg_true column present`);
 assert(beta.length === df.length, `beta column present`);
 assert(repPreheat.length === df.length, `rep_preheat column present`);
 
-// ─── Test 2: Legacy parser (parseTelemetryCSV) ─────────────────────
-console.log('\n📊 Test 2: lib/telemetry-parser (parseTelemetryCSV)');
-const parsed = parseTelemetryCSV(csvText);
-assert(parsed.rowCount > 0, `Parsed ${parsed.rowCount} rows`);
-assert(parsed.durationSec > 0, `Duration: ${parsed.durationSec.toFixed(0)}s`);
+// ─── Test 2: Canonical parser — summary-equivalent checks ──────────
+console.log('\n📊 Test 2: s2s-engine/telemetry-parser summary validation');
+const tArr = col(df, 't');
+const durationSec = tArr.length > 1 ? tArr[tArr.length - 1] - tArr[0] : 0;
+assert(df.length > 0, `Parsed ${df.length} rows via canonical parser`);
+assert(durationSec > 0, `Duration: ${durationSec.toFixed(0)}s`);
 
-// Check V5 renamed columns resolved to V4 names
-const firstRow = parsed.rows[0];
-assert(firstRow.alt_msl !== undefined, `alt_msl field exists in TelemetryRow`);
-assert(firstRow.alt_agl !== undefined, `alt_agl field exists in TelemetryRow`);
-assert(firstRow.hdg_deg !== undefined, `hdg_deg field exists in TelemetryRow`);
+// V5 renamed columns resolved to canonical internal names
+assert(df.data['alt_msl'] !== undefined, `alt_msl column exists in DataFrame`);
+assert(df.data['alt_agl'] !== undefined, `alt_agl column exists in DataFrame`);
+assert(df.data['hdg'] !== undefined, `hdg column exists in DataFrame`);
 
-// Summary should have non-zero altitude data
-assert(parsed.summary.maxAltMsl > 0, `Summary maxAltMsl: ${parsed.summary.maxAltMsl.toFixed(1)}`);
-assert(parsed.summary.maxAltAgl > 0, `Summary maxAltAgl: ${parsed.summary.maxAltAgl.toFixed(1)}`);
+// Summary-equivalent: max altitude checks
+assert(maxAltMsl > 0, `Summary maxAltMsl: ${maxAltMsl.toFixed(1)}`);
+assert(maxAltAgl > 0, `Summary maxAltAgl: ${maxAltAgl.toFixed(1)}`);
 
 // ─── Test 3: evaluateFlight() end-to-end ────────────────────────────
 console.log('\n📊 Test 3: evaluateFlight() end-to-end (L2 lesson)');
