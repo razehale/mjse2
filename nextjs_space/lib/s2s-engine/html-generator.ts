@@ -1,0 +1,112 @@
+// START ST-607 HTML Debrief Generator (ported from Python)
+
+import { LessonResult } from './rubrics';
+
+const CSS = `
+<style>
+  :root { --bg: #1a1a2e; --card: #16213e; --accent: #0f3460;
+          --green: #00b894; --yellow: #fdcb6e; --red: #e17055;
+          --text: #dfe6e9; --muted: #636e72; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg);
+         color: var(--text); padding: 2rem; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.3rem; margin: 1.5rem 0 0.5rem; border-bottom: 2px solid var(--accent);
+       padding-bottom: 0.3rem; }
+  h3 { font-size: 1.1rem; margin: 1rem 0 0.3rem; }
+  .header-card { background: var(--card); border-radius: 12px; padding: 1.5rem;
+                 margin-bottom: 1.5rem; }
+  .score-big { font-size: 2.5rem; font-weight: bold; }
+  .pass { color: var(--green); } .fail { color: var(--red); }
+  .badge { display: inline-block; padding: 0.2rem 0.7rem; border-radius: 6px;
+           font-size: 0.85rem; font-weight: 600; }
+  .badge-pass { background: var(--green); color: #fff; }
+  .badge-fail { background: var(--red); color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--accent); }
+  th { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; }
+  .phase-card { background: var(--card); border-radius: 8px; padding: 1rem;
+                margin: 0.7rem 0; border-left: 4px solid var(--accent); }
+  .phase-card.good { border-left-color: var(--green); }
+  .phase-card.ok   { border-left-color: var(--yellow); }
+  .phase-card.bad  { border-left-color: var(--red); }
+  .safety-flag { padding: 0.5rem 0.8rem; margin: 0.3rem 0; border-radius: 6px; }
+  .sf-high   { background: rgba(225,112,85,0.2); border-left: 3px solid var(--red); }
+  .sf-medium { background: rgba(253,203,110,0.2); border-left: 3px solid var(--yellow); }
+  .sf-low    { background: rgba(0,184,148,0.2); border-left: 3px solid var(--green); }
+  ul { padding-left: 1.5rem; } li { margin: 0.3rem 0; }
+  .footer { margin-top: 2rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
+</style>
+`;
+
+export function toHtml(result: LessonResult): string {
+  const pClass = result.passed ? 'pass' : 'fail';
+  const badge = result.passed ? 'badge-pass' : 'badge-fail';
+  const badgeText = result.passed ? 'PASS' : 'NOT YET';
+
+  const phasesHtml = result.phases.map(phase => {
+    const cardCls = phase.score >= 4 ? 'good' : phase.score >= 3 ? 'ok' : 'bad';
+    const rows = phase.metrics.map(m =>
+      `<tr><td>${esc(m.name)}</td><td>${m.value}</td><td>${m.target} (±${m.tolerance})</td><td>${m.score.toFixed(1)}</td><td>${esc(m.grade)}</td></tr>`
+    ).join('\n');
+    return `
+    <div class="phase-card ${cardCls}">
+      <h3>${esc(phase.phase)} — ${phase.score.toFixed(1)}/5 (${esc(phase.grade)})</h3>
+      <small>t = ${phase.startT.toFixed(1)}s → ${phase.endT.toFixed(1)}s</small>
+      <table>
+        <tr><th>Metric</th><th>Value</th><th>Target</th><th>Score</th><th>Grade</th></tr>
+        ${rows}
+      </table>
+    </div>`;
+  }).join('');
+
+  const safetyHtml = result.safetyFlags.map(sf => {
+    const cls = `sf-${sf.severity}`;
+    return `<div class="safety-flag ${cls}"><strong>${esc(sf.flagType)}</strong> (t=${sf.timestamp.toFixed(1)}s, ${sf.severity}): ${esc(sf.description)}</div>`;
+  }).join('\n');
+
+  const coachingLi = result.coachingBullets.map(b => `<li>${esc(b)}</li>`).join('\n');
+  const extLi = Object.entries(result.externalRequirements).map(([k, v]) => `<li><strong>${esc(k)}</strong>: ${v}</li>`).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S2S Debrief — ${esc(result.lessonId)} — ${esc(result.flightId)}</title>
+  ${CSS}
+</head>
+<body>
+<div class="container">
+  <div class="header-card">
+    <h1>S2S Flight Debrief — ${esc(result.lessonId)}</h1>
+    <table>
+      <tr><td>Flight ID</td><td>${esc(result.flightId)}</td></tr>
+      <tr><td>Student</td><td>${esc(result.studentId)}</td></tr>
+      <tr><td>Telemetry</td><td><code>${esc(result.telemetryFile)}</code></td></tr>
+      <tr><td>Analysed</td><td>${esc(result.analysisTimestamp)}</td></tr>
+    </table>
+    <div style="margin-top:1rem;">
+      <span class="score-big ${pClass}">${result.overallScore.toFixed(1)}</span>
+      <span style="font-size:1.2rem;"> / 5 (${esc(result.overallGrade)})</span>
+      <span class="badge ${badge}" style="margin-left:1rem;">${badgeText}</span>
+    </div>
+  </div>
+  <h2>Coaching Points</h2>
+  <ul>${coachingLi}</ul>
+  <h2>Phase Breakdown</h2>
+  ${phasesHtml}
+  ${safetyHtml ? `<h2>⚠️ Safety Flags</h2>${safetyHtml}` : ''}
+  ${extLi ? `<h2>External Requirements</h2><ul>${extLi}</ul>` : ''}
+  <div class="footer">Generated by S2S Scoring Engine v0.1.0</div>
+</div>
+</body>
+</html>`;
+}
+
+function esc(s: string): string {
+  return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// END ST-607

@@ -1,0 +1,279 @@
+{
+  "lesson_id": "L2",
+  "lesson_name": "Configurator",
+  "training_module": "ST-802C",
+  "title": "Go-Around Training Doctrine for C172",
+  "version": "1.0",
+  "date": "2026-05-10",
+  "aircraft": "Cessna 172S (N2177U)",
+  "phase": "Crawl",
+  "safety_critical": true,
+
+  "go_around_training": {
+
+    "what_is_it": "A go-around is a rejected landing. You abort the approach and climb back to pattern altitude to try again. It's not a failure—it's a safety decision.",
+
+    "why_it_matters": "Most landing accidents happen because pilots force a bad approach to touchdown. Go-arounds prevent crashes. You WILL get criticized for a rough landing, never for a go-around.",
+
+    "when_to_go_around": [
+      {
+        "trigger": "Unstable Approach",
+        "description": "Airspeed not 65 KIAS ±5, altitude drifting, not centered on runway",
+        "action": "GO AROUND immediately—don't chase it to the ground"
+      },
+      {
+        "trigger": "Balloon",
+        "description": "Back pressure causes nose-up pitch, altitude increases suddenly",
+        "action": "GO AROUND—you've lost control of descent"
+      },
+      {
+        "trigger": "Bounce",
+        "description": "Main gear touches, then pops back up (porpoise)",
+        "action": "GO AROUND on first bounce—don't try to salvage it"
+      },
+      {
+        "trigger": "Late Flare",
+        "description": "You're 15 feet AGL and haven't started flare yet",
+        "action": "GO AROUND—you'll land hard, risk nose gear damage"
+      },
+      {
+        "trigger": "Runway Not Clear",
+        "description": "Another aircraft on runway, debris, or animal",
+        "action": "GO AROUND immediately—your safety is not negotiable"
+      },
+      {
+        "trigger": "Doesn't Feel Right",
+        "description": "No specific problem, but approach feels unstable or unsafe",
+        "action": "GO AROUND—trust your instinct, sort it out at altitude"
+      },
+      {
+        "trigger": "Crosswind Excessive",
+        "description": "Drifting significantly, can't maintain centerline",
+        "action": "GO AROUND, circle, build airspeed, try again from higher altitude"
+      }
+    ],
+
+    "step_by_step": [
+      {
+        "step": 1,
+        "action": "FULL THROTTLE",
+        "detail": "Push throttle to 2,500 RPM—smooth, not aggressive",
+        "why": "You need maximum power to climb against current drag (flaps extended, slow speed)",
+        "c172_specific": "Throttle quadrant: move forward until stops",
+        "common_mistake": "Half-power → insufficient climb performance, stall risk"
+      },
+      {
+        "step": 2,
+        "action": "CARB HEAT OFF",
+        "detail": "Push carb heat control in (full cold air)",
+        "why": "Hot air = rich mixture = sluggish response. Cold air allows full power.",
+        "c172_specific": "Carb heat knob on left side of panel, push OUT = ON, pull IN = OFF. Confusing. PUSH IN to shut it off.",
+        "common_mistake": "Forget carb heat → lean mixture in cold weather → stumble → power loss"
+      },
+      {
+        "step": 3,
+        "action": "PITCH UP (IMMEDIATELY)",
+        "detail": "Pull yoke back to arrest descent. Target: positive climb rate on VSI.",
+        "why": "You're descending at 300-500 FPM. Need to stop that NOW. Then climb.",
+        "c172_specific": "Initial pitch: approximately +5° nose-up attitude (slightly more up than level flight)",
+        "common_mistake": "Wait for power to build → continue descending → closer to ground → less margin"
+      },
+      {
+        "step": 4,
+        "action": "VERIFY POSITIVE RATE",
+        "detail": "Check VSI: climbing (not descending). Check altimeter: increasing.",
+        "why": "Don't touch flaps until you're SURE you're climbing. Premature flap retraction = sink.",
+        "c172_specific": "Wait ~3-5 seconds before flap adjustment",
+        "common_mistake": "Dump flaps at 50 AGL while still descending → sudden sink → stall"
+      },
+      {
+        "step": 5,
+        "action": "FLAPS 20° (FROM 30°)",
+        "detail": "Move flap lever from 30° to 20° position. Single notch up.",
+        "why": "Reduces drag (allows faster climb). 20° still provides lift. Smooth transition.",
+        "c172_specific": "Flap handle on left side of cockpit, between seats. Three positions: UP (0°), NOTCH (10°), DOWN (20°), FULL DOWN (30°). From final approach (30°), move to third-notch position (20°).",
+        "common_mistake": "Retract to 0° too fast → loss of lift → sink"
+      },
+      {
+        "step": 6,
+        "action": "CLIMB AT VY (74 KIAS)",
+        "detail": "Adjust pitch so airspeed indicator shows 74 KIAS. Use throttle for altitude, pitch for airspeed.",
+        "why": "74 KIAS = maximum rate of climb. Fastest way back to safety altitude.",
+        "c172_specific": "Engine full power, carb heat off, pitch controls airspeed",
+        "common_mistake": "Climb too slow (under 70 KIAS) → low margin above stall speed"
+      },
+      {
+        "step": 7,
+        "action": "POSITIVE RATE CONFIRMED → RETRACT FLAPS 10°",
+        "detail": "After 5-10 seconds of stable climb, move flap lever from 20° to 10°.",
+        "why": "Reduce drag further. You're safe, airspeed increasing, altitude building.",
+        "c172_specific": "Second notch down from full up",
+        "common_mistake": "Too abrupt → pitch change → loss of airspeed control"
+      },
+      {
+        "step": 8,
+        "action": "FLAPS 0° (CLEAN UP)",
+        "detail": "Once airspeed approaches 65-70 KIAS, move flap lever all the way up.",
+        "why": "Clean configuration = best climb performance.",
+        "c172_specific": "Flap lever all the way UP (fully retracted)",
+        "common_mistake": "Flaps still down at pattern altitude → slower climb, unstable pattern"
+      },
+      {
+        "step": 9,
+        "action": "CONTINUE CLIMB TO PATTERN ALTITUDE (1,882 MSL)",
+        "detail": "Maintain Vy (74 KIAS), level wings, continue climbing.",
+        "why": "You need full altitude buffer before attempting approach again.",
+        "c172_specific": "Pattern altitude for KHMP: 1,882 MSL (1,000 AGL). Don't level off early.",
+        "common_mistake": "Level off at 1,500 MSL → unstable for another pattern"
+      },
+      {
+        "step": 10,
+        "action": "RE-ENTER PATTERN",
+        "detail": "Once at pattern altitude, turn to downwind. Announce: 'Minuteman traffic, Skyhawk 2177U, going around, left downwind Runway 24.'",
+        "why": "Tells other traffic what you're doing. Smooth re-entry.",
+        "c172_specific": "Standard left traffic for Runway 24",
+        "common_mistake": "Tight, steep turn → lose airspeed → stall risk"
+      },
+      {
+        "step": 11,
+        "action": "STABILIZE ON DOWNWIND",
+        "detail": "Level wings, trim for 90 KIAS, reduce power to 2,300 RPM, add flaps 10°.",
+        "why": "You're back in the pattern. Reset for another approach.",
+        "c172_specific": "Downwind profile: 1,882 MSL, 90 KIAS, flaps 10°, 2,300 RPM",
+        "common_mistake": "Rush the setup → unstable again → another go-around"
+      }
+    ],
+
+    "common_errors": [
+      {
+        "error": "Forget Carb Heat OFF",
+        "consequence": "Lean mixture at high power → engine stumble → loss of power when you need it most",
+        "how_to_avoid": "Carb heat OFF is step 2, do it IMMEDIATELY after full throttle. Make it automatic."
+      },
+      {
+        "error": "Half-Power Instead of Full",
+        "consequence": "Insufficient climb → stay low and slow → stall risk → panic",
+        "how_to_avoid": "Full throttle means 2,500 RPM. Smooth application, not jerky. But FULL."
+      },
+      {
+        "error": "Dump Flaps Too Early",
+        "consequence": "Lose lift → sink → descend instead of climb → crash",
+        "how_to_avoid": "Wait for positive climb rate confirmation (VSI shows +). Then 20°, then 10°, then 0°. Don't rush."
+      },
+      {
+        "error": "Reduce Power/Pitch",
+        "consequence": "Counterintuitive but it happens: student gets nervous, reduces throttle. Glide slope continues downward.",
+        "how_to_avoid": "Full power stays ON. Pitch up to arrest descent. Both together."
+      },
+      {
+        "error": "Pitch Up Too Much Too Fast",
+        "consequence": "Rapid pitch change → airspeed bleeds → approach stall → panic",
+        "how_to_avoid": "Pitch up smoothly. Goal: Vy (74 KIAS) climb. Not nose-bleed angle of attack."
+      },
+      {
+        "error": "Steep Turn While Slow",
+        "consequence": "Bank angle + slow speed = high stall speed. Over-bank = stall/spin risk.",
+        "how_to_avoid": "Keep turns shallow (<20° bank) while re-entering pattern. Wings level most of the time."
+      },
+      {
+        "error": "Dwell on What Went Wrong",
+        "consequence": "Task saturation. Pilot fixates on poor flare while flying go-around → crashes into ground",
+        "how_to_avoid": "Aviate first. Analyze later. Right now: climb, re-enter pattern, focus on THIS approach."
+      },
+      {
+        "error": "Flaps Still Extended at Pattern Altitude",
+        "consequence": "Slow climb = unstable entry = unstable approach = likely another go-around",
+        "how_to_avoid": "Follow steps exactly. By pattern altitude, flaps must be 0°."
+      }
+    ],
+
+    "mental_model": {
+      "phrase": "POWER, PITCH, CLEAN, CLIMB, REJOIN",
+      "breakdown": {
+        "POWER": "Full throttle, carb heat off (2,500 RPM)",
+        "PITCH": "Pull back to arrest descent (positive climb rate on VSI)",
+        "CLEAN": "Retract flaps incrementally (30° → 20° → 10° → 0°)",
+        "CLIMB": "Maintain Vy (74 KIAS) back to pattern altitude (1,882 MSL)",
+        "REJOIN": "Re-enter downwind, reset for another approach"
+      }
+    },
+
+    "callout": {
+      "moment": "When you commit to go-around (usually ~500 feet AGL or earlier if unstable)",
+      "radio_call": "Minuteman traffic, Skyhawk 2177 Uniform, going around, left downwind Runway 24",
+      "why_announce": "Other aircraft need to know you're not landing. Prevents conflicts in the pattern.",
+      "cockpit_callout": "Going around! [Throttle forward] Power! [Check] Carb heat! [Pull] Pitch up! [Check] Climbing!"
+    },
+
+    "decision_tree": {
+      "decision_point": "~100 feet AGL on final approach",
+      "question": "Is this approach stable?",
+      "stable": {
+        "criteria": [
+          "Airspeed 65 ±5 KIAS",
+          "Altitude descending at ~300-500 FPM",
+          "Centered on runway",
+          "Wings level",
+          "Landing light visible 500-1,000 feet down runway"
+        ],
+        "action": "Continue to flare and land"
+      },
+      "unstable": {
+        "criteria": [
+          "Airspeed not within 65 ±5 KIAS",
+          "Drifting left/right",
+          "Too high (not descending) or too low (sinking fast)",
+          "Off-centerline >10 feet",
+          "Runway not clear"
+        ],
+        "action": "GO AROUND—no hesitation"
+      }
+    },
+
+    "training_emphasis": {
+      "crawl_phase_focus": "Decision to go around + power management + flap sequencing",
+      "do_not_overthink": "Aerodynamics, energy state, lift coefficient—save for post-flight debrief",
+      "muscle_memory_goal": "Student can execute POWER-PITCH-CLEAN-CLIMB-REJOIN without thinking",
+      "by_solo": "Student has performed ≥5 go-arounds, feels confident, no hesitation"
+    },
+
+    "safety_notes": [
+      "Go-arounds are 100% normal. Best pilots perform them frequently.",
+      "Never criticize a student for going around. Praise the decision.",
+      "A go-around is easier to execute than a forced landing after a bad landing bounce.",
+      "In night flying or crosswind, lower the go-around threshold (try again sooner).",
+      "If you see a balloon forming (pitch increasing, altitude increasing), GO AROUND immediately. Don't wait for perfect clearance.",
+      "Forgetting carb heat is the #1 rookie mistake. Ingrain it: POWER → CARB HEAT OFF → PITCH."
+    ],
+
+    "common_questions": [
+      {
+        "q": "Will I get in trouble for going around?",
+        "a": "No. You'll get criticized for not going around when you should. Go-arounds are safe decisions. Forced bad landings are not."
+      },
+      {
+        "q": "How many go-arounds can I do?",
+        "a": "As many as needed. At KHMP (non-towered), you control the pattern. Go around 10 times if needed to nail it."
+      },
+      {
+        "q": "What if I forget a step?",
+        "a": "The critical sequence is POWER (full) → CARB HEAT OFF → PITCH UP. Everything else flows from that. Forget those three, and you're in trouble."
+      },
+      {
+        "q": "What if the engine sputters when I apply full power?",
+        "a": "Carb heat OFF should fix it (cold air, richer mixture). If still rough, suspect carb ice—apply carb heat GENTLY, wait for power to build. If severe, land ASAP at nearest airport."
+      },
+      {
+        "q": "Should I retract flaps all at once or gradually?",
+        "a": "GRADUALLY. 30° → 20° → 10° → 0°. Each step allows airspeed to stabilize before next step. Abrupt retraction = sink."
+      }
+    ],
+
+    "proficiency_standard": {
+      "by_lesson_2": "Student understands WHEN to go around and executes POWER-PITCH-CLEAN-CLIMB-REJOIN without major errors",
+      "by_lesson_4": "Student can go around smoothly, flap sequence correct, re-enters pattern stably, ready for solo practice",
+      "by_private_pilot": "Go-around is automatic—no hesitation, executed to ACS standards (altitude ±100 ft, airspeed ±10 kts, centered on runway)"
+    }
+
+  }
+}

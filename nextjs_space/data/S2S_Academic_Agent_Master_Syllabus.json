@@ -1,0 +1,957 @@
+{
+  "metadata": {
+    "projectName": "Screen to Sky (S2S)",
+    "documentType": "Academic Agent Master Syllabus",
+    "taskId": "ST-802",
+    "version": "1.0",
+    "dateCreated": "2026-05-10",
+    "totalLessons": 17,
+    "totalArcs": 5,
+    "aircraft": "Cessna 172",
+    "location": "KHMP",
+    "acsReference": "FAA-S-ACS-6C (November 2023)"
+  },
+
+  "fullCourseSyllabusMap": [
+    {
+      "lessonNum": 1,
+      "title": "Long Walk",
+      "arc": 1,
+      "arcTheme": "Mechanical Intimacy",
+      "studentLevel": "Crawl",
+      "workloadLevel": "Low",
+      "acsAlignment": [
+        "PA.I Preflight Preparation",
+        "PA.II Preflight Procedures",
+        "PA.III Airport Operations",
+        "PA.IV.A Normal Takeoff and Landing introduction"
+      ],
+      "mainSkill": "REP walk-around, basic taxi, first takeoff and landing",
+      "repSystemFocus": "Chocks, tiedowns, pitot cover, towbar removal",
+      "scoringImplication": "Light grading on basic control. Emphasis on completion and safety.",
+      "debriefReveal": "What the controls actually do and why L1 felt busy",
+      "hubContinuity": "Starts at KHMP Rwy 24 parking. Ends at KHMP Rwy 24 after landing."
+    },
+    {
+      "lessonNum": 2,
+      "title": "Configurator",
+      "arc": 1,
+      "arcTheme": "Mechanical Intimacy",
+      "studentLevel": "Crawl",
+      "workloadLevel": "Low",
+      "acsAlignment": [
+        "PA.III Airport Operations",
+        "PA.IV.A Normal Takeoff and Climb",
+        "PA.IV.B Normal Approach and Landing",
+        "PA.IV.N Go-Around/Rejected Landing introduction"
+      ],
+      "mainSkill": "Flaps and trim as workload reducers, stable approach concept",
+      "repSystemFocus": "Configuration awareness, engine indications",
+      "scoringImplication": "Introduction of pattern stability metrics",
+      "debriefReveal": "Why configuring early makes final easier",
+      "hubContinuity": "Starts where L1 ended at KHMP Rwy 24. Ends at KHMP Rwy 24 after 3 patterns."
+    },
+    {
+      "lessonNum": 3,
+      "title": "Edge of the Envelope",
+      "arc": 1,
+      "arcTheme": "Mechanical Intimacy",
+      "studentLevel": "Crawl",
+      "workloadLevel": "Low-Medium",
+      "acsAlignment": [
+        "PA.VII.A Maneuvering During Slow Flight",
+        "PA.VII.B Power-Off Stalls",
+        "PA.V.A Steep Turns",
+        "PA.II Preflight Procedures reinforcement"
+      ],
+      "mainSkill": "Slow flight awareness, stall recognition and recovery, steep turns",
+      "repSystemFocus": "Preflight discipline before maneuver practice",
+      "scoringImplication": "Recovery priority and envelope awareness",
+      "debriefReveal": "Why pulling harder when slow makes things worse",
+      "hubContinuity": "Starts at KHMP Rwy 24. Practice area near KHMP. Returns to KHMP Rwy 24."
+    },
+    {
+      "lessonNum": 4,
+      "title": "Arc 1 Check Flight",
+      "arc": 1,
+      "arcTheme": "Mechanical Intimacy",
+      "studentLevel": "Crawl",
+      "workloadLevel": "Medium",
+      "acsAlignment": [
+        "PA.I Preflight Preparation",
+        "PA.II Preflight Procedures",
+        "PA.III Airport Operations",
+        "PA.IV Takeoffs, Landings, and Go-Arounds",
+        "PA.IX.B Emergency Approach and Landing (Simulated)"
+      ],
+      "mainSkill": "5 touch-and-goes with repeatability, emergency landing to Rwy 06",
+      "repSystemFocus": "Complete preflight, configuration discipline",
+      "scoringImplication": "Arc 1 gate. Requires flight score >= 3, quiz pass, debrief viewed.",
+      "debriefReveal": "Linking pieces under pressure",
+      "hubContinuity": "Starts at KHMP Rwy 24. Ends at KHMP Rwy 06 (emergency-only runway) after simulated engine failure."
+    },
+    {
+      "lessonNum": 5,
+      "title": "The Box",
+      "arc": 2,
+      "arcTheme": "Pattern Master",
+      "studentLevel": "Walk",
+      "workloadLevel": "Moderate",
+      "acsAlignment": [
+        "PA.III.B Traffic Patterns",
+        "PA.IV.A Normal Takeoff and Climb",
+        "PA.IV.B Normal Approach and Landing",
+        "PA.V.B Ground Reference Maneuvers (Rectangular Course)"
+      ],
+      "mainSkill": "Rectangular pattern discipline, wind correction awareness",
+      "repSystemFocus": "Aircraft state monitoring during pattern work",
+      "scoringImplication": "Pattern precision metrics introduced",
+      "debriefReveal": "How wind affects ground track and why pattern shape matters",
+      "hubContinuity": "Starts at KHMP Rwy 06 (where L4 ended). Taxi to Rwy 24, pattern work."
+    },
+    {
+      "lessonNum": 6,
+      "title": "Wind Whisperer",
+      "arc": 2,
+      "arcTheme": "Pattern Master",
+      "studentLevel": "Walk",
+      "workloadLevel": "Moderate",
+      "acsAlignment": [
+        "PA.III.B Traffic Patterns",
+        "PA.IV.A Normal Takeoff and Climb",
+        "PA.IV.B Normal Approach and Landing",
+        "PA.IV.C Soft-Field Takeoff and Climb (ASEL)",
+        "PA.IV.D Soft-Field Approach and Landing (ASEL)"
+      ],
+      "mainSkill": "Active wind correction, crosswind technique, soft field introduction",
+      "repSystemFocus": "Control surface coordination during crosswind",
+      "scoringImplication": "Crosswind correction and centerline discipline",
+      "debriefReveal": "Difference between aiming and tracking",
+      "hubContinuity": "Starts at KHMP Rwy 24. Ends at KHMP Rwy 24 after soft field work."
+    },
+    {
+      "lessonNum": 7,
+      "title": "Arc 2 Check Flight",
+      "arc": 2,
+      "arcTheme": "Pattern Master",
+      "studentLevel": "Walk",
+      "workloadLevel": "Moderate-High",
+      "acsAlignment": [
+        "PA.III Airport and Seaplane Base Operations",
+        "PA.IV Takeoffs, Landings, and Go-Arounds",
+        "PA.V.B Ground Reference Maneuvers"
+      ],
+      "mainSkill": "Demonstrate consistent pattern work with callouts, wind correction, short/soft field",
+      "repSystemFocus": "Full configuration management",
+      "scoringImplication": "Arc 2 gate. Pattern precision and verbal discipline required.",
+      "debriefReveal": "Why repetition builds muscle memory",
+      "hubContinuity": "Starts at KHMP Rwy 24. Ends at KHMP Rwy 24 after check patterns."
+    },
+    {
+      "lessonNum": 8,
+      "title": "Breaking Free",
+      "arc": 3,
+      "arcTheme": "Departure Work",
+      "studentLevel": "Walk",
+      "workloadLevel": "Moderate-High",
+      "acsAlignment": [
+        "PA.III Airport Operations",
+        "PA.VI.A Pilotage and Dead Reckoning",
+        "PA.VIII.A Straight-and-Level Flight",
+        "PA.VIII.B Constant Airspeed Climbs"
+      ],
+      "mainSkill": "Departing KHMP local area, pilotage basics, maintaining heading and altitude",
+      "repSystemFocus": "Fuel management awareness during extended flight",
+      "scoringImplication": "Departure discipline and local area awareness",
+      "debriefReveal": "How to leave the airport environment safely",
+      "hubContinuity": "Starts at KHMP Rwy 24. Departs local area. Returns to KHMP Rwy 24."
+    },
+    {
+      "lessonNum": 9,
+      "title": "Compass Rose",
+      "arc": 3,
+      "arcTheme": "Departure Work",
+      "studentLevel": "Walk",
+      "workloadLevel": "High",
+      "acsAlignment": [
+        "PA.VI.A Pilotage and Dead Reckoning",
+        "PA.VI.B Navigation Systems and Radar Services",
+        "PA.VIII.D Turns to Headings",
+        "PA.III.A Communications, Light Signals, and Runway Lighting Systems"
+      ],
+      "mainSkill": "VOR orientation, dead reckoning, simulated radio workflows",
+      "repSystemFocus": "Navigation equipment operation",
+      "scoringImplication": "Navigation accuracy and situational awareness",
+      "debriefReveal": "How to use navigation aids to find your way back",
+      "hubContinuity": "Starts at KHMP Rwy 24. Local navigation flight. Returns to KHMP Rwy 24."
+    },
+    {
+      "lessonNum": 10,
+      "title": "Arc 3 Check Flight",
+      "arc": 3,
+      "arcTheme": "Departure Work",
+      "studentLevel": "Walk",
+      "workloadLevel": "High",
+      "acsAlignment": [
+        "PA.III Airport Operations",
+        "PA.VI Navigation",
+        "PA.VIII Basic Instrument Maneuvers",
+        "PA.III.A Communications introduction"
+      ],
+      "mainSkill": "Depart KHMP, navigate to waypoint, return using pilotage and VOR",
+      "repSystemFocus": "Complete systems management during navigation",
+      "scoringImplication": "Arc 3 gate. Navigation accuracy and return discipline required.",
+      "debriefReveal": "Confidence to leave and return intentionally",
+      "hubContinuity": "Starts at KHMP Rwy 24. Navigation loop. Ends at KHMP Rwy 24."
+    },
+    {
+      "lessonNum": 11,
+      "title": "Dead Stick",
+      "arc": 4,
+      "arcTheme": "Emergencies & Elements",
+      "studentLevel": "Run",
+      "workloadLevel": "High",
+      "acsAlignment": [
+        "PA.IX.A Emergency Descent",
+        "PA.IX.B Emergency Approach and Landing (Simulated)",
+        "PA.IX.F Engine Failure After Liftoff (Simulated)",
+        "PA.VII.B Power-Off Stalls reinforcement"
+      ],
+      "mainSkill": "Engine failure scenarios, best glide, forced landing site selection",
+      "repSystemFocus": "Emergency checklist discipline, systems failure indicators",
+      "scoringImplication": "Decision-making speed and glide management",
+      "debriefReveal": "Aviate, navigate, communicate priorities",
+      "hubContinuity": "Starts at KHMP Rwy 24. Emergency scenarios in local area. Returns to KHMP Rwy 24."
+    },
+    {
+      "lessonNum": 12,
+      "title": "Weather Wise",
+      "arc": 4,
+      "arcTheme": "Emergencies & Elements",
+      "studentLevel": "Run",
+      "workloadLevel": "High",
+      "acsAlignment": [
+        "PA.I.C Weather Information",
+        "PA.I.F Performance and Limitations",
+        "PA.IX Emergency Operations",
+        "PA.VIII Basic Instrument Maneuvers (unusual attitudes)"
+      ],
+      "mainSkill": "Weather decision-making, performance calculations, weather avoidance",
+      "repSystemFocus": "Weather system interpretation, density altitude awareness",
+      "scoringImplication": "Go/no-go decision discipline",
+      "debriefReveal": "When to stay on the ground",
+      "hubContinuity": "Starts at KHMP Rwy 24. Weather scenario flight. Returns to KHMP Rwy 24."
+    },
+    {
+      "lessonNum": 13,
+      "title": "Night Owl",
+      "arc": 4,
+      "arcTheme": "Emergencies & Elements",
+      "studentLevel": "Run",
+      "workloadLevel": "High",
+      "acsAlignment": [
+        "PA.XI.A Night Operations",
+        "PA.I.B Airworthiness Requirements (night equipment)",
+        "PA.III.A Communications, Light Signals, and Runway Lighting Systems"
+      ],
+      "mainSkill": "Night operations, night pattern work, lighting systems",
+      "repSystemFocus": "Night equipment verification, lighting systems operation",
+      "scoringImplication": "Night visual references and lighting discipline",
+      "debriefReveal": "Different visual cues at night",
+      "hubContinuity": "Starts at KHMP Rwy 24 (night conditions). Ends at KHMP Rwy 24 after night patterns."
+    },
+    {
+      "lessonNum": 14,
+      "title": "Arc 4 Check Flight",
+      "arc": 4,
+      "arcTheme": "Emergencies & Elements",
+      "studentLevel": "Run",
+      "workloadLevel": "Very High",
+      "acsAlignment": [
+        "PA.IX Emergency Operations",
+        "PA.I Preflight Preparation (weather)",
+        "PA.VIII Basic Instrument Maneuvers",
+        "PA.XI Night Operations"
+      ],
+      "mainSkill": "Combined emergency scenarios: engine failure, weather decisions, abnormal operations",
+      "repSystemFocus": "Complete emergency systems management",
+      "scoringImplication": "Arc 4 gate. Emergency decision-making and execution required.",
+      "debriefReveal": "Prioritize, aviate, navigate, communicate under pressure",
+      "hubContinuity": "Starts at KHMP Rwy 24. Scenario-based check flight. Ends at KHMP Rwy 24."
+    },
+    {
+      "lessonNum": 15,
+      "title": "Flight Plan",
+      "arc": 5,
+      "arcTheme": "Cross-Country Solo",
+      "studentLevel": "Professional",
+      "workloadLevel": "Professional",
+      "acsAlignment": [
+        "PA.I.D Cross-Country Flight Planning",
+        "PA.I.C Weather Information",
+        "PA.I.F Performance and Limitations",
+        "PA.I.E National Airspace System"
+      ],
+      "mainSkill": "Complete cross-country flight planning: route, weather, fuel, weight & balance",
+      "repSystemFocus": "Full aircraft performance planning",
+      "scoringImplication": "Planning thoroughness and risk assessment",
+      "debriefReveal": "Professional pilot workflow begins on the ground",
+      "hubContinuity": "Ground-based lesson. Planning for upcoming cross-country flights."
+    },
+    {
+      "lessonNum": 16,
+      "title": "Dual XC",
+      "arc": 5,
+      "arcTheme": "Cross-Country Solo",
+      "studentLevel": "Professional",
+      "workloadLevel": "Professional",
+      "acsAlignment": [
+        "PA.I.D Cross-Country Flight Planning",
+        "PA.VI Navigation",
+        "PA.III Airport Operations (new airport)",
+        "PA.VIII Basic Instrument Maneuvers"
+      ],
+      "mainSkill": "Execute planned cross-country flight with instructor, multiple airports",
+      "repSystemFocus": "Complete flight workflow from preflight through postflight",
+      "scoringImplication": "Navigation accuracy, communication discipline, checkride-level execution",
+      "debriefReveal": "What it feels like to operate as a real pilot",
+      "hubContinuity": "Starts at KHMP Rwy 24. Cross-country to remote airports. Returns to KHMP Rwy 24."
+    },
+    {
+      "lessonNum": 17,
+      "title": "Solo XC",
+      "arc": 5,
+      "arcTheme": "Cross-Country Solo",
+      "studentLevel": "Professional",
+      "workloadLevel": "Professional",
+      "acsAlignment": [
+        "PA.I Preflight Preparation",
+        "PA.II Preflight Procedures",
+        "PA.III Airport Operations",
+        "PA.IV Takeoffs, Landings, and Go-Arounds",
+        "PA.VI Navigation",
+        "PA.IX Emergency Operations (decision-making)"
+      ],
+      "mainSkill": "Solo cross-country flight demonstrating complete pilot proficiency",
+      "repSystemFocus": "Independent complete systems management",
+      "scoringImplication": "Final validation of all S2S training. Checkride readiness.",
+      "debriefReveal": "You are a pilot, not just a sim user",
+      "hubContinuity": "Starts at KHMP Rwy 24. Solo cross-country. Returns to KHMP Rwy 24. Course complete."
+    }
+  ],
+
+  "arc1DetailedContent": {
+    "lesson1": {
+      "lessonNum": 1,
+      "title": "Long Walk",
+      "arc": 1,
+      "mode": "Free Tower Mode",
+      "studentLevel": "Crawl",
+      "estimatedReadTimeMin": 5,
+      "acsAlignment": [
+        "PA.I Preflight Preparation",
+        "PA.II Preflight Procedures",
+        "PA.III Airport Operations",
+        "PA.IV.A Normal Takeoff and Landing introduction"
+      ],
+      "repWalkthroughFocus": [
+        "Remove left chock",
+        "Remove right chock",
+        "Remove left tiedown",
+        "Remove right tiedown",
+        "Remove tail tiedown",
+        "Remove pitot cover",
+        "Remove towbar if present",
+        "Visual check: airplane looks ready to move"
+      ],
+      "beforeYouFly": [
+        "This is your first flight. Stay calm.",
+        "The airplane responds to your inputs. Small movements matter.",
+        "KHMP Runway 24 is your home base. You'll always come back here.",
+        "Pattern altitude is 1,882 feet MSL. Field elevation is 882 feet MSL.",
+        "You don't need to sound like a pilot yet. You need to feel the airplane first."
+      ],
+      "mission": [
+        "Complete the REP walk-around and prepare the aircraft to fly.",
+        "Taxi to Runway 24.",
+        "Take off and climb.",
+        "Keep KHMP nearby while you fly a simple circuit.",
+        "Return and land on Runway 24."
+      ],
+      "whatMattersToday": [
+        "Remove chocks, tiedowns, pitot cover, and towbar.",
+        "Taxi without hitting anything.",
+        "Rotate at 55 KIAS.",
+        "Climb at 74 KIAS.",
+        "Keep the airport in sight.",
+        "Approach near 65 KIAS.",
+        "Land on the runway, not beside it."
+      ],
+      "targetNumbers": {
+        "runway": "KHMP Rwy 24",
+        "runwayHeading": 240,
+        "oppositeHeading": 60,
+        "fieldElevationMsl": 882,
+        "patternAltitudeMsl": 1882,
+        "vrKias": 55,
+        "vyKias": 74,
+        "approachKias": 65,
+        "downwindKias": "Not yet — just keep it safe",
+        "bestGlideKias": "Not today"
+      },
+      "simpleFlightFlow": [
+        "Walk around the airplane. Remove chocks, tiedowns, pitot cover, towbar.",
+        "Start the engine. Check that gauges look normal.",
+        "Taxi to Runway 24. Use rudder pedals to steer. Brakes when needed.",
+        "Line up on Runway 24 (heading about 240 degrees).",
+        "Add full power. Keep it straight with rudder.",
+        "Rotate at 55 KIAS. Climb at 74 KIAS.",
+        "Turn left when safe. Keep KHMP nearby. Opposite heading is about 060 degrees.",
+        "When ready to return, turn back toward Runway 24.",
+        "Reduce power. Aim at the runway. Keep speed near 65 KIAS.",
+        "Look toward the far end of the runway as you get close.",
+        "Flare gently. Reduce power to idle. Keep it straight with rudder.",
+        "Let it land. Don't force it down."
+      ],
+      "commonMistakes": [
+        "Skipping the walk-around because it feels slow. Don't. REP tracks this.",
+        "Pulling back too hard on rotation. Gentle pressure, not yanking.",
+        "Letting speed get too slow or too fast. Check the airspeed indicator often.",
+        "Aiming at the ground instead of the far end of the runway during landing.",
+        "Trying to force the airplane onto the runway. Let it settle.",
+        "Forgetting to use rudder to keep it straight. Feet matter as much as hands."
+      ],
+      "doNotWorryAboutYet": [
+        "Radio calls or ATC communication",
+        "Perfect rectangular pattern shape",
+        "Formal callouts like 'downwind' or 'final'",
+        "Flap settings or trim adjustments",
+        "Wind correction or crosswind technique",
+        "Emergency procedures beyond basic awareness"
+      ],
+      "debriefReveal": [
+        "The airplane felt busy because pitch, power, speed, and altitude were all moving at once.",
+        "You were managing everything manually. That's why it was hard.",
+        "Lesson 2 will introduce flaps and trim to calm things down.",
+        "The controls do what you tell them, but they don't think for you.",
+        "Every input has a consequence. Small corrections beat big ones.",
+        "You just flew an airplane. That's not nothing."
+      ],
+      "quizSeeds": [
+        {
+          "question": "What is the rotation speed (Vr) for the C172 in S2S?",
+          "options": ["45 KIAS", "55 KIAS", "65 KIAS", "74 KIAS"],
+          "correctIndex": 1,
+          "explanation": "In S2S, the C172 rotates at 55 KIAS. This is the speed at which you gently pull back to lift off."
+        },
+        {
+          "question": "What is the best rate of climb speed (Vy) for the C172 in S2S?",
+          "options": ["55 KIAS", "65 KIAS", "74 KIAS", "90 KIAS"],
+          "correctIndex": 2,
+          "explanation": "Vy is 74 KIAS. This speed gives you the best rate of climb after takeoff."
+        },
+        {
+          "question": "What is the approximate heading for KHMP Runway 24?",
+          "options": ["060 degrees", "180 degrees", "240 degrees", "360 degrees"],
+          "correctIndex": 2,
+          "explanation": "Runway 24 is aligned at approximately 240 degrees. The runway number (24) represents 240 degrees divided by 10."
+        },
+        {
+          "question": "Which of the following is part of the REP walk-around in Lesson 1?",
+          "options": ["Check fuel quantity", "Remove chocks and tiedowns", "Test radio communications", "File a flight plan"],
+          "correctIndex": 1,
+          "explanation": "Lesson 1 focuses on removing chocks, tiedowns, pitot cover, and towbar as part of the REP walk-around."
+        },
+        {
+          "question": "What is the target approach speed for landing in Lesson 1?",
+          "options": ["55 KIAS", "65 KIAS", "74 KIAS", "90 KIAS"],
+          "correctIndex": 1,
+          "explanation": "The approach speed target is 65 KIAS. This helps maintain control during the landing phase."
+        }
+      ]
+    },
+
+    "lesson2": {
+      "lessonNum": 2,
+      "title": "Configurator",
+      "arc": 1,
+      "mode": "Free Tower Mode",
+      "studentLevel": "Crawl",
+      "estimatedReadTimeMin": 6,
+      "acsAlignment": [
+        "PA.III Airport Operations",
+        "PA.IV.A Normal Takeoff and Climb",
+        "PA.IV.B Normal Approach and Landing",
+        "PA.IV.N Go-Around/Rejected Landing introduction"
+      ],
+      "repWalkthroughFocus": [
+        "Preflight walk-around still required",
+        "Configuration awareness: flaps position before takeoff",
+        "Trim setting awareness",
+        "Engine indications during pattern work"
+      ],
+      "beforeYouFly": [
+        "Lesson 1 felt busy because you were fighting the airplane the whole time.",
+        "Lesson 2 teaches the most important skill: knowing when to NOT land.",
+        "The go-around is not a failure. It's a decision. Most landing accidents happen because pilots force bad approaches.",
+        "Today you'll practice the GLGL sequence: Go-Around, Land, Go-Around, Land.",
+        "You'll fly 2 complete go-arounds with climbs back to pattern altitude, then 2 stable landings.",
+        "The decision point is ~100 feet AGL on final: stable approach = land, unstable = go around."
+      ],
+      "mission": [
+        "Complete preflight walk-around.",
+        "Fly 2 go-around cycles (GA1 + Land1, then GA2 + Land2) around KHMP Runway 24.",
+        "Demonstrate stable approaches before landing (65 KIAS ±5, centered, descending smoothly).",
+        "Execute go-arounds when approach is unstable: full power, pitch up, climb back to 1,882 MSL, rejoin downwind.",
+        "Land safely 2 times."
+      ],
+      "whatMattersToday": [
+        "Downwind speed: 90 KIAS. Approach speed: 65 KIAS ±5.",
+        "Pattern altitude: 1,882 feet MSL.",
+        "Decision AGL on final: ~100 feet. Stable = land, unstable = go around.",
+        "Go-around triggers: airspeed not 65, drifting off center, unstable descent, or 'doesn't feel right.'",
+        "Go-around procedure: POWER (full throttle, carb heat off), PITCH (arrest descent), CLEAN (flaps 20°), CLIMB (Vy 74 KIAS), REJOIN (downwind).",
+        "Flare decision: landing light visible 500-1,000 feet down runway means approach is stable."
+      ],
+      "targetNumbers": {
+        "runway": "KHMP Rwy 24",
+        "runwayHeading": 240,
+        "oppositeHeading": 60,
+        "fieldElevationMsl": 882,
+        "patternAltitudeMsl": 1882,
+        "vrKias": 55,
+        "vyKias": 74,
+        "downwindKias": 90,
+        "approachKias": 65,
+        "bestGlideKias": "Not today",
+        "flapSettings": "Incremental: 10° abeam numbers, 20° on base, 30° on final (or as needed)"
+      },
+      "simpleFlightFlow": [
+        "Complete walk-around. Start engine. Taxi to Runway 24.",
+        "Take off. Climb to pattern altitude (1,882 feet MSL).",
+        "CYCLE 1 (GO-AROUND): Turn downwind. Set power 90 KIAS. Abeam numbers: flaps 10°.",
+        "Turn base. Flaps 20°. Turn final. Flaps 30°. Aim for 65 KIAS.",
+        "At ~100 feet AGL on final: approach unstable? FULL POWER → PITCH UP → CARB HEAT OFF → FLAPS 20° → CLIMB AT 74 KIAS → REJOIN DOWNWIND.",
+        "Now back at downwind, repeat approach.",
+        "CYCLE 2 (LANDING): Downwind setup same. Final approach. At ~100 feet: approach STABLE? → Flare. Land.",
+        "After landing, add power for next takeoff.",
+        "CYCLE 3 (GO-AROUND): Depart again, repeat first go-around cycle.",
+        "CYCLE 4 (LANDING): Final approach. Stable? → Flare. Land. Done."
+      ],
+      "commonMistakes": [
+        "Waiting too long to go around. If it doesn't feel right at 100 feet, don't wait until 50 feet. GO AROUND.",
+        "Not using full power on go-around. Half-power = sluggish climb = stall risk. Full throttle (2,500 RPM).",
+        "Forgetting carb heat on go-around. Push it in (cold air) so full power works efficiently.",
+        "Pulling nose up too hard on go-around. Gradual back pressure, not abrupt. Stall is worse than hard landing.",
+        "Retracting flaps too early. Wait for positive climb rate before moving flaps from 30° → 20°.",
+        "Not checking speed/altitude before landing. Unstable approach = go around. Stable = land.",
+        "Chasing airspeed with pitch. Power controls altitude, pitch controls speed in the pattern."
+      ],
+      "doNotWorryAboutYet": [
+        "Perfect go-around procedures (e.g., gear/flap sequence for complex aircraft—C172 is simple).",
+        "Crosswind limits. L2 is calm conditions only.",
+        "Go-around on base leg or earlier phases. This lesson focuses on final approach decisions.",
+        "Missed approach procedures (instrument flying). S2S is VFR only.",
+        "Engine failure procedures. L3 covers stalls; L4 covers engine-out emergency landing."
+      ],
+      "debriefReveal": [
+        "The go-around is the most important landing skill. You demonstrated two full go-around cycles today.",
+        "Going around is not a failure. It's a safety decision. You will never be criticized for a go-around.",
+        "The decision point is ~100 feet AGL on final. Stable approach = land. Unstable = go around immediately.",
+        "POWER, PITCH, CLEAN, CLIMB, REJOIN is the mental model for every go-around. Speed and precision matter less than decision-making.",
+        "Go-around triggers: airspeed not 65±5, drifting off center, unstable descent, late flare recognition, or 'doesn't feel right.'",
+        "You must demonstrate 2 successful go-arounds AND 2 stable landings before Arc 1 is complete.",
+        "L3 will teach slow flight and stalls so you understand why unstable approaches are dangerous at low altitude."
+      ],
+      "quizSeeds": [
+        {
+          "question": "At what altitude on final approach do you make the decision to land or go around?",
+          "options": ["50 feet AGL", "100 feet AGL", "200 feet AGL", "500 feet AGL"],
+          "correctIndex": 1,
+          "explanation": "The decision point is ~100 feet AGL on final. At this altitude, you assess: stable = land, unstable = go around. Waiting until 50 feet gives you too little time to climb."
+        },
+        {
+          "question": "What is the first action in a go-around?",
+          "options": ["Retract flaps", "Pitch up aggressively", "Apply full throttle", "Turn off carb heat"],
+          "correctIndex": 2,
+          "explanation": "The first action is full throttle (2,500 RPM). This gives you the power needed to climb against the drag of extended flaps and slow airspeed."
+        },
+        {
+          "question": "What does 'CLEAN' mean in the go-around sequence POWER, PITCH, CLEAN, CLIMB, REJOIN?",
+          "options": ["Clean the windscreen", "Retract flaps incrementally (30° → 20°)", "Clean up the trim", "Close the cabin door"],
+          "correctIndex": 1,
+          "explanation": "CLEAN means retracting flaps gradually: start at 30°, move to 20°, then 10°, finally 0°. Don't dump all flaps at once—that causes a sudden sink."
+        },
+        {
+          "question": "What is a sign that your approach is UNSTABLE and you should go around?",
+          "options": ["You are 500 feet above the runway", "Your airspeed is 65 ±5 KIAS and you're centered", "Your airspeed is not 65 KIAS or you're drifting off centerline", "You can see the runway clearly"],
+          "correctIndex": 2,
+          "explanation": "Unstable signs: airspeed not 65 KIAS (too fast or too slow), drifting off centerline, altitude not descending smoothly, or anything that feels wrong. All of these trigger a go-around."
+        },
+        {
+          "question": "What is the target climb speed during a go-around?",
+          "options": ["65 KIAS", "74 KIAS", "90 KIAS", "110 KIAS"],
+          "correctIndex": 1,
+          "explanation": "During climb on go-around, target Vy (74 KIAS). This is the best rate of climb speed for the C172. It gets you back to pattern altitude fastest while maintaining safe margin from stall."
+        }
+      ]
+    },
+
+    "lesson3": {
+      "lessonNum": 3,
+      "title": "Edge of the Envelope",
+      "arc": 1,
+      "mode": "Free Tower Mode",
+      "studentLevel": "Crawl",
+      "workloadLevel": "Low-Medium",
+      "estimatedReadTimeMin": 7,
+      "acsAlignment": [
+        "PA.VII.A Maneuvering During Slow Flight",
+        "PA.VII.B Power-Off Stalls",
+        "PA.V.A Steep Turns",
+        "PA.II Preflight Procedures reinforcement"
+      ],
+      "repWalkthroughFocus": [
+        "Preflight discipline before maneuver practice",
+        "Aircraft state check before unusual attitudes",
+        "Systems awareness during high workload maneuvers"
+      ],
+      "beforeYouFly": [
+        "Lesson 2 revealed why configuration matters. Today you'll learn where the edges of safe flight are.",
+        "Slow flight means the controls feel mushy. The airplane still flies, but it's less responsive.",
+        "A stall doesn't mean the engine quits. It means the wing stops flying normally.",
+        "Recovery from a stall is simple: reduce angle of attack, add power, level wings, recover climb.",
+        "Steep turns need extra back pressure to maintain altitude. Don't pull harder when already slow.",
+        "Preflight and walk-around still matter, even before maneuver practice."
+      ],
+      "mission": [
+        "Complete preflight walk-around.",
+        "Depart KHMP Runway 24 to the practice area.",
+        "Practice slow flight: maintain altitude and heading at minimum controllable airspeed.",
+        "Practice power-off stall recovery: recognize the stall, recover promptly.",
+        "Practice steep turns: 45° bank, maintain altitude.",
+        "Return to KHMP and land on Runway 24."
+      ],
+      "whatMattersToday": [
+        "Slow flight: controls feel mushy, high angle of attack, maintain altitude.",
+        "Stall warning: buffet, nose-high attitude, loss of control effectiveness.",
+        "Stall recovery sequence: 1) reduce angle of attack (push forward), 2) add full power, 3) level wings, 4) recover to climb.",
+        "Steep turns: 45° bank requires back pressure to hold altitude. Don't stall it.",
+        "Altitude awareness during maneuvers.",
+        "Preflight discipline before every flight."
+      ],
+      "targetNumbers": {
+        "runway": "KHMP Rwy 24",
+        "runwayHeading": 240,
+        "fieldElevationMsl": 882,
+        "patternAltitudeMsl": 1882,
+        "practiceAltitudeMsl": "3,500 feet MSL or higher (at least 1,500 AGL)",
+        "slowFlightSpeed": "50-55 KIAS (just above stall)",
+        "stallRecoveryPriority": "1) Reduce AOA, 2) Full power, 3) Level wings, 4) Climb",
+        "steepTurnBank": "45 degrees",
+        "vrKias": 55,
+        "vyKias": 74,
+        "approachKias": 65
+      },
+      "simpleFlightFlow": [
+        "Complete walk-around. Start engine. Taxi to Runway 24.",
+        "Take off. Climb to practice altitude (3,500 feet MSL or as assigned).",
+        "Maneuver 1: Slow Flight. Reduce power, maintain altitude, slow to 50-55 KIAS. Feel mushy controls. Maintain heading and altitude. Recover: add power, lower nose, accelerate.",
+        "Maneuver 2: Power-Off Stall. Reduce power to idle. Raise nose to induce stall. Feel buffet. Recognize stall. Recover: 1) push forward (reduce AOA), 2) full power, 3) level wings with rudder/aileron, 4) establish climb.",
+        "Maneuver 3: Steep Turn. Establish 45° bank. Add back pressure to hold altitude. Complete 360° turn. Roll out on entry heading.",
+        "Return to KHMP. Enter pattern. Land on Runway 24."
+      ],
+      "commonMistakes": [
+        "Confusing a stall with engine failure. The engine is fine. The wing stopped flying.",
+        "Pulling harder when already slow. This makes the stall worse.",
+        "Not reducing angle of attack first during stall recovery. Push forward before adding power.",
+        "Forgetting rudder coordination during stall recovery. Keep wings level with rudder.",
+        "Not using enough back pressure in steep turns. The airplane will descend if you don't pull.",
+        "Skipping preflight because 'it's just maneuvers.' Preflight always matters."
+      ],
+      "doNotWorryAboutYet": [
+        "Perfect altitude control during slow flight (±100 feet is fine for now)",
+        "Perfect rollout heading on steep turns",
+        "Power-on stalls or accelerated stalls",
+        "Spin awareness or spin recovery (not part of Arc 1)",
+        "Complex aerodynamics theory. Just feel it and recover."
+      ],
+      "debriefReveal": [
+        "Slow flight shows you where the airplane becomes less responsive. Stay aware of airspeed.",
+        "Stalls happen when the wing's angle of attack is too high. Reduce it by pushing forward.",
+        "The stall recovery is always the same: 1) reduce AOA, 2) power, 3) level wings, 4) climb.",
+        "Steep turns require back pressure because the vertical component of lift is reduced in a bank.",
+        "Pulling harder when slow makes things worse. Add power and reduce angle of attack first.",
+        "Lesson 4 is your Arc 1 Check Flight. You'll link everything you've learned under pressure."
+      ],
+      "quizSeeds": [
+        {
+          "question": "What does 'slow flight' mean?",
+          "options": ["The engine is running slowly", "Flying at minimum controllable airspeed where controls feel mushy", "Flying in slow motion", "The airplane is broken"],
+          "correctIndex": 1,
+          "explanation": "Slow flight means flying at minimum controllable airspeed (50-55 KIAS for C172). Controls feel mushy but the airplane still flies."
+        },
+        {
+          "question": "What is the first action in a stall recovery?",
+          "options": ["Add full power", "Level the wings", "Reduce angle of attack by pushing forward", "Turn toward the nearest airport"],
+          "correctIndex": 2,
+          "explanation": "First, reduce angle of attack by pushing the yoke forward. This unstalls the wing. Then add power, level wings, and climb."
+        },
+        {
+          "question": "Does a stall mean the engine has failed?",
+          "options": ["Yes, stall means engine failure", "No, stall means the wing has stopped flying normally due to high angle of attack", "Only if the propeller stops", "Only at night"],
+          "correctIndex": 1,
+          "explanation": "A stall is an aerodynamic condition where the wing exceeds its critical angle of attack. The engine is still running."
+        },
+        {
+          "question": "Why do steep turns require extra back pressure?",
+          "options": ["To make the turn faster", "Because the vertical component of lift is reduced in a bank", "To increase airspeed", "To activate the autopilot"],
+          "correctIndex": 1,
+          "explanation": "In a steep bank, lift is tilted. Less vertical lift is available to counteract weight, so you pull back to maintain altitude."
+        },
+        {
+          "question": "What should you NOT do during a stall recovery?",
+          "options": ["Reduce angle of attack", "Add full power", "Pull harder on the yoke", "Level the wings"],
+          "correctIndex": 2,
+          "explanation": "Pulling harder increases angle of attack and worsens the stall. Push forward first to reduce AOA and unstall the wing."
+        }
+      ]
+    },
+
+    "lesson4": {
+      "lessonNum": 4,
+      "title": "Arc 1 Check Flight",
+      "arc": 1,
+      "mode": "Free Tower Mode with Check Flight Discipline",
+      "studentLevel": "Crawl",
+      "workloadLevel": "Medium",
+      "estimatedReadTimeMin": 8,
+      "acsAlignment": [
+        "PA.I Preflight Preparation",
+        "PA.II Preflight Procedures",
+        "PA.III Airport Operations",
+        "PA.IV Takeoffs, Landings, and Go-Arounds",
+        "PA.IX.B Emergency Approach and Landing (Simulated)"
+      ],
+      "repWalkthroughFocus": [
+        "Complete preflight as if it's a real checkride",
+        "Full walk-around discipline",
+        "Configuration management under pressure",
+        "Systems awareness during emergency simulation"
+      ],
+      "beforeYouFly": [
+        "This is your Arc 1 Check Flight. You've learned the pieces. Now link them together.",
+        "You'll fly 5 touch-and-goes on Runway 24. Repeatability matters more than one pretty landing.",
+        "After the 5th touch-and-go, you'll simulate an engine failure and land on Runway 06.",
+        "Runway 06 is the opposite direction (heading ~060°). It's emergency-only.",
+        "Best glide speed is 68 KIAS. Don't stretch the glide by pulling. You'll stall.",
+        "This lesson requires a passing quiz score, a flight score >= 3, and debrief review to unlock Arc 2.",
+        "Preflight walk-around is mandatory. Treat this like a real flight."
+      ],
+      "mission": [
+        "Complete full preflight walk-around with REP discipline.",
+        "Taxi to Runway 24.",
+        "Perform 5 consecutive touch-and-goes on Runway 24.",
+        "On the 5th touch-and-go after liftoff, simulate engine failure.",
+        "Establish best glide (68 KIAS) and land on Runway 06.",
+        "Complete shutdown and debrief."
+      ],
+      "whatMattersToday": [
+        "Preflight discipline: no shortcuts.",
+        "Pattern consistency: downwind 90 KIAS, approach 65 KIAS, pattern altitude 1,882 MSL.",
+        "Touch-and-go technique: land, add power smoothly, climb out.",
+        "Repeatability: 5 safe landings, not just 1 lucky one.",
+        "Emergency response: recognize failure, establish best glide (68 KIAS), pick Runway 06, fly it all the way.",
+        "Do not stretch the glide. Best glide speed or you stall.",
+        "Obstacle awareness near Runway 06: approximate elevation ~920 feet MSL (pending verification)."
+      ],
+      "targetNumbers": {
+        "runway": "KHMP Rwy 24 for patterns, Rwy 06 for emergency landing",
+        "rwy24Heading": 240,
+        "rwy06Heading": 60,
+        "fieldElevationMsl": 882,
+        "patternAltitudeMsl": 1882,
+        "rwy06ObstacleElevationMsl": "~920 MSL (pending verification)",
+        "vrKias": 55,
+        "vyKias": 74,
+        "downwindKias": 90,
+        "approachKias": 65,
+        "bestGlideKias": 68,
+        "touchAndGoCount": 5
+      },
+      "simpleFlightFlow": [
+        "Complete full REP walk-around. Remove chocks, tiedowns, pitot cover, towbar.",
+        "Start engine. Check all indications normal.",
+        "Taxi to Runway 24.",
+        "Touch-and-Go 1: Takeoff, pattern, landing, add power, go.",
+        "Touch-and-Go 2: Repeat. Focus on consistency.",
+        "Touch-and-Go 3: Repeat. Stable approaches.",
+        "Touch-and-Go 4: Repeat. Nail the speeds.",
+        "Touch-and-Go 5: Takeoff normally. After liftoff (~400 AGL), engine failure simulation begins.",
+        "Emergency procedure: throttle idle (simulated failure). Establish best glide 68 KIAS immediately.",
+        "Turn toward Runway 06 (heading ~060°). You're already in the vicinity.",
+        "Fly best glide. Do not pull to stretch it. Clear obstacles (~920 MSL).",
+        "Land on Runway 06. Rollout. Clear runway. Shutdown.",
+        "Debrief: review what worked, what didn't."
+      ],
+      "commonMistakes": [
+        "Rushing the preflight. Don't. This is a check flight.",
+        "Inconsistent pattern speeds. Lock in 90 KIAS downwind, 65 KIAS final.",
+        "Bad first landing and giving up. Each landing is separate. Nail the next one.",
+        "Panicking during the simulated engine failure. It's simulated. Fly the airplane.",
+        "Pulling to stretch the glide during emergency. You'll stall. Fly 68 KIAS.",
+        "Forgetting Runway 06 heading (~060°). Know where it is before the emergency.",
+        "Not clearing obstacles near Runway 06. Maintain best glide and clear terrain."
+      ],
+      "doNotWorryAboutYet": [
+        "Perfect pattern rectangles. Consistency matters more than shape.",
+        "Radio communication. Still Free Tower Mode.",
+        "Short or soft field technique. Not tested in Arc 1 check.",
+        "Complex emergency checklists. Just fly best glide and land.",
+        "Checkride-level perfection. Arc 1 is crawl level. Arc 5 is checkride level."
+      ],
+      "debriefReveal": [
+        "You just linked preflight, pattern work, and emergency response under pressure.",
+        "Repeatability is what makes a pilot safe, not one lucky landing.",
+        "The emergency wasn't about panic. It was about discipline: best glide, pick a spot, fly it.",
+        "Runway 06 is emergency-only, but now you know it's there.",
+        "Arc 1 is complete. You have mechanical intimacy with the C172.",
+        "Arc 2 begins pattern mastery: rectangular precision, callouts, and wind correction.",
+        "You're no longer a passenger. You're a student pilot."
+      ],
+      "quizSeeds": [
+        {
+          "question": "What is the best glide speed for the C172 in S2S?",
+          "options": ["55 KIAS", "65 KIAS", "68 KIAS", "74 KIAS"],
+          "correctIndex": 2,
+          "explanation": "Best glide speed is 68 KIAS. This gives maximum glide distance in an engine-out scenario."
+        },
+        {
+          "question": "What is the heading for KHMP Runway 06?",
+          "options": ["024 degrees", "060 degrees", "240 degrees", "360 degrees"],
+          "correctIndex": 1,
+          "explanation": "Runway 06 is aligned at approximately 060 degrees. It's the opposite direction from Runway 24 (240°)."
+        },
+        {
+          "question": "How many touch-and-goes are required in Lesson 4 before the simulated engine failure?",
+          "options": ["3", "5", "7", "10"],
+          "correctIndex": 1,
+          "explanation": "You perform 5 touch-and-goes on Runway 24. After the 5th takeoff, the engine failure simulation begins."
+        },
+        {
+          "question": "What should you do if you try to stretch the glide by pulling back during an engine failure?",
+          "options": ["You'll glide farther", "You'll climb higher", "You'll risk a stall and lose altitude faster", "The engine will restart"],
+          "correctIndex": 2,
+          "explanation": "Pulling back to stretch the glide reduces airspeed below best glide, risking a stall. Maintain 68 KIAS for best performance."
+        },
+        {
+          "question": "What does Lesson 4 require to unlock Arc 2?",
+          "options": ["Flight score >= 3 only", "Quiz pass only", "Flight score >= 3, quiz pass, and debrief viewed", "Just takeoff and landing"],
+          "correctIndex": 2,
+          "explanation": "Arc 1 gate requires: flight score >= 3, quiz passed, and debrief viewed. All three must be completed."
+        }
+      ]
+    }
+  },
+
+  "builderAgentNotes": {
+    "overview": "This curriculum provides structured content for integration into the S2S lesson system. Arc 1 content is ready for immediate use. Arcs 2-5 have syllabus maps but require future detailed content builds.",
+    
+    "contentPlacement": {
+      "beforeYouFly": "Display in Ground School tab or Lesson Brief before flight upload",
+      "mission": "Display in Ground School tab or Lesson Brief",
+      "whatMattersToday": "Display in Ground School tab or Lesson Brief, emphasis block",
+      "targetNumbers": "Display as reference table in Ground School or Lesson Brief",
+      "simpleFlightFlow": "Display as numbered steps in Ground School or Lesson Brief",
+      "commonMistakes": "Display in Ground School tab, optional coaching sidebar",
+      "doNotWorryAboutYet": "Display in Ground School tab to reduce student anxiety",
+      "debriefReveal": "Display ONLY after flight debrief is viewed or lesson is completed",
+      "quizSeeds": "Store in quiz seed bank for s2s ground quizz system"
+    },
+
+    "jsonStorage": {
+      "allFieldsJsonCompatible": true,
+      "storageRecommendation": "Store Arc 1 lesson objects as JSON in Lesson table or separate GroundSchoolContent table",
+      "lessonNumIndex": "Use lessonNum as primary key for lookups",
+      "arcIndex": "Index by arc for arc-level queries"
+    },
+
+    "uiIntegration": {
+      "groundSchoolTab": "Display beforeYouFly, mission, whatMattersToday, targetNumbers, simpleFlightFlow, commonMistakes, doNotWorryAboutYet before flight",
+      "debriefTab": "Display debriefReveal after flight debrief is marked as viewed",
+      "quizTab": "Use quizSeeds to populate s2s ground quizz. Gate logic: quiz + flight score >= 3 + debrief = unlock next lesson",
+      "progressionGate": "L4, L7, L10, L14 are check flight gates. Require quiz pass + flight score >= 3 + debrief viewed."
+    },
+
+    "assump_needing_confirmation": [
+      "Runway 06 obstacle elevation is approximate (~920 MSL). Recommend BL-201 to verify powerline/obstacle MSL.",
+      "REP telemetry fields (chocks, tiedowns, pitot cover, towbar) are available in FlyWithLua v4 recorder output.",
+      "Quiz system (s2s ground quizz) is not yet built but seed content is ready.",
+      "Arc 1 content can be displayed immediately without waiting for full ground school platform build."
+    ],
+
+    "futureWork": {
+      "arc2ContentBuild": "ST-804 - Build detailed Arc 2 ground school content for L5-L7 following same structure",
+      "arc3to5ContentBuilds": "Future tasks for Arc 3, 4, 5 detailed content",
+      "quizPlatformBuild": "ST-802D - Build s2s ground quizz seed bank and quiz delivery system",
+      "scoringAcsMapping": "ST-803 - Map scoring metrics to ACS language for debrief coaching notes"
+    }
+  },
+
+  "backlogVisibility": [
+    {
+      "id": "ST-802",
+      "status": "In Progress",
+      "intent": "Full syllabus architecture + Arc 1 content",
+      "complexity": "High"
+    },
+    {
+      "id": "ST-802A",
+      "status": "Completed",
+      "intent": "Arc 1 ACS-aligned crawl-level lessons (L1-L4)",
+      "complexity": "Medium"
+    },
+    {
+      "id": "ST-802B",
+      "status": "Backlog",
+      "intent": "Add lesson content JSON to database schema",
+      "complexity": "Medium"
+    },
+    {
+      "id": "ST-802C",
+      "status": "Backlog",
+      "intent": "Display Ground School block in lesson UI",
+      "complexity": "Low"
+    },
+    {
+      "id": "ST-802D",
+      "status": "Backlog",
+      "intent": "Build s2s ground quizz seed bank",
+      "complexity": "Medium"
+    },
+    {
+      "id": "ST-803",
+      "status": "Backlog",
+      "intent": "Map scoring metrics to ACS language",
+      "complexity": "High"
+    },
+    {
+      "id": "ST-804",
+      "status": "Parked",
+      "intent": "Arc 2 detailed ground school content (L5-L7)",
+      "complexity": "Medium"
+    },
+    {
+      "id": "BL-201",
+      "status": "Backlog",
+      "intent": "Verify Rwy 06 powerline/obstacle MSL elevation",
+      "complexity": "Low"
+    },
+    {
+      "id": "BL-900",
+      "status": "Parked",
+      "intent": "Arc 2-5 scoring logic implementation",
+      "complexity": "Very High"
+    }
+  ]
+}

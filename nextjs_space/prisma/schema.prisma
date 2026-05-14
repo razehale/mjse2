@@ -1,0 +1,238 @@
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/screen_to_sky/nextjs_space/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+// ST-500: User model with role-based access
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String    @map("password_hash")
+  role          String    @default("STUDENT")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  sessions      FlightSession[]
+  progress      UserProgress[]
+  quizAttempts  QuizAttempt[]
+  accounts      Account[]
+  authSessions  AuthSession[]
+
+  @@map("users")
+}
+
+// NextAuth required models
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model AuthSession {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("auth_sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// ST-501: Lesson model - 17 lesson career path
+model Lesson {
+  id                          String   @id @default(cuid())
+  lessonNum                   Int      @unique @map("lesson_num")
+  arcNum                      Int      @map("arc_num")
+  title                       String
+  description                 String   @db.Text
+  hubLocation                 String   @default("KHMP") @map("hub_location")
+  objectives                  Json     @default("[]")
+  briefContent                String?  @db.Text @map("brief_content")
+  debriefTemplate             String?  @db.Text @map("debrief_template")
+  scoringRubric               Json?    @map("scoring_rubric")
+  isCheckFlight               Boolean  @default(false) @map("is_check_flight")
+  checkFlightQuizNum          Int?     @map("check_flight_quiz_num")
+  flightSchoolReady           Boolean  @default(false) @map("flight_school_ready")
+  groundSchoolReady           Boolean  @default(false) @map("ground_school_ready")
+  quizReady                   Boolean  @default(false) @map("quiz_ready")
+  scoringReady                Boolean  @default(false) @map("scoring_ready")
+  mediaReady                  Boolean  @default(false) @map("media_ready")
+  groundSchoolProductionNotes String?  @db.Text @map("ground_school_production_notes")
+  flightRubricProductionNotes String?  @db.Text @map("flight_rubric_production_notes")
+  mediaProductionNotes        String?  @db.Text @map("media_production_notes")
+  scoringTuningNotes          String?  @db.Text @map("scoring_tuning_notes")
+  createdAt                   DateTime @default(now()) @map("created_at")
+  updatedAt                   DateTime @updatedAt @map("updated_at")
+  flightSessions              FlightSession[]
+  progress                    UserProgress[]
+
+  @@index([arcNum])
+  @@map("lessons")
+}
+
+// ST-502: Quiz model
+model Quiz {
+  id            String   @id @default(cuid())
+  quizNum       Int      @unique @map("quiz_num")
+  title         String
+  questions     Json     @default("[]")
+  requiredScore Int      @default(80) @map("required_score")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("quizzes")
+}
+
+// ST-505: Flight session from telemetry upload
+model FlightSession {
+  id              String    @id @default(cuid())
+  userId          String    @map("user_id")
+  lessonId        String    @map("lesson_id")
+  csvFilename     String    @map("csv_filename")
+  cloudStoragePath String?  @map("cloud_storage_path")
+  isPublic        Boolean   @default(false) @map("is_public")
+  uploadTimestamp DateTime  @default(now()) @map("upload_timestamp")
+  parsedData      Json?     @map("parsed_data")
+  rowCount        Int       @default(0) @map("row_count")
+  durationSec     Float     @default(0) @map("duration_sec")
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson          Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  attempts        Attempt[]
+  scores          Score[]
+
+  @@index([userId])
+  @@index([lessonId])
+  @@map("flight_sessions")
+}
+
+// ST-507: Flight segment attempts
+model Attempt {
+  id          String   @id @default(cuid())
+  sessionId   String   @map("session_id")
+  segmentType String   @map("segment_type")
+  startTime   Float    @map("start_time")
+  endTime     Float    @map("end_time")
+  metrics     Json     @default("{}")
+  confidence  String   @default("HIGH")
+  session     FlightSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@map("attempts")
+}
+
+// ST-510: Scoring
+model Score {
+  id            String   @id @default(cuid())
+  sessionId     String   @map("session_id")
+  overallScore  Int      @map("overall_score")
+  breakdown     Json     @default("{}")
+  createdAt     DateTime @default(now()) @map("created_at")
+  session       FlightSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@map("scores")
+}
+
+// START ST-802B Logic — Ground School + Quiz Seed tables
+model GroundSchoolContent {
+  id                   String   @id @default(cuid())
+  lessonNum            Int      @unique @map("lesson_num")
+  title                String?
+  arc                  Int?
+  mode                 String?
+  studentLevel         String?  @map("student_level")
+  workloadLevel        String?  @map("workload_level")
+  estimatedReadTimeMin Int?     @map("estimated_read_time_min")
+  acsAlignment         Json     @default("[]") @map("acs_alignment")
+  repWalkthroughFocus  Json     @default("[]") @map("rep_walkthrough_focus")
+  beforeYouFly         Json     @default("[]") @map("before_you_fly")
+  mission              Json     @default("[]")
+  whatMattersToday     Json     @default("[]") @map("what_matters_today")
+  targetNumbers        Json     @default("{}") @map("target_numbers")
+  simpleFlightFlow     Json     @default("[]") @map("simple_flight_flow")
+  commonMistakes       Json     @default("[]") @map("common_mistakes")
+  doNotWorryAboutYet   Json     @default("[]") @map("do_not_worry_about_yet")
+  debriefReveal        Json     @default("[]") @map("debrief_reveal")
+  cfiNotes             String?  @default("") @map("cfi_notes")
+  createdAt            DateTime @default(now()) @map("created_at")
+  updatedAt            DateTime @updatedAt @map("updated_at")
+
+  @@map("ground_school_content")
+}
+
+model QuizSeed {
+  id           String   @id @default(cuid())
+  lessonNum    Int      @map("lesson_num")
+  question     String   @db.Text
+  options      Json     @default("[]")
+  correctIndex Int      @map("correct_index")
+  explanation  String   @db.Text
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@index([lessonNum])
+  @@map("quiz_seeds")
+}
+
+model QuizAttempt {
+  id          String   @id @default(cuid())
+  userId      String   @map("user_id")
+  lessonNum   Int      @map("lesson_num")
+  answers     Json     @default("[]")
+  correctCount Int     @map("correct_count")
+  totalCount  Int      @map("total_count")
+  passed      Boolean  @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, lessonNum])
+  @@map("quiz_attempts")
+}
+// END ST-802B Logic
+
+// ST-503: User progress tracking per lesson
+model UserProgress {
+  id             String   @id @default(cuid())
+  userId         String   @map("user_id")
+  lessonId       String   @map("lesson_id")
+  flightScore    Int?     @map("flight_score")
+  quizPassed     Boolean  @default(false) @map("quiz_passed")
+  debriefViewed  Boolean  @default(false) @map("debrief_viewed")
+  status         String   @default("LOCKED")
+  completedAt    DateTime? @map("completed_at")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson         Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@index([userId])
+  @@map("user_progress")
+}
