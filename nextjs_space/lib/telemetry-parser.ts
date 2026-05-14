@@ -10,7 +10,24 @@ const EXPECTED_COLUMNS = [
   'parking_brake', 'g_normal', 'slip_deg', 'stall_warn', 'chock_left', 'chock_right',
   'tiedown_left', 'tiedown_right', 'tiedown_tail', 'pitot_cover', 'head_yaw',
   'head_pitch', 'view_type', 'beacon_on', 'battery_on', 'avionics_on',
+  // V5 new columns (ST-911)
+  'alpha_deg', 'beta_deg', 'carb_heat', 'flap_handle_dep', 'fuel_total_kg',
+  'g_side', 'gear_deflect_mtr', 'generator_on', 'head_roll', 'towbar',
+  'wind_spd_kt', 'wind_dir_deg', 'light_beacon', 'light_nav', 'light_strobe',
+  'light_landing', 'light_taxi', 'rep_fuel_pump', 'rep_avionics',
+  'rep_stall_on', 'rep_stall_level', 'rep_rpm', 'rep_oil_temp_f', 'rep_oil_psi',
+  'rep_ff', 'rep_cowl', 'rep_cht_f', 'rep_egt_f',
+  'hdg_true_deg', 'rep_preheat', 'rep_plug_fouling', 'rep_primer',
+  'rep_magneto', 'recorder_version',
 ];
+
+// ST-911: V5 column renames → normalize V5 header names to V4 equivalents
+// so that downstream code referencing the V4 names continues to work.
+const V5_COLUMN_ALIASES: Record<string, string> = {
+  alt_msl_ft: 'alt_msl',
+  alt_agl_ft: 'alt_agl',
+  hdg_mag_deg: 'hdg_deg',
+};
 
 export function parseTelemetryCSV(csvContent: string): ParsedTelemetry {
   const lines = (csvContent ?? '').split('\n').filter((l: string) => l?.trim?.()?.length > 0);
@@ -25,7 +42,11 @@ export function parseTelemetryCSV(csvContent: string): ParsedTelemetry {
   }
 
   const headerLine = lines?.[0] ?? '';
-  const columns = headerLine.split(',').map((c: string) => c?.trim?.() ?? '');
+  const columns = headerLine.split(',').map((c: string) => {
+    const trimmed = c?.trim?.() ?? '';
+    // ST-911: normalize V5 renamed columns to V4 names
+    return V5_COLUMN_ALIASES[trimmed] ?? trimmed;
+  });
   const columnIndexMap: Record<string, number> = {};
   columns.forEach((col: string, idx: number) => {
     columnIndexMap[col] = idx;

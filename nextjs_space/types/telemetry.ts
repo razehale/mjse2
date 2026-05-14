@@ -39,7 +39,42 @@ export interface TelemetryRow {
   beacon_on: number;
   battery_on: number;
   avionics_on: number;
-  [key: string]: number;
+  // ── V5 fields (ST-911) — optional for backward compat with V4 CSVs ──
+  alpha_deg?: number;
+  beta_deg?: number;
+  carb_heat?: number;
+  flap_handle_dep?: number;
+  fuel_total_kg?: number;
+  g_side?: number;
+  gear_deflect_mtr?: number;
+  generator_on?: number;
+  head_roll?: number;
+  towbar?: number;
+  wind_spd_kt?: number;
+  wind_dir_deg?: number;
+  light_beacon?: number;
+  light_nav?: number;
+  light_strobe?: number;
+  light_landing?: number;
+  light_taxi?: number;
+  rep_fuel_pump?: number;
+  rep_avionics?: number;
+  rep_stall_on?: number;
+  rep_stall_level?: number;
+  rep_rpm?: number;
+  rep_oil_temp_f?: number;
+  rep_oil_psi?: number;
+  rep_ff?: number;
+  rep_cowl?: number;
+  rep_cht_f?: number;
+  rep_egt_f?: number;
+  hdg_true_deg?: number;
+  rep_preheat?: number;
+  rep_plug_fouling?: number;
+  rep_primer?: number;
+  rep_magneto?: number;
+  recorder_version?: number;
+  [key: string]: number | undefined;
 }
 
 export interface FlightSegment {

@@ -25,6 +25,18 @@ const COL_MAP: Record<string, string> = {
   rep_ff: 'fuel_flow', rep_cowl: 'cowl_flap', rep_cht_f: 'cht', rep_egt_f: 'egt',
   head_yaw: 'head_yaw', head_pitch: 'head_pitch', head_roll: 'head_roll',
   view_type: 'view_type',
+  // ── V5 renames (ST-911) — keep V4 keys above for backward compat ──
+  alt_msl_ft: 'alt_msl',       // V5 rename of alt_msl
+  alt_agl_ft: 'alt_agl',       // V5 rename of alt_agl
+  hdg_mag_deg: 'hdg',          // V5 rename of hdg_deg (magnetic heading)
+  // ── V5 new columns (ST-911) ──
+  hdg_true_deg: 'hdg_true',
+  beta_deg: 'beta',
+  rep_preheat: 'rep_preheat',
+  rep_plug_fouling: 'rep_plug_fouling',
+  rep_primer: 'rep_primer',
+  rep_magneto: 'rep_magneto',
+  recorder_version: 'recorder_version',
 };
 
 const INT_COLS = new Set([
