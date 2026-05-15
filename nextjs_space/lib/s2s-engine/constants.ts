@@ -58,6 +58,11 @@ export const COMMITMENT_GATE_DIST_NM = 1.5;    // Must be within 1.5 NM of thres
 export const COMMITMENT_GATE_IAS_TARGET = 65;  // IAS trending toward approach speed
 // END ST-963 Logic
 
+// ── START ST-805C — Ball-Centered Coordination Tolerances ──────────────
+export const BALL_CENTERED_CLIMB_TOLERANCE_DEG = 3.0;       // ±3° slip during climb phases
+export const BALL_CENTERED_SLOW_FLIGHT_TOLERANCE_DEG = 4.0;  // ±4° slip during slow flight (looser due to reduced control effectiveness)
+// ── END ST-805C ────────────────────────────────────────────────────────
+
 // ── Grading Scale ─────────────────────────────────────────────────────
 export const GRADE_LABELS: Record<number, string> = {
   1: 'Rough', 2: 'Developing', 3: 'Solid', 4: 'Sharp', 5: 'Nailed it',
