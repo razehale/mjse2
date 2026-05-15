@@ -1,9 +1,10 @@
 // START ST-802C Logic — Ground School Tab Component
+// Updated ST-805B PR3 — Mental model outcome card
 'use client';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Target, MapPin, AlertCircle, Clock, CheckCircle, Plane, Info } from 'lucide-react';
+import { BookOpen, Target, MapPin, AlertCircle, Clock, CheckCircle, Plane, Info, Brain } from 'lucide-react';
 
 interface GroundSchoolTabProps {
   lesson: any;
@@ -63,12 +64,42 @@ export function GroundSchoolTab({ lesson }: GroundSchoolTabProps) {
   const cfiNotes: string = content?.cfiNotes ?? '';
   // END ST-963 Logic
 
+  // START ST-805B PR3 — Mental model fields from lesson prop
+  const mentalModelOutcome: string | null = lesson?.mentalModelOutcome ?? null;
+  const mentalModelMantra: string | null = lesson?.mentalModelMantra ?? null;
+  // END ST-805B PR3
+
   return (
     <div className="space-y-6">
+      {/* START ST-805B PR3 — Mental Model Outcome Card */}
+      {mentalModelOutcome && (
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="p-5 rounded-xl bg-gradient-to-br from-[#60B5FF]/10 to-cyan-500/5 border border-[#60B5FF]/30"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <Brain className="w-4 h-4 text-[#60B5FF]" />
+            <h3 className="text-sm font-semibold text-white">Mental Model</h3>
+          </div>
+          <p className="text-sm text-white/90 leading-relaxed font-medium">
+            &ldquo;{mentalModelOutcome}&rdquo;
+          </p>
+          {mentalModelMantra && (
+            <div className="mt-3 p-3 rounded-lg bg-[#60B5FF]/5 border border-[#60B5FF]/10">
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Mantra</p>
+              <p className="text-sm font-mono text-[#60B5FF] font-semibold">{mentalModelMantra}</p>
+            </div>
+          )}
+        </motion.div>
+      )}
+      {/* END ST-805B PR3 */}
+
       {/* Header Meta */}
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: mentalModelOutcome ? 0.05 : 0 }}
         className="flex items-center gap-4 text-xs text-muted-foreground"
       >
         {content?.estimatedReadTimeMin && (

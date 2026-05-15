@@ -1,8 +1,12 @@
+// Updated ST-805B PR3 — Structured debrief rendering
 'use client';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { BarChart3, MessageSquare, Eye, CheckCircle, AlertTriangle, Shield, FileText, ChevronDown, ChevronUp, Lightbulb } from 'lucide-react';
+import {
+  BarChart3, MessageSquare, Eye, CheckCircle, AlertTriangle, Shield, FileText,
+  ChevronDown, ChevronUp, Lightbulb, ThumbsUp, Wrench, Compass, ArrowRight, Brain,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useSession } from 'next-auth/react';
 import dynamic from 'next/dynamic';
@@ -21,6 +25,36 @@ interface DebriefTabProps {
   lessonId: string;
   onDebriefViewed: () => void;
 }
+
+// START ST-805B PR3 — Debrief content type + parser
+interface StructuredDebrief {
+  summary: string;
+  what_you_did_well: string[];
+  what_to_fix: string[];
+  coach_callouts: string[];
+  next_focus: string;
+}
+
+function parseDebriefContent(raw: any): StructuredDebrief | null {
+  if (!raw) return null;
+  // If it's a string, try to parse as JSON
+  let parsed = raw;
+  if (typeof raw === 'string') {
+    try { parsed = JSON.parse(raw); } catch { return null; }
+  }
+  // Validate shape
+  if (parsed && typeof parsed === 'object' && typeof parsed.summary === 'string') {
+    return {
+      summary: parsed.summary ?? '',
+      what_you_did_well: Array.isArray(parsed.what_you_did_well) ? parsed.what_you_did_well : [],
+      what_to_fix: Array.isArray(parsed.what_to_fix) ? parsed.what_to_fix : [],
+      coach_callouts: Array.isArray(parsed.coach_callouts) ? parsed.coach_callouts : [],
+      next_focus: parsed.next_focus ?? '',
+    };
+  }
+  return null;
+}
+// END ST-805B PR3
 
 // Map numeric score to grade label
 function gradeLabel(score: number): string {
@@ -55,7 +89,7 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
   const [debriefMarked, setDebriefMarked] = useState(false);
   const [showHtmlReport, setShowHtmlReport] = useState(false);
   const [expandedPhases, setExpandedPhases] = useState<Record<string, boolean>>({});
-  // START ST-802C Logic — Debrief Reveal
+  // START ST-802C Logic — Debrief Reveal (legacy)
   const [debriefReveal, setDebriefReveal] = useState<string[]>([]);
   // END ST-802C Logic
   // START ST-963 Logic — CFI Notes
@@ -64,6 +98,10 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
 
   const isAdmin = (session?.user as any)?.role === 'ADMIN';
   const [showRawData, setShowRawData] = useState(false);
+
+  // START ST-805B PR3 — Structured debrief content from lesson
+  const structuredDebrief = parseDebriefContent(lesson?.debriefContent);
+  // END ST-805B PR3
 
   useEffect(() => {
     if ((sessions?.length ?? 0) > 0 && !selectedSession) {
@@ -220,19 +258,126 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
             )}
           </motion.div>
 
+          {/* START ST-805B PR3 — Structured Debrief Content */}
+          {structuredDebrief && (
+            <>
+              {/* Summary */}
+              {structuredDebrief.summary && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.05 }}
+                  className="p-5 rounded-xl bg-card/30 border border-border/30"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <Brain className="w-4 h-4 text-[#60B5FF]" />
+                    <h3 className="text-sm font-semibold text-white">Debrief Summary</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{structuredDebrief.summary}</p>
+                </motion.div>
+              )}
+
+              {/* What You Did Well (Successes) */}
+              {structuredDebrief.what_you_did_well.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.08 }}
+                  className="p-5 rounded-xl bg-emerald-500/5 border border-emerald-500/20"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <ThumbsUp className="w-4 h-4 text-emerald-400" />
+                    <h3 className="text-sm font-semibold text-white">What You Did Well</h3>
+                  </div>
+                  <ul className="space-y-2">
+                    {structuredDebrief.what_you_did_well.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+
+              {/* What To Fix (Fixes) */}
+              {structuredDebrief.what_to_fix.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.11 }}
+                  className="p-5 rounded-xl bg-amber-500/5 border border-amber-500/20"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <Wrench className="w-4 h-4 text-amber-400" />
+                    <h3 className="text-sm font-semibold text-white">What To Fix</h3>
+                  </div>
+                  <ul className="space-y-2">
+                    {structuredDebrief.what_to_fix.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-amber-400 text-xs mt-0.5">▸</span>
+                        <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+
+              {/* Coach Callouts */}
+              {structuredDebrief.coach_callouts.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.14 }}
+                  className="p-5 rounded-xl bg-purple-500/5 border border-purple-500/20"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <Compass className="w-4 h-4 text-purple-400" />
+                    <h3 className="text-sm font-semibold text-white">Coach Callouts</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {structuredDebrief.coach_callouts.map((item, i) => (
+                      <li key={i} className="p-3 rounded-lg bg-purple-500/5 border border-purple-500/10">
+                        <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+
+              {/* Next Focus */}
+              {structuredDebrief.next_focus && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.17 }}
+                  className="p-4 rounded-xl bg-[#60B5FF]/5 border border-[#60B5FF]/20"
+                >
+                  <div className="flex items-start gap-2">
+                    <ArrowRight className="w-4 h-4 text-[#60B5FF] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-xs font-semibold text-[#60B5FF] mb-1">Next Focus</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{structuredDebrief.next_focus}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </>
+          )}
+          {/* END ST-805B PR3 */}
+
           {/* START ST-802D Logic - GLGL Tracker for L2 */}
           {lesson?.lessonNum === 2 && parsedData?.l2_glgl && (
             <GLGLTracker data={parsedData.l2_glgl} />
           )}
           {/* END ST-802D Logic */}
 
-
           {/* Phase Breakdown */}
           {(phases?.length ?? 0) > 0 && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.2 }}
               className="space-y-2"
             >
               <h3 className="text-sm font-semibold text-white flex items-center gap-2">
@@ -293,15 +438,15 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
 
           {/* Charts */}
           {(sampledRows?.length ?? 0) > 0 && (
-            <DebriefCharts rows={sampledRows} segments={[]} summary={null} />
+            <DebriefCharts rows={sampledRows} segments={[]} summary={null} lessonNum={lesson?.lessonNum ?? 0} />
           )}
 
-          {/* Coaching Bullets */}
-          {(coachingBullets?.length ?? 0) > 0 && (
+          {/* Coaching Bullets (from scoring engine — shown when NO structured debrief) */}
+          {!structuredDebrief && (coachingBullets?.length ?? 0) > 0 && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.25 }}
               className="p-5 rounded-xl bg-card/30 border border-border/30"
             >
               <div className="flex items-center gap-2 mb-3">
@@ -319,12 +464,35 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
             </motion.div>
           )}
 
-          {/* Fallback coaching if no bullets from engine */}
-          {(coachingBullets?.length ?? 0) === 0 && (
+          {/* Scoring engine coaching bullets (shown alongside structured debrief as supplementary) */}
+          {structuredDebrief && (coachingBullets?.length ?? 0) > 0 && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.25 }}
+              className="p-5 rounded-xl bg-card/30 border border-border/30"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <MessageSquare className="w-4 h-4 text-amber-400" />
+                <h3 className="text-sm font-semibold text-white">Scoring Engine Notes</h3>
+              </div>
+              <ul className="space-y-2">
+                {coachingBullets.map((bullet: string, bi: number) => (
+                  <li key={bi} className="flex items-start gap-2">
+                    <span className="text-amber-400 text-xs mt-0.5">▸</span>
+                    <span className="text-sm text-muted-foreground leading-relaxed">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* Fallback coaching if no bullets from engine AND no structured debrief */}
+          {!structuredDebrief && (coachingBullets?.length ?? 0) === 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.25 }}
               className="p-5 rounded-xl bg-card/30 border border-border/30"
             >
               <div className="flex items-center gap-2 mb-3">
@@ -342,7 +510,7 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.25 }}
+              transition={{ delay: 0.3 }}
             >
               <Button
                 variant="outline"
@@ -372,7 +540,7 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.35 }}
               className="p-4 rounded-xl bg-purple-500/5 border border-purple-500/20"
             >
               <div className="flex items-center justify-between mb-2">
@@ -409,8 +577,8 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
             </div>
           )}
 
-          {/* START ST-802C Logic — Debrief Reveal: "What You Just Learned" */}
-          {debriefMarked && (debriefReveal?.length ?? 0) > 0 && (
+          {/* START ST-802C Logic — Debrief Reveal: "What You Just Learned" (legacy — shown only if no structured debrief) */}
+          {debriefMarked && !structuredDebrief && (debriefReveal?.length ?? 0) > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}

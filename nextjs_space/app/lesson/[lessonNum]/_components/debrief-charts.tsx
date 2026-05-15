@@ -1,9 +1,10 @@
+// Updated ST-805B PR3 — Slip/ball chart for coordination visualization
 'use client';
 
 import { useMemo } from 'react';
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend,
-  ScatterChart, Scatter, ReferenceLine,
+  ScatterChart, Scatter, ReferenceLine, ReferenceArea,
 } from 'recharts';
 import { C172_CONSTANTS, KHMP_CONSTANTS } from '@/types/telemetry';
 
@@ -11,9 +12,10 @@ interface DebriefChartsProps {
   rows: any[];
   segments: any[];
   summary: any;
+  lessonNum?: number;
 }
 
-export default function DebriefCharts({ rows, segments, summary }: DebriefChartsProps) {
+export default function DebriefCharts({ rows, segments, summary, lessonNum }: DebriefChartsProps) {
   const altitudeData = useMemo(() => {
     return (rows ?? []).map((r: any, i: number) => ({
       time: Math.round((r?.t_sec ?? 0) * 10) / 10,
@@ -45,6 +47,30 @@ export default function DebriefCharts({ rows, segments, summary }: DebriefCharts
       rudder: Math.round((r?.rudder ?? 0) * 100) / 100,
     }));
   }, [rows]);
+
+  // START ST-805B PR3 — Slip/Ball data for coordination chart (L2-L4)
+  const showSlipChart = (lessonNum ?? 0) >= 2;
+  const slipData = useMemo(() => {
+    if (!showSlipChart) return [];
+    return (rows ?? [])
+      .filter((r: any) => {
+        // Show slip data when airborne (on_ground === 0 or on_gnd === 0)
+        const onGround = r?.on_ground ?? r?.on_gnd ?? 1;
+        return onGround === 0 || onGround === false;
+      })
+      .map((r: any) => ({
+        time: Math.round((r?.t_sec ?? 0) * 10) / 10,
+        slip: Math.round((r?.slip_deg ?? r?.slip ?? 0) * 100) / 100,
+        vs: Math.round(r?.vs_fpm ?? r?.vs ?? 0),
+        ias: Math.round(r?.ias_kts ?? r?.ias ?? 0),
+      }));
+  }, [rows, showSlipChart]);
+
+  // Determine tolerance based on lesson
+  const climbTolerance = 3.0;
+  const slowFlightTolerance = 4.0;
+  const displayTolerance = (lessonNum ?? 0) === 3 ? slowFlightTolerance : climbTolerance;
+  // END ST-805B PR3
 
   return (
     <div className="space-y-6">
@@ -167,6 +193,45 @@ export default function DebriefCharts({ rows, segments, summary }: DebriefCharts
           </ResponsiveContainer>
         </ChartCard>
       )}
+
+      {/* START ST-805B PR3 — Slip/Ball Coordination Chart */}
+      {showSlipChart && (slipData?.length ?? 0) > 5 && (
+        <ChartCard title="Coordination — Slip/Skid Ball (Airborne)">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={slipData} margin={{ top: 10, right: 10, bottom: 25, left: 15 }}>
+              <XAxis
+                dataKey="time"
+                tickLine={false}
+                tick={{ fontSize: 10 }}
+                interval="preserveStartEnd"
+                label={{ value: 'Time (s)', position: 'insideBottom', offset: -15, style: { textAnchor: 'middle', fontSize: 11 } }}
+              />
+              <YAxis
+                tickLine={false}
+                tick={{ fontSize: 10 }}
+                domain={[-8, 8]}
+                label={{ value: 'Slip (°)', angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fontSize: 11 } }}
+              />
+              <Tooltip
+                contentStyle={{ fontSize: 11, backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: 8 }}
+                formatter={(value: any, name: string) => {
+                  if (name === 'Slip') return [`${value}°`, 'Slip'];
+                  return [value, name];
+                }}
+              />
+              <Legend verticalAlign="top" wrapperStyle={{ fontSize: 11 }} />
+              {/* Tolerance zone — ±3° for climb, ±4° for slow flight */}
+              <ReferenceArea y1={-climbTolerance} y2={climbTolerance} fill="#80D8C3" fillOpacity={0.08} label={{ value: `±${climbTolerance}°`, fontSize: 9, fill: '#80D8C3', position: 'right' }} />
+              {(lessonNum ?? 0) === 3 && (
+                <ReferenceArea y1={-slowFlightTolerance} y2={slowFlightTolerance} fill="#A19AD3" fillOpacity={0.05} label={{ value: `±${slowFlightTolerance}°`, fontSize: 9, fill: '#A19AD3', position: 'right' }} />
+              )}
+              <ReferenceLine y={0} stroke="#80D8C380" strokeDasharray="3 3" label={{ value: 'Centered', fontSize: 9, fill: '#80D8C3' }} />
+              <Line type="monotone" dataKey="slip" name="Slip" stroke="#FF9149" dot={false} strokeWidth={1.5} />
+            </LineChart>
+          </ResponsiveContainer>
+        </ChartCard>
+      )}
+      {/* END ST-805B PR3 */}
 
       {/* Segments timeline */}
       {(segments?.length ?? 0) > 0 && (
