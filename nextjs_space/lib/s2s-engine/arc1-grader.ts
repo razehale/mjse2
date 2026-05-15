@@ -8,6 +8,7 @@ import {
   VR, VY, V_APPROACH, V_DOWNWIND, RWY_24, RWY_06, RWY06_POWERLINE_MSL,
   PATTERN_ALT_MSL, KHMP_ELEVATION_MSL, headingDiff, headingDiffAbs,
   haversineFt, gradeLabel,
+  BALL_CENTERED_CLIMB_TOLERANCE_DEG, BALL_CENTERED_SLOW_FLIGHT_TOLERANCE_DEG,
 } from './constants';
 import {
   MetricResult, PhaseResult, SafetyFlag, LessonResult,
@@ -267,6 +268,22 @@ export function gradeL2(df: TelemetryDataFrame, studentId = 'unknown', flightId 
   if (flapPassCount < 2) result.coachingBullets.push(`Flap sequence correct in only ${flapPassCount}/3 cycles (need 2/3).`);
   if (trimPassCount < 2) result.coachingBullets.push(`Trim set correctly in only ${trimPassCount}/3 cycles (need 2/3).`);
 
+  // START ST-805C — L2 ball_centered_climb (scoring_weight: 1)
+  const l2BallClimb = scoreBallCenteredClimb(df, phases);
+  if (l2BallClimb) {
+    const ballClimbPr: PhaseResult = {
+      phase: 'coordination_climb', startT: 0, endT: 0,
+      metrics: [l2BallClimb],
+      score: 0, grade: '', coaching: [],
+    };
+    computePhaseScore(ballClimbPr);
+    result.phases.push(ballClimbPr);
+    if (l2BallClimb.score < 3) {
+      result.coachingBullets.push(`⚠️ Ball not centered during climb — mean slip ${l2BallClimb.value}°. Apply right rudder to compensate for left-turning tendencies.`);
+    }
+  }
+  // END ST-805C
+
   addSafetyFlags(df, phases, result);
 
   // START ST-963 Logic — GTGL detection with Commitment Gate + Early GA + Safety Overrides
@@ -488,6 +505,37 @@ export function gradeL3(df: TelemetryDataFrame, studentId = 'unknown', flightId 
     result.coachingBullets.push('No steep turn maneuvers detected.');
   }
 
+  // START ST-805C — L3 ball_centered_climb (scoring_weight: 1)
+  const l3BallClimb = scoreBallCenteredClimb(df, phases);
+  if (l3BallClimb) {
+    const ballClimbPr: PhaseResult = {
+      phase: 'coordination_climb', startT: 0, endT: 0,
+      metrics: [l3BallClimb],
+      score: 0, grade: '', coaching: [],
+    };
+    computePhaseScore(ballClimbPr);
+    result.phases.push(ballClimbPr);
+    if (l3BallClimb.score < 3) {
+      result.coachingBullets.push(`⚠️ Ball not centered during climb — mean slip ${l3BallClimb.value}°. All four left-turning tendencies are active during climb and stall recovery.`);
+    }
+  }
+
+  // L3 ball_centered_slow_flight (scoring_weight: 1)
+  const l3BallSlow = scoreBallCenteredSlowFlight(df, phases);
+  if (l3BallSlow) {
+    const ballSlowPr: PhaseResult = {
+      phase: 'coordination_slow_flight', startT: 0, endT: 0,
+      metrics: [l3BallSlow],
+      score: 0, grade: '', coaching: [],
+    };
+    computePhaseScore(ballSlowPr);
+    result.phases.push(ballSlowPr);
+    if (l3BallSlow.score < 3) {
+      result.coachingBullets.push(`⚠️ Ball not centered during slow flight — mean slip ${l3BallSlow.value}°. P-factor and torque are pronounced at high AoA.`);
+    }
+  }
+  // END ST-805C
+
   addSafetyFlags(df, phases, result);
   computeOverallScore(result);
   result.passed = result.overallScore >= 3;
@@ -564,6 +612,31 @@ export function gradeL4(df: TelemetryDataFrame, studentId = 'unknown', flightId 
     result.coachingBullets.push(`Only ${landingEvents.length} landing(s) detected — L4 requires 5 T&Gs + 1 emergency.`);
   }
 
+  // START ST-805C — L4 ball_centered_climb (scoring_weight: 2, check flight — higher weight)
+  const l4BallClimb = scoreBallCenteredClimb(df, phases);
+  if (l4BallClimb) {
+    // L4 check flight gives ball-centering double weight by adding two phase entries
+    const ballClimbPr: PhaseResult = {
+      phase: 'coordination_climb', startT: 0, endT: 0,
+      metrics: [l4BallClimb],
+      score: 0, grade: '', coaching: [],
+    };
+    computePhaseScore(ballClimbPr);
+    result.phases.push(ballClimbPr);
+    // Second entry for weight=2 effect (check flight emphasizes coordination)
+    const ballClimbPr2: PhaseResult = {
+      phase: 'coordination_climb_weight', startT: 0, endT: 0,
+      metrics: [{ ...l4BallClimb, name: 'ball_centered_climb_emphasis' }],
+      score: 0, grade: '', coaching: [],
+    };
+    computePhaseScore(ballClimbPr2);
+    result.phases.push(ballClimbPr2);
+    if (l4BallClimb.score < 3) {
+      result.coachingBullets.push(`⚠️ Ball not centered during climb phases — mean slip ${l4BallClimb.value}°. Check flight demands consistent right-rudder discipline across all 5 climbs.`);
+    }
+  }
+  // END ST-805C
+
   addSafetyFlags(df, phases, result);
   computeOverallScore(result);
   const quizOk = result.externalRequirements.machado_quiz_pass !== false;
@@ -571,6 +644,146 @@ export function gradeL4(df: TelemetryDataFrame, studentId = 'unknown', flightId 
   generateCoaching(result);
   return result;
 }
+
+// ========== START ST-805C — Ball-Centered Coordination Scoring ==========
+
+/**
+ * Score ball-centering (coordination) during climb phases.
+ * Uses slip_deg from telemetry. Lower absolute slip = better coordination.
+ * Returns a MetricResult with a 1-5 score.
+ *
+ * @param df - Telemetry dataframe
+ * @param phases - Detected flight phases
+ * @param toleranceDeg - Threshold in degrees (default: BALL_CENTERED_CLIMB_TOLERANCE_DEG)
+ * @returns MetricResult for ball_centered_climb, or null if no climb data
+ */
+export function scoreBallCenteredClimb(
+  df: TelemetryDataFrame,
+  phases: FlightPhase[],
+  toleranceDeg: number = BALL_CENTERED_CLIMB_TOLERANCE_DEG,
+): MetricResult | null {
+  const slipArr = col(df, 'slip');
+  const vsArr = col(df, 'vs');
+  const onGroundArr = col(df, 'on_ground');
+
+  // Collect slip samples during climb phases (VS > 200 fpm, airborne)
+  const climbPhases = phases.filter(p =>
+    p.phase === 'INITIAL_CLIMB' || p.phase === 'CLIMB' || p.phase === 'TAKEOFF_CLIMB'
+  );
+
+  const slipSamples: number[] = [];
+
+  if (climbPhases.length > 0) {
+    // Use detected climb phases
+    for (const cp of climbPhases) {
+      for (let i = cp.startIdx; i <= cp.endIdx; i++) {
+        if (onGroundArr[i] === 0 && vsArr[i] > 200) {
+          slipSamples.push(Math.abs(slipArr[i]));
+        }
+      }
+    }
+  }
+
+  // Fallback: scan entire flight for climb segments (VS > 200, airborne)
+  if (slipSamples.length === 0) {
+    for (let i = 0; i < df.length; i++) {
+      if (onGroundArr[i] === 0 && vsArr[i] > 200) {
+        slipSamples.push(Math.abs(slipArr[i]));
+      }
+    }
+  }
+
+  if (slipSamples.length === 0) return null;
+
+  const meanSlip = slipSamples.reduce((a, b) => a + b, 0) / slipSamples.length;
+  const maxSlip = Math.max(...slipSamples);
+  const pctWithin = slipSamples.filter(s => s <= toleranceDeg).length / slipSamples.length;
+
+  // Score based on percentage of samples within tolerance + mean deviation
+  // 100% within tolerance + low mean → 5, poor → 1
+  let score = 1.0 + 4.0 * pctWithin;
+  // Penalty for high mean slip even if most samples within tolerance
+  if (meanSlip > toleranceDeg) {
+    score = Math.max(1.0, score - (meanSlip - toleranceDeg) * 0.5);
+  }
+  score = Math.round(Math.max(1.0, Math.min(5.0, score)) * 100) / 100;
+
+  return {
+    name: 'ball_centered_climb',
+    value: Math.round(meanSlip * 100) / 100,
+    target: 0,
+    tolerance: toleranceDeg,
+    score,
+    grade: gradeLabel(score),
+    detail: `Mean slip: ${meanSlip.toFixed(1)}° | Max: ${maxSlip.toFixed(1)}° | Within ±${toleranceDeg}°: ${(pctWithin * 100).toFixed(0)}% (${slipSamples.length} samples)`,
+  };
+}
+
+/**
+ * Score ball-centering during slow flight phases.
+ * Uses slip_deg from telemetry. Looser tolerance than climb (4° vs 3°).
+ *
+ * @param df - Telemetry dataframe
+ * @param phases - Detected flight phases
+ * @param toleranceDeg - Threshold in degrees (default: BALL_CENTERED_SLOW_FLIGHT_TOLERANCE_DEG)
+ * @returns MetricResult for ball_centered_slow_flight, or null if no slow flight data
+ */
+export function scoreBallCenteredSlowFlight(
+  df: TelemetryDataFrame,
+  phases: FlightPhase[],
+  toleranceDeg: number = BALL_CENTERED_SLOW_FLIGHT_TOLERANCE_DEG,
+): MetricResult | null {
+  const slipArr = col(df, 'slip');
+  const iasArr = col(df, 'ias');
+  const onGroundArr = col(df, 'on_ground');
+
+  // Collect slip samples during slow flight phases
+  const slowPhases = phases.filter(p => p.phase === 'SLOW_FLIGHT');
+  const slipSamples: number[] = [];
+
+  if (slowPhases.length > 0) {
+    for (const sp of slowPhases) {
+      for (let i = sp.startIdx; i <= sp.endIdx; i++) {
+        if (onGroundArr[i] === 0) {
+          slipSamples.push(Math.abs(slipArr[i]));
+        }
+      }
+    }
+  }
+
+  // Fallback: scan for slow flight segments (IAS < 60, airborne)
+  if (slipSamples.length === 0) {
+    for (let i = 0; i < df.length; i++) {
+      if (onGroundArr[i] === 0 && iasArr[i] < 60 && iasArr[i] > 30) {
+        slipSamples.push(Math.abs(slipArr[i]));
+      }
+    }
+  }
+
+  if (slipSamples.length === 0) return null;
+
+  const meanSlip = slipSamples.reduce((a, b) => a + b, 0) / slipSamples.length;
+  const maxSlip = Math.max(...slipSamples);
+  const pctWithin = slipSamples.filter(s => s <= toleranceDeg).length / slipSamples.length;
+
+  let score = 1.0 + 4.0 * pctWithin;
+  if (meanSlip > toleranceDeg) {
+    score = Math.max(1.0, score - (meanSlip - toleranceDeg) * 0.5);
+  }
+  score = Math.round(Math.max(1.0, Math.min(5.0, score)) * 100) / 100;
+
+  return {
+    name: 'ball_centered_slow_flight',
+    value: Math.round(meanSlip * 100) / 100,
+    target: 0,
+    tolerance: toleranceDeg,
+    score,
+    grade: gradeLabel(score),
+    detail: `Mean slip: ${meanSlip.toFixed(1)}° | Max: ${maxSlip.toFixed(1)}° | Within ±${toleranceDeg}°: ${(pctWithin * 100).toFixed(0)}% (${slipSamples.length} samples)`,
+  };
+}
+
+// ========== END ST-805C ==========
 
 // ========== Shared helpers ==========
 
