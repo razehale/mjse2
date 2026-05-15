@@ -1,0 +1,98 @@
+[
+  {
+    "lesson": "L1",
+    "title": "Long Walk",
+    "mentalModel": "Physical Intimacy",
+    "debrief": {
+      "summary": "The airplane felt busy because pitch, power, speed, and altitude were all moving at once. You were managing everything manually — no framework, no system, just raw inputs. That's why it was hard. The controls do what you tell them, but they don't think for you.",
+      "what_you_did_well": [
+        "You removed chocks, tiedowns, pitot cover, and towbar. REP walk-around complete.",
+        "You rotated near 55, climbed near 74, approached near 65. The numbers weren't perfect but you were in the range.",
+        "You kept the airport in sight and landed on the runway. First flight, gear down, no drama."
+      ],
+      "what_to_fix": [
+        "Every input has a consequence. You're making big corrections when small ones would do. Small stick, small result. Big stick, big surprise.",
+        "You may have noticed the airplane pulling left during takeoff and climb. That's real. It's not a trim problem. Your feet matter as much as your hands — use rudder to track straight.",
+        "Head up. Eyes outside. Stop scanning the panel like it has the answers. The horizon is your primary instrument right now."
+      ],
+      "coach_callouts": [
+        "What moved today: your hands moved the ailerons and elevator. Your feet moved the rudder. The throttle moved the power. Physical cause, physical effect. That's the entire lesson.",
+        "What you felt: pressure through the yoke, resistance in the pedals, the seat pushing back during the climb. That feedback is real data. Learn to trust it before the gauges.",
+        "What to notice next time: how the airplane tells you what it's doing before the instruments do. Vibration, pressure changes, pitch attitude shifting. Feel first, confirm on the panel second."
+      ],
+      "next_focus": "Lesson 2 introduces the Energy Management model — the framework that calms things down. Power controls energy. Pitch distributes it. That one idea organizes everything you just did."
+    }
+  },
+  {
+    "lesson": "L2",
+    "title": "Energy Management",
+    "mentalModel": "Energy Management",
+    "debrief": {
+      "summary": "Power = Energy. Pitch = Distribution. That's the model. Everything you did today — climbs, descents, the go-around, the pattern — was an energy transaction. Configuring early with flaps and trim made the final approach stable. Final is for aiming, not fixing.",
+      "what_you_did_well": [
+        "You used power changes to manage total energy state. Add power = more energy. Reduce power = less. You saw the relationship in the climb and descent.",
+        "You executed the go-around. That's not a failure — it's an energy state transition from low to high. Full power, pitch up, flaps incremental, climb away.",
+        "You trimmed for hands-off flight on downwind. That's workload reduction — managing energy instead of fighting the yoke."
+      ],
+      "what_to_fix": [
+        "Ball centered in the climb. This is graded. You felt the left-turning tendencies during every climb — P-factor, torque, spiraling slipstream, gyroscopic precession. All four push you left when power is high. Right rudder. Check the ball.",
+        "Stop chasing airspeed with the throttle. Power sets total energy. Pitch distributes it. If you're slow and level, pitch down — don't add power unless you need to change the total energy state.",
+        "Configure earlier. Flaps 10 abeam, flaps 20 on base, flaps 30 on final. Late configuration means you're fixing on final instead of aiming."
+      ],
+      "coach_callouts": [
+        "Power = Energy. Pitch = Distribution. Say it until it's automatic. This is the framework for everything from here forward.",
+        "The go-around proved the model. You were in a low-energy state on approach. Full power injected maximum energy. Pitch directed it upward. That's not an emergency — that's energy management working exactly as designed.",
+        "You compensated for left-turning tendencies with right rudder during every climb. That compensation becomes more critical at the edges of the envelope. The ball tells you everything."
+      ],
+      "next_focus": "Lesson 3 shows you where the edges are — and why the airplane behaves differently near them. Same energy model, but now you'll feel what happens when energy runs low and when load runs high."
+    }
+  },
+  {
+    "lesson": "L3",
+    "title": "Envelope Awareness",
+    "mentalModel": "Envelope Awareness",
+    "debrief": {
+      "summary": "Slow flight and stalls are the low-energy boundary of the flight envelope. Steep turns are the high-load boundary. They are connected — not separate maneuvers. You explored both edges today. The airplane behaves differently near its limits, and now you know what that looks and feels like.",
+      "what_you_did_well": [
+        "You held slow flight at the low-energy boundary without panicking. Buffet, mushy controls, high nose attitude — you recognized the signals.",
+        "Stall recovery sequence was correct: reduce AoA, full power, level wings, climb. The wing exceeds critical angle of attack — recovery is always the same.",
+        "In steep turns you felt the load factor increase. Back-pressure to hold altitude, stall speed rising to ~57 KIAS at 45° bank. That's you feeling the envelope shrink."
+      ],
+      "what_to_fix": [
+        "Stall recovery needs to be faster. Reduce AoA and add full power simultaneously, not sequentially. Every second of delay costs altitude you don't have at the boundary.",
+        "In steep turns, the safe envelope shrinks. Load factor increases, stall speed rises. You're losing altitude because you're not adding enough back-pressure to compensate. Respect the boundary.",
+        "Left-turning tendencies are most pronounced at high power, low speed, and high AoA — exactly where you were operating today. Right rudder compensates. The ball confirms. Don't forget it at the edges."
+      ],
+      "coach_callouts": [
+        "Slow flight is not a maneuver you practice and forget. It's the low-energy boundary. The airplane is almost out of margin. A stall is what happens when you cross that boundary — the wing exceeds critical angle and lift collapses.",
+        "Steep turns are the high-load boundary. At 45° bank, load factor is ~1.41G and stall speed jumps 19%. The low-energy edge moved closer to you. Pulling harder when already slow pushes you toward a boundary that's already closer than normal.",
+        "These edges are connected through energy. That's the point. Envelope awareness is not a list of maneuvers — it's understanding where you are relative to the boundaries at all times."
+      ],
+      "next_focus": "Lesson 4 is your Arc 1 Check Flight. Five touch-and-goes, an emergency landing on Rwy 06, and no coaching. You'll link everything under pressure. The Theory Reveal in the debrief will connect all three mental models."
+    }
+  },
+  {
+    "lesson": "L4",
+    "title": "Arc 1 Check Flight + Theory Reveal",
+    "mentalModel": "Unified Framework (Physical Intimacy + Energy Management + Envelope Awareness)",
+    "debrief": {
+      "summary": "Arc 1 is complete. Here's what was actually happening across the last four lessons. Physical Intimacy gave you the airplane's feel. Energy Management gave you the framework for controlling it. Envelope Awareness showed you where the boundaries are. Together: you understand the airplane as a physical machine, an energy system you manage with power and pitch, operating within a bounded envelope where the rules change near the edges.",
+      "what_you_did_well": [
+        "Five touch-and-goes with consistent energy management. Power transitions were deliberate. Downwind at 90, approach at 65, climbs at 74. The numbers had purpose.",
+        "Emergency on Rwy 06: you established best glide at 68 KIAS without pulling to stretch. Energy management under pressure — you managed the energy you had instead of wishing for more.",
+        "You recognized boundary cues throughout — buffet onset, control softening, ball displacement during power changes. Physical intimacy in action."
+      ],
+      "what_to_fix": [
+        "Ball discipline during power transitions. You know the four left-turning tendencies exist. Anticipate them — lead with rudder when you add power, don't wait for the yaw to start.",
+        "Stall recovery altitude loss is still too high. Faster on the power, crisper on the pitch reduction. The energy deficit at the low-energy boundary costs altitude every second you delay.",
+        "Steep turn rollout: you're overshooting heading by 10–15°. Lead the rollout by half your bank angle. At 45° bank, start rolling wings level 20–25° before your target heading."
+      ],
+      "coach_callouts": [
+        "Theory Reveal: L1 was Physical Intimacy — the airplane responds to your inputs. That's the foundation. You can't manage what you can't feel. L2 was Energy Management — Power = Energy, Pitch = Distribution. That's the operating system. L3 was Envelope Awareness — you learned where the edges are and what boundary behavior feels like. These three models stack. Feel it. Manage it. Know the limits.",
+        "Every maneuver you've flown is a combination of these three models. A climb is an energy decision with physical feedback at a point inside the envelope. A stall is a boundary crossing with physical cues you were trained to recognize. Nothing is isolated.",
+        "This framework doesn't change. It scales. Every new maneuver, every new phase, same three lenses. The complexity increases. The models don't."
+      ],
+      "next_focus": "Arc 2: Pattern Master. These three models go into the traffic pattern at KHMP. Elevation 882 MSL, pattern altitude 1,882 MSL, downwind at 90, approach at 65. The environment gets more structured. The decisions get faster. Energy management becomes real-time. Same models, higher tempo."
+    }
+  }
+]

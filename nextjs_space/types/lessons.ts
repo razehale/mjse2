@@ -22,7 +22,30 @@ export interface LessonData {
   flightRubricProductionNotes: string | null;
   mediaProductionNotes: string | null;
   scoringTuningNotes: string | null;
+  // START ST-805B Logic — Mental model + debrief fields
+  debriefContent: DebriefContent | null;
+  mentalModelOutcome: string | null;
+  mentalModelMantra: string | null;
+  triggerThresholds: string | null;
+  // END ST-805B Logic
 }
+
+// START ST-805B Logic — Debrief content structure
+export interface DebriefContent {
+  summary: string;
+  what_you_did_well: string[];
+  what_to_fix: string[];
+  coach_callouts: string[];
+  next_focus: string;
+}
+
+export interface DebriefEntry {
+  lesson: string;
+  title: string;
+  mentalModel: string;
+  debrief: DebriefContent;
+}
+// END ST-805B Logic
 
 export interface UserProgressData {
   id: string;

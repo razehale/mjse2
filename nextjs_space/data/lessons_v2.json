@@ -1,0 +1,471 @@
+{
+  "meta": {
+    "version": "2.0",
+    "ticket": "ST-805",
+    "date": "2026-05-14",
+    "description": "Arc 1 Mental Model pedagogy refactor. Chef-Mode lesson architecture.",
+    "acs_reference": "FAA-S-ACS-6C"
+  },
+  "lessons": [
+    {
+      "lessonNum": 1,
+      "lessonTitle": "Long Walk",
+      "subtitle": "Physical Intimacy",
+      "arc": 1,
+      "arcTitle": "Mechanical Intimacy",
+      "mentalModelOutcome": "The airplane responds to my inputs",
+      "mentalModelMantra": null,
+      "description": "First flight. REP walk-around, taxi, takeoff, circuit, landing. Pure physical interaction with the airplane. Observation seed planted for left-turning tendencies — notice it, correct with rudder, no theory yet.",
+      "mode": "Free Tower",
+      "studentLevel": "Crawl",
+      "workload": "Low",
+      "estimatedReadTime": "5 minutes",
+      "acsAlignment": ["PA.I", "PA.II", "PA.III", "PA.IV.A"],
+      "isCheckFlight": false,
+      "isGate": false,
+      "prerequisite": null,
+      "trigger_thresholds": {
+        "walkaround_complete": {
+          "description": "All REP items removed (chocks, tiedowns, pitot cover, towbar)",
+          "required": true,
+          "scoring_weight": 1
+        },
+        "rotation_speed": {
+          "target_kias": 55,
+          "tolerance_kias": 10,
+          "scoring_weight": 1
+        },
+        "climb_speed": {
+          "target_kias": 74,
+          "tolerance_kias": 10,
+          "scoring_weight": 1
+        },
+        "approach_speed": {
+          "target_kias": 65,
+          "tolerance_kias": 10,
+          "scoring_weight": 1
+        },
+        "landing_on_runway": {
+          "description": "Touchdown on runway surface, not beside it",
+          "required": true,
+          "scoring_weight": 2
+        }
+      },
+      "quizSeeds": [],
+      "quizNote": "No quiz after L1. First quiz appears after L2, testing L1 ground school (Forces of Flight)."
+    },
+    {
+      "lessonNum": 2,
+      "lessonTitle": "Energy Management",
+      "subtitle": "Power = Energy, Pitch = Distribution",
+      "arc": 1,
+      "arcTitle": "Mechanical Intimacy",
+      "mentalModelOutcome": "I manage energy with power and pitch",
+      "mentalModelMantra": "Power = Energy. Pitch = Distribution.",
+      "description": "Energy Management mental model. The airplane is an energy system: power adds energy, pitch distributes it between speed and altitude. Flaps manage drag. Trim reduces workload. Left-turning tendencies introduced — P-factor, torque, spiraling slipstream, gyroscopic precession. Right rudder in climb scored via ball-centering. Go-around, touch-and-go, full stop drills framed as energy state transitions.",
+      "mode": "Free Tower",
+      "studentLevel": "Crawl",
+      "workload": "Low",
+      "estimatedReadTime": "7 minutes",
+      "acsAlignment": ["PA.III", "PA.IV.A", "PA.IV.B", "PA.IV.N", "PA.I.F"],
+      "isCheckFlight": false,
+      "isGate": false,
+      "prerequisite": 1,
+      "trigger_thresholds": {
+        "walkaround_complete": {
+          "description": "REP walkaround completed",
+          "required": true,
+          "scoring_weight": 1
+        },
+        "go_around_executed": {
+          "description": "Go-around initiated from short final: full power, pitch up, flaps incremental, climb",
+          "required": true,
+          "scoring_weight": 2
+        },
+        "touch_and_go_executed": {
+          "description": "Touch-and-go: land, reconfigure, rotate, climb",
+          "required": true,
+          "scoring_weight": 2
+        },
+        "full_stop_landing": {
+          "description": "Full stop landing with stabilized approach",
+          "required": true,
+          "scoring_weight": 2
+        },
+        "downwind_speed": {
+          "target_kias": 90,
+          "tolerance_kias": 10,
+          "scoring_weight": 1
+        },
+        "approach_speed": {
+          "target_kias": 65,
+          "tolerance_kias": 10,
+          "scoring_weight": 1
+        },
+        "trim_set_downwind": {
+          "description": "Hands-off level flight on downwind — no sustained back pressure at 90 KIAS",
+          "required": false,
+          "scoring_weight": 1
+        },
+        "ball_centered_climb": {
+          "description": "Slip/skid ball centered (±0.5 ball width) during climb phases. Measures left-turning tendency compensation via right rudder.",
+          "dataref": "sim/cockpit2/gauges/indicators/slip_deg",
+          "threshold_deg": 3.0,
+          "phase": "climb",
+          "required": false,
+          "scoring_weight": 1,
+          "note": "New ST-805. Scores coordination during climb. Strongly correlates with right-rudder discipline."
+        }
+      },
+      "quizSeeds": [
+        {
+          "id": "L2Q1",
+          "question": "During your Lesson 1 takeoff, the airplane became airborne at 55 KIAS. What happened at that moment?",
+          "options": [
+            "Thrust exceeded drag, causing the airplane to accelerate past its structural limit",
+            "Lift generated by the wings exceeded the weight of the airplane",
+            "The engine reached maximum RPM and forced the airplane off the ground",
+            "Drag decreased to zero, allowing the airplane to float"
+          ],
+          "correctIndex": 1,
+          "explanation": "At rotation speed, the wings generate enough lift to overcome the airplane's weight. The airplane flies because lift > weight.",
+          "acsRef": "PA.I.F"
+        },
+        {
+          "id": "L2Q2",
+          "question": "On downwind during Lesson 1, the airplane maintained level flight at a constant altitude and airspeed. Which statement best describes the four forces?",
+          "options": [
+            "Thrust is greater than drag, and lift is greater than weight",
+            "Thrust equals drag, and lift equals weight — all four forces are in equilibrium",
+            "Only lift and weight are acting; thrust and drag are negligible at pattern speed",
+            "Drag is greater than thrust, but lift compensates by increasing"
+          ],
+          "correctIndex": 1,
+          "explanation": "In unaccelerated, level flight at constant speed, all four forces are balanced: thrust = drag, lift = weight.",
+          "acsRef": "PA.I.F"
+        },
+        {
+          "id": "L2Q3",
+          "question": "When you reduced power on your Lesson 1 approach, the nose dropped and the airplane began descending. Why?",
+          "options": [
+            "Reducing power caused the wings to stall immediately",
+            "The airplane's weight shifted forward when the throttle was pulled back",
+            "Less power meant less thrust, which meant less speed, which meant less lift — weight began exceeding lift",
+            "Drag increased when the throttle was reduced, pushing the nose down"
+          ],
+          "correctIndex": 2,
+          "explanation": "Reducing power starts a chain: less thrust → airplane decelerates → less airflow over wings → less lift → weight wins → airplane descends.",
+          "acsRef": "PA.I.F"
+        },
+        {
+          "id": "L2Q4",
+          "question": "Which force directly opposes the forward motion of the airplane through the air?",
+          "options": ["Weight", "Lift", "Thrust", "Drag"],
+          "correctIndex": 3,
+          "explanation": "Drag is the aerodynamic resistance that opposes the airplane's motion through the air.",
+          "acsRef": "PA.I.F"
+        },
+        {
+          "id": "L2Q5",
+          "question": "During your Lesson 1 climb after takeoff, thrust was greater than drag. What was the relationship between lift and weight?",
+          "options": [
+            "Lift was less than weight — the airplane was sinking while climbing",
+            "Lift was equal to weight — the airplane was in equilibrium",
+            "Lift had an upward component exceeding weight, allowing altitude gain",
+            "Weight was zero during the climb because the airplane was airborne"
+          ],
+          "correctIndex": 2,
+          "explanation": "During a climb, the lift vector has a vertical component exceeding weight, allowing the airplane to gain altitude.",
+          "acsRef": "PA.I.F"
+        }
+      ]
+    },
+    {
+      "lessonNum": 3,
+      "lessonTitle": "Envelope Awareness",
+      "subtitle": "Know Where the Edges Are",
+      "arc": 1,
+      "arcTitle": "Mechanical Intimacy",
+      "mentalModelOutcome": "I know where the edges are and how to stay inside them",
+      "mentalModelMantra": "Low-energy boundary. High-load boundary. Stay inside.",
+      "description": "Flight envelope model. Slow flight and stalls explore the low-energy boundary. Steep turns explore the high-load boundary. Left-turning tendencies formally named and connected to envelope edges — P-factor, torque, slipstream, and precession are strongest near the low-energy edge. Ball-centering scored during slow flight and stall recovery.",
+      "mode": "Free Tower",
+      "studentLevel": "Crawl",
+      "workload": "Low-Medium",
+      "estimatedReadTime": "8 minutes",
+      "acsAlignment": ["PA.VII.A", "PA.VII.B", "PA.V.A", "PA.II", "PA.I.F"],
+      "isCheckFlight": false,
+      "isGate": false,
+      "prerequisite": 2,
+      "trigger_thresholds": {
+        "walkaround_complete": {
+          "description": "Full preflight checklist completed",
+          "required": true,
+          "scoring_weight": 1
+        },
+        "slow_flight_sustained": {
+          "description": "Maintained 50-55 KIAS for ≥30 seconds with altitude ±100 ft",
+          "target_kias_min": 50,
+          "target_kias_max": 55,
+          "duration_seconds": 30,
+          "altitude_tolerance_ft": 100,
+          "required": true,
+          "scoring_weight": 2
+        },
+        "stall_recovery": {
+          "description": "Power-off stall recognized at buffet/break. Recovery: reduce AoA → full power → level wings → climb. Correct sequence verified.",
+          "required": true,
+          "scoring_weight": 3,
+          "sequence": ["reduce_aoa", "full_power", "level_wings", "climb"]
+        },
+        "steep_turn_left": {
+          "description": "Left steep turn: 45° bank ±5°, altitude ±100 ft, rollout on entry heading ±10°",
+          "bank_target_deg": 45,
+          "bank_tolerance_deg": 5,
+          "altitude_tolerance_ft": 100,
+          "heading_tolerance_deg": 10,
+          "required": true,
+          "scoring_weight": 2
+        },
+        "steep_turn_right": {
+          "description": "Right steep turn: same standards as left",
+          "bank_target_deg": 45,
+          "bank_tolerance_deg": 5,
+          "altitude_tolerance_ft": 100,
+          "heading_tolerance_deg": 10,
+          "required": true,
+          "scoring_weight": 2
+        },
+        "ball_centered_climb": {
+          "description": "Ball centered during climb to practice area and stall recovery full-power phases",
+          "dataref": "sim/cockpit2/gauges/indicators/slip_deg",
+          "threshold_deg": 3.0,
+          "phase": ["climb", "stall_recovery"],
+          "required": false,
+          "scoring_weight": 1,
+          "note": "ST-805. Extended to stall recovery phase — all four left-turning tendencies active during recovery."
+        },
+        "ball_centered_slow_flight": {
+          "description": "Ball centered during slow flight — P-factor and torque pronounced at high AoA with power",
+          "dataref": "sim/cockpit2/gauges/indicators/slip_deg",
+          "threshold_deg": 4.0,
+          "phase": "slow_flight",
+          "required": false,
+          "scoring_weight": 1,
+          "note": "ST-805. Looser threshold during slow flight (4° vs 3°) due to reduced control effectiveness."
+        }
+      },
+      "quizSeeds": [
+        {
+          "id": "L3Q1",
+          "question": "In the Energy Management model taught in L2, what does power (throttle) primarily control?",
+          "options": [
+            "Airspeed",
+            "Total energy entering the system",
+            "Flap position",
+            "Trim setting"
+          ],
+          "correctIndex": 1,
+          "explanation": "Power controls how much total energy the airplane has. Pitch distributes it between speed and altitude.",
+          "acsRef": "PA.I.F"
+        },
+        {
+          "id": "L3Q2",
+          "question": "During your L2 climb-out, you needed right rudder to keep the ball centered. Which is NOT one of the four left-turning tendencies?",
+          "options": [
+            "P-factor (asymmetric thrust)",
+            "Adverse yaw",
+            "Torque reaction",
+            "Spiraling slipstream"
+          ],
+          "correctIndex": 1,
+          "explanation": "Adverse yaw is caused by aileron deflection, not propeller effects. The four are P-factor, torque, spiraling slipstream, and gyroscopic precession.",
+          "acsRef": "PA.I.F"
+        },
+        {
+          "id": "L3Q3",
+          "question": "According to the Energy Management model, what does pitch (yoke fore/aft) primarily control?",
+          "options": [
+            "Engine RPM",
+            "Flap configuration",
+            "Distribution of energy between speed and altitude",
+            "Total energy in the system"
+          ],
+          "correctIndex": 2,
+          "explanation": "Pitch up = energy goes to altitude. Pitch down = energy goes to speed. Power controls total energy; pitch distributes it.",
+          "acsRef": "PA.I.F"
+        },
+        {
+          "id": "L3Q4",
+          "question": "When executing a go-around from short final, why is full power the first action?",
+          "options": [
+            "To retract the flaps",
+            "Because you need maximum energy injection immediately to arrest the descent",
+            "To warm the engine",
+            "To activate the left-turning tendencies"
+          ],
+          "correctIndex": 1,
+          "explanation": "The airplane is in a low-energy state. Full power immediately begins converting that energy deficit into climb capability.",
+          "acsRef": "PA.IV.N"
+        },
+        {
+          "id": "L3Q5",
+          "question": "During a go-around at full power and low airspeed, what should you expect regarding left-turning tendencies?",
+          "options": [
+            "They disappear because you're climbing",
+            "They are at maximum strength — apply right rudder and monitor the ball",
+            "Only torque is present during a go-around",
+            "Left-turning tendencies only occur during stalls"
+          ],
+          "correctIndex": 1,
+          "explanation": "Full power + low speed + high AoA = all four left-turning tendencies at maximum. Right rudder and ball monitoring are critical.",
+          "acsRef": "PA.I.F"
+        }
+      ]
+    },
+    {
+      "lessonNum": 4,
+      "lessonTitle": "Arc 1 Check Flight",
+      "subtitle": "Link It All Under Pressure",
+      "arc": 1,
+      "arcTitle": "Mechanical Intimacy",
+      "mentalModelOutcome": "All three mental models unified — Physical Intimacy + Energy Management + Envelope Awareness",
+      "mentalModelMantra": null,
+      "description": "Arc 1 Check Flight. 5 touch-and-goes on Rwy 24 followed by simulated engine failure and emergency landing on Rwy 06. No coaching. Tests all three Arc 1 mental models under pressure. Ball-centering scored during all climb phases. Post-flight Theory Reveal connects all mental models into a unified framework.",
+      "mode": "Free Tower with Check Flight Discipline",
+      "studentLevel": "Crawl",
+      "workload": "Medium",
+      "estimatedReadTime": "8 minutes",
+      "acsAlignment": ["PA.I", "PA.II", "PA.III", "PA.IV", "PA.IX.B", "PA.I.F"],
+      "isCheckFlight": true,
+      "isGate": true,
+      "prerequisite": 3,
+      "gateRequirements": {
+        "flightScore": 3,
+        "quizScore": 0.80,
+        "quizQuestionCount": 15,
+        "debriefViewed": true,
+        "theoryRevealViewed": true
+      },
+      "trigger_thresholds": {
+        "walkaround_complete": {
+          "description": "Full REP preflight walkaround — no shortcuts",
+          "required": true,
+          "scoring_weight": 1
+        },
+        "touch_and_go_count": {
+          "description": "5 consecutive touch-and-goes on Rwy 24",
+          "target_count": 5,
+          "required": true,
+          "scoring_weight": 3
+        },
+        "pattern_altitude": {
+          "target_ft_msl": 1882,
+          "tolerance_ft": 100,
+          "scoring_weight": 2
+        },
+        "downwind_speed": {
+          "target_kias": 90,
+          "tolerance_kias": 10,
+          "scoring_weight": 2
+        },
+        "approach_speed": {
+          "target_kias": 65,
+          "tolerance_kias": 10,
+          "scoring_weight": 2
+        },
+        "ball_centered_climb": {
+          "description": "Ball centered during all 5 climb phases. Left-turning tendency compensation.",
+          "dataref": "sim/cockpit2/gauges/indicators/slip_deg",
+          "threshold_deg": 3.0,
+          "phase": "climb",
+          "required": false,
+          "scoring_weight": 2,
+          "note": "ST-805. Check flight — higher weight than L2/L3."
+        },
+        "emergency_best_glide": {
+          "description": "After engine failure at ~400 AGL: establish 68 KIAS best glide within 10 seconds",
+          "target_kias": 68,
+          "tolerance_kias": 10,
+          "time_to_establish_sec": 10,
+          "required": true,
+          "scoring_weight": 3
+        },
+        "emergency_landing_rwy06": {
+          "description": "Land on Rwy 06 (heading ~060°). Touchdown on runway surface.",
+          "target_heading_deg": 60,
+          "heading_tolerance_deg": 10,
+          "required": true,
+          "scoring_weight": 3
+        }
+      },
+      "quizSeeds": [
+        {
+          "id": "L4Q1",
+          "question": "What is the primary cause of a wing stall?",
+          "options": [
+            "Engine failure",
+            "Flying below a specific airspeed",
+            "Exceeding the critical angle of attack",
+            "Excessive bank angle"
+          ],
+          "correctIndex": 2,
+          "explanation": "A stall occurs when AoA exceeds the critical angle (~16°). Airflow separates and lift collapses.",
+          "acsRef": "PA.VII.B"
+        },
+        {
+          "id": "L4Q2",
+          "question": "At 45° bank angle, the load factor is approximately 1.41G. What does this mean for stall speed?",
+          "options": [
+            "Stall speed decreases",
+            "Stall speed is unchanged",
+            "Stall speed increases by approximately 19%",
+            "Stall speed doubles"
+          ],
+          "correctIndex": 2,
+          "explanation": "Higher load factor demands more lift from the wing. The wing must reach a higher AoA sooner, so stall speed increases ~19%.",
+          "acsRef": "PA.V.A"
+        },
+        {
+          "id": "L4Q3",
+          "question": "During stall recovery, why is right rudder especially critical when you add full power?",
+          "options": [
+            "The rudder retracts the flaps",
+            "Full power at high AoA activates all four left-turning tendencies simultaneously",
+            "Right rudder prevents the engine from overheating",
+            "The rudder controls angle of attack"
+          ],
+          "correctIndex": 1,
+          "explanation": "Stall recovery puts you at high AoA with full power — P-factor, torque, slipstream, and precession all yaw the airplane left.",
+          "acsRef": "PA.I.F"
+        },
+        {
+          "id": "L4Q4",
+          "question": "In the flight envelope model, what do slow flight and stalls represent?",
+          "options": [
+            "Engine management techniques",
+            "The low-energy boundary of the flight envelope",
+            "The high-load boundary",
+            "Navigation procedures"
+          ],
+          "correctIndex": 1,
+          "explanation": "Slow flight approaches the low-energy edge of the envelope. A stall crosses it.",
+          "acsRef": "PA.VII.A"
+        },
+        {
+          "id": "L4Q5",
+          "question": "Why is pulling harder in a steep turn when already slow dangerous?",
+          "options": [
+            "It reduces engine power",
+            "It extends the flaps",
+            "It increases AoA toward the critical angle while load factor has already raised the stall speed",
+            "It reduces drag too much"
+          ],
+          "correctIndex": 2,
+          "explanation": "Higher bank = higher load factor = higher stall speed. Pulling harder increases AoA toward the already-closer stall boundary. This is the recipe for an accelerated stall or spin.",
+          "acsRef": "PA.V.A"
+        }
+      ]
+    }
+  ]
+}

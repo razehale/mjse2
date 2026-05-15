@@ -1,7 +1,7 @@
 generator client {
     provider = "prisma-client-js"
     binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
-    output = "/home/ubuntu/screen_to_sky/nextjs_space/node_modules/.prisma/client"
+    output = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -89,6 +89,12 @@ model Lesson {
   flightRubricProductionNotes String?  @db.Text @map("flight_rubric_production_notes")
   mediaProductionNotes        String?  @db.Text @map("media_production_notes")
   scoringTuningNotes          String?  @db.Text @map("scoring_tuning_notes")
+  // START ST-805B Logic — Mental model + debrief fields
+  debriefContent              Json?    @map("debrief_content")
+  mentalModelOutcome          String?  @map("mental_model_outcome")
+  mentalModelMantra           String?  @map("mental_model_mantra")
+  triggerThresholds           String?  @db.Text @map("trigger_thresholds")
+  // END ST-805B Logic
   createdAt                   DateTime @default(now()) @map("created_at")
   updatedAt                   DateTime @updatedAt @map("updated_at")
   flightSessions              FlightSession[]
