@@ -149,13 +149,19 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
     }
   };
 
+  const [gateStatus, setGateStatus] = useState<any>(null);
+
   const handleMarkDebrief = async () => {
     try {
-      await fetch('/api/progress/debrief-viewed', {
+      const res = await fetch('/api/progress/debrief-viewed', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ lessonId }),
       });
+      if (res?.ok) {
+        const data = await res.json();
+        setGateStatus(data?.gateStatus ?? null);
+      }
       setDebriefMarked(true);
       onDebriefViewed?.();
     } catch (err: any) {
@@ -571,9 +577,34 @@ export function DebriefTab({ lesson, sessions, lessonId, onDebriefViewed }: Debr
             </Button>
           )}
           {debriefMarked && (
-            <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-center">
+            <div className="p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-center space-y-2">
               <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" />
-              <p className="text-xs text-emerald-400 mt-1">Debrief reviewed! Check the Path View for your progress.</p>
+              <p className="text-xs text-emerald-400">Debrief reviewed!</p>
+              {/* Gate Status Display */}
+              {gateStatus && (
+                <div className="mt-2 space-y-1 text-left max-w-xs mx-auto">
+                  <p className="text-[10px] font-semibold text-white uppercase tracking-wider">Gate Status</p>
+                  <div className="flex items-center gap-2 text-xs">
+                    <span>{gateStatus.flightOk ? '✅' : '❌'}</span>
+                    <span className="text-muted-foreground">Flight Score ≥ 3 ({gateStatus.flightScore ?? '-'}/5)</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs">
+                    <span>{gateStatus.debriefOk ? '✅' : '❌'}</span>
+                    <span className="text-muted-foreground">Debrief Viewed</span>
+                  </div>
+                  {gateStatus.requiresQuiz && (
+                    <div className="flex items-center gap-2 text-xs">
+                      <span>{gateStatus.quizOk ? '✅' : '❌'}</span>
+                      <span className="text-muted-foreground">Quiz Passed</span>
+                    </div>
+                  )}
+                  {gateStatus.lessonPassed ? (
+                    <p className="text-xs text-emerald-400 font-semibold mt-2">🎉 Lesson PASSED — Next lesson unlocked!</p>
+                  ) : (
+                    <p className="text-xs text-amber-400 mt-2">Complete all gates above to unlock the next lesson.</p>
+                  )}
+                </div>
+              )}
             </div>
           )}
 

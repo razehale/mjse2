@@ -37,15 +37,28 @@ export async function POST(req: NextRequest) {
     const quizOk = requiresQuiz ? progress?.quizPassed : true;
     const debriefOk = progress?.debriefViewed;
 
+    let finalStatus = progress.status;
     if (flightOk && quizOk && debriefOk) {
       await prisma.userProgress.update({
         where: { id: progress.id },
         data: { status: 'PASSED', completedAt: new Date() },
       });
+      finalStatus = 'PASSED';
     }
     // END ST-802D Logic
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({
+      success: true,
+      gateStatus: {
+        flightScore: progress.flightScore,
+        flightOk,
+        quizOk,
+        debriefOk,
+        requiresQuiz,
+        status: finalStatus,
+        lessonPassed: finalStatus === 'PASSED',
+      },
+    });
   } catch (error: any) {
     console.error('Debrief viewed error:', error);
     return NextResponse.json({ error: 'Failed to update progress' }, { status: 500 });
