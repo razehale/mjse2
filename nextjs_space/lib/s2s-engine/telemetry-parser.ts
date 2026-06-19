@@ -47,17 +47,36 @@ const INT_COLS = new Set([
   'tiedown_tail', 'pitot_cover', 'towbar',
 ]);
 
+const BINARY_COLS = new Set([
+  'on_ground', 'parking_brake', 'stall_warn', 'rep_stall_on',
+  'light_beacon', 'light_nav', 'light_strobe', 'light_landing', 'light_taxi',
+  'battery_on', 'generator_on', 'fuel_pump', 'avionics',
+  'chock_left', 'chock_right', 'tiedown_left', 'tiedown_right',
+  'tiedown_tail', 'pitot_cover', 'towbar',
+]);
+
 export interface TelemetryDataFrame {
   columns: string[];
   data: Record<string, number[]>;
   length: number;
 }
+export interface TelemetryMetadata {
+  lesson_tag?: string;
+  arc?: number;
+  recorder_version?: number;
+}
+
+export interface TelemetryResult {
+  dataframe: TelemetryDataFrame;
+  metadata: TelemetryMetadata;
+}
 
 /**
- * Parse raw CSV text into a cleaned, resampled DataFrame.
+ * Parse raw CSV text into a cleaned, resampled DataFrame with metadata.
+ * Returns both the dataframe and any metadata found in the CSV header.
  */
-export function loadTelemetry(csvText: string, resampleHz: number = 1.0): TelemetryDataFrame {
-  const { headers, dataRows } = parseCsvText(csvText);
+export function loadTelemetry(csvText: string, resampleHz: number = 1.0): TelemetryResult {
+  const { headers, dataRows, metadata } = parseCsvText(csvText);
   const renamed = renameColumns(headers);
 
   // Build column arrays
@@ -68,8 +87,8 @@ export function loadTelemetry(csvText: string, resampleHz: number = 1.0): Teleme
 
   for (const row of dataRows) {
     for (let i = 0; i < renamed.length; i++) {
-      const val = parseFloat(row[i]);
-      data[renamed[i]].push(isNaN(val) ? NaN : val);
+      const val = parseNumberToken(row[i]);
+      data[renamed[i]].push(Number.isNaN(val) ? NaN : val);
     }
   }
 
@@ -96,14 +115,17 @@ export function loadTelemetry(csvText: string, resampleHz: number = 1.0): Teleme
     }
   }
 
+  normalizeTelemetryData(data);
+
   let df: TelemetryDataFrame = { columns: renamed, data, length: dataRows.length };
 
   // Resample to target Hz
   if (resampleHz > 0 && data['t'] && df.length >= 2) {
     df = resample(df, resampleHz);
+    normalizeTelemetryData(df.data);
   }
 
-  return df;
+  return { dataframe: df, metadata };
 }
 
 /** Get a column array or default zeros */
@@ -118,12 +140,40 @@ export function val(df: TelemetryDataFrame, name: string, idx: number): number {
 
 // ── Internal helpers ──────────────────────────────────────────────────
 
-function parseCsvText(text: string): { headers: string[]; dataRows: string[][] } {
-  const lines = text.replace(/\r\n/g, '\n').split('\n');
+function parseCsvText(text: string): { headers: string[]; dataRows: string[][]; separator: string; metadata: TelemetryMetadata } {
+  const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+  const metadata: TelemetryMetadata = {};
 
-  // Find header line (first non-blank, non-separator line)
+  // Check first line for metadata (starts with #)
+  let startIdx = 0;
+  if (lines.length > 0 && lines[0].trim().startsWith('#')) {
+    const metaLine = lines[0].trim();
+    startIdx = 1; // Skip metadata line when looking for header
+    
+    // Parse metadata: # lesson_tag=L1 arc=1 recorder_version=5
+    const metaContent = metaLine.substring(1).trim(); // Remove '#'
+    const parts = metaContent.split(/\s+/);
+    
+    for (const part of parts) {
+      const [key, value] = part.split('=').map(s => s.trim());
+      if (key && value) {
+        if (key === 'lesson_tag') {
+          metadata.lesson_tag = value;
+        } else if (key === 'arc') {
+          const arcNum = parseInt(value, 10);
+          if (!isNaN(arcNum)) metadata.arc = arcNum;
+        } else if (key === 'recorder_version') {
+          const versionNum = parseInt(value, 10);
+          if (!isNaN(versionNum)) metadata.recorder_version = versionNum;
+        }
+      }
+    }
+  }
+
+  // Find header line (first non-blank, non-separator line after metadata)
   let headerLine = '';
-  for (const line of lines) {
+  for (let i = startIdx; i < lines.length; i++) {
+    const line = lines[i];
     const stripped = line.trim().replace(/^\|/, '').replace(/\|$/, '').trim();
     if (stripped && !stripped.match(/^[\s|:\-]+$/)) {
       headerLine = stripped;
@@ -132,9 +182,12 @@ function parseCsvText(text: string): { headers: string[]; dataRows: string[][] }
   }
   if (!headerLine) throw new Error('No header row found in telemetry CSV');
 
-  const sep = headerLine.includes(',') && headerLine.split(',').length > 5 ? ',' : '|';
-  const headers = headerLine.split(sep).map(h => h.trim()).filter(Boolean);
-  const headerSet = new Set(headers);
+  const commaCount = (headerLine.match(/,/g) ?? []).length;
+  const pipeCount = (headerLine.match(/\|/g) ?? []).length;
+  const sep = commaCount >= pipeCount ? ',' : '|';
+
+  const headers = headerLine.split(sep).map(h => h.trim()).filter(h => h.length > 0);
+  const headerNormalized = headerLine.replace(/\s+/g, '');
 
   const dataRows: string[][] = [];
   let pastHeader = false;
@@ -144,24 +197,27 @@ function parseCsvText(text: string): { headers: string[]; dataRows: string[][] }
       if (stripped === headerLine.trim()) { pastHeader = true; continue; }
       continue;
     }
+
     const stripped = line.trim();
     if (!stripped) continue;
-    // Skip separator lines
-    if (/^[\s|:\-]+$/.test(stripped)) continue;
-    // Skip repeated header lines
-    const firstField = stripped.split(sep)[0].trim().replace(/^\|/, '').replace(/\|$/, '').trim();
-    if (headerSet.has(firstField)) continue;
+    if (/^[\s|:\-]+$/.test(stripped)) continue; // separator rows
 
-    const fields = stripped.split(sep).map(f => f.trim().replace(/^\|/, '').replace(/\|$/, '').trim()).filter(Boolean);
+    const normalized = stripped.replace(/^\|/, '').replace(/\|$/, '').trim();
+    if (normalized.replace(/\s+/g, '') === headerNormalized) continue; // repeated full header
+
+    const fields = normalized
+      .split(sep)
+      .map(f => f.trim().replace(/^\|/, '').replace(/\|$/, '').trim());
+
     if (fields.length >= headers.length) {
       dataRows.push(fields.slice(0, headers.length));
-    } else if (fields.length >= headers.length * 0.8) {
+    } else if (fields.length >= Math.ceil(headers.length * 0.8)) {
       while (fields.length < headers.length) fields.push('NaN');
       dataRows.push(fields);
     }
   }
 
-  return { headers, dataRows };
+  return { headers, dataRows, separator: sep, metadata };
 }
 
 function renameColumns(headers: string[]): string[] {
@@ -169,6 +225,80 @@ function renameColumns(headers: string[]): string[] {
     const clean = h.trim();
     return COL_MAP[clean] || clean;
   });
+}
+
+function parseNumberToken(raw: string | undefined): number {
+  if (raw == null) return NaN;
+
+  let token = raw.trim().replace(/^\|/, '').replace(/\|$/, '').trim();
+  if (!token) return NaN;
+
+  token = token.replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1').trim();
+  if (!token) return NaN;
+
+  const lower = token.toLowerCase();
+  if (lower === 'nan' || lower === 'null' || lower === 'none') return NaN;
+
+  if (token.includes(',') && !token.includes('.') && /^-?\d+,\d+$/.test(token)) {
+    token = token.replace(',', '.');
+  }
+
+  const value = Number.parseFloat(token);
+  return Number.isFinite(value) ? value : NaN;
+}
+
+function normalizeTelemetryData(data: Record<string, number[]>): void {
+  // Normalize binary/integer flags to strict 0/1 so phase transitions can be detected reliably.
+  for (const colName of Object.keys(data)) {
+    if (!BINARY_COLS.has(colName)) continue;
+    const arr = data[colName];
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = arr[i] >= 0.5 ? 1 : 0;
+    }
+  }
+
+  // Keep AGL non-negative for flare/ground proximity logic.
+  const altAgl = data['alt_agl'];
+  if (altAgl && altAgl.length > 0) {
+    const positiveCount = altAgl.filter(v => v > 0).length;
+    const negativeCount = altAgl.filter(v => v < 0).length;
+
+    // If AGL appears mostly inverted, flip sign once.
+    if (negativeCount > positiveCount * 2) {
+      for (let i = 0; i < altAgl.length; i++) altAgl[i] = -altAgl[i];
+    }
+
+    // Clamp mild negatives (sampling noise around touchdown) to zero.
+    for (let i = 0; i < altAgl.length; i++) {
+      if (altAgl[i] < 0 && altAgl[i] > -20) altAgl[i] = 0;
+    }
+  }
+
+  // Detect inverted VS sign (some recorders export descent as positive).
+  // Compare VS sign to d(AGL)/dt sign; if mostly opposite, flip VS.
+  const vs = data['vs'];
+  const t = data['t'];
+  if (vs && altAgl && t && vs.length === altAgl.length && t.length === altAgl.length) {
+    let agree = 0;
+    let disagree = 0;
+
+    for (let i = 1; i < vs.length; i++) {
+      const dt = t[i] - t[i - 1];
+      if (dt <= 0.001) continue;
+
+      const da = altAgl[i] - altAgl[i - 1];
+      const vsFps = vs[i] / 60.0;
+
+      if (Math.abs(da) < 0.3 || Math.abs(vsFps) < 0.3) continue;
+
+      if (Math.sign(da) === Math.sign(vsFps)) agree++;
+      else disagree++;
+    }
+
+    if (disagree >= 5 && disagree > agree * 1.2) {
+      for (let i = 0; i < vs.length; i++) vs[i] = -vs[i];
+    }
+  }
 }
 
 function resample(df: TelemetryDataFrame, hz: number): TelemetryDataFrame {
@@ -188,7 +318,9 @@ function resample(df: TelemetryDataFrame, hz: number): TelemetryDataFrame {
     const src = df.data[colName];
     if (!src) continue;
     const interpolated = linearInterp(t, src, newT);
-    if (INT_COLS.has(colName)) {
+    if (BINARY_COLS.has(colName)) {
+      newData[colName] = interpolated.map(v => (v >= 0.5 ? 1 : 0));
+    } else if (INT_COLS.has(colName)) {
       newData[colName] = interpolated.map(v => Math.round(v));
     } else {
       newData[colName] = interpolated;
@@ -212,5 +344,12 @@ function linearInterp(xp: number[], fp: number[], x: number[]): number[] {
   }
   return result;
 }
+
+export const __telemetryParserInternals = {
+  parseCsvText,
+  renameColumns,
+  parseNumberToken,
+  normalizeTelemetryData,
+};
 
 // END ST-602

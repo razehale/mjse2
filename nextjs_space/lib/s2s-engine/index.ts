@@ -4,7 +4,7 @@
 //   import { evaluateFlight } from '@/lib/s2s-engine';
 //   const result = evaluateFlight(csvText, 'L2', 'tristan', { machadoQuizPct: 85 });
 
-import { loadTelemetry, TelemetryDataFrame } from './telemetry-parser';
+import { loadTelemetry, TelemetryDataFrame, TelemetryMetadata } from './telemetry-parser';
 import { LessonResult } from './rubrics';
 import { gradeL1, gradeL2, gradeL3, gradeL4 } from './arc1-grader';
 import { gradeStub } from './arc-stubs';
@@ -23,10 +23,11 @@ export interface EvaluateFlightResult {
   result: LessonResult;
   json: Record<string, any>;
   html: string;
+  metadata: TelemetryMetadata;
 }
 
 /**
- * End-to-end: parse CSV → grade → return result + JSON + HTML.
+ * End-to-end: parse CSV → grade → return result + JSON + HTML + metadata.
  */
 export function evaluateFlight(
   csvText: string,
@@ -35,7 +36,7 @@ export function evaluateFlight(
   opts: EvaluateFlightOptions = {},
 ): EvaluateFlightResult {
   const { studentId = 'unknown', flightId = '', machadoQuizPct, checklistTime, resampleHz = 1.0 } = opts;
-  const df = loadTelemetry(csvText, resampleHz);
+  const { dataframe: df, metadata } = loadTelemetry(csvText, resampleHz);
   const fId = flightId || (telemetryFile.replace(/\.csv$/i, ''));
 
   const lessonUpper = lessonId.toUpperCase();
@@ -63,6 +64,7 @@ export function evaluateFlight(
     result,
     json: toDict(result),
     html: toHtml(result),
+    metadata,
   };
 }
 
@@ -71,6 +73,6 @@ export type { LessonResult } from './rubrics';
 export { toDict } from './json-formatter';
 export { toHtml } from './html-generator';
 export { loadTelemetry, col } from './telemetry-parser';
-export type { TelemetryDataFrame } from './telemetry-parser';
+export type { TelemetryDataFrame, TelemetryMetadata, TelemetryResult } from './telemetry-parser';
 
 // END ST-608

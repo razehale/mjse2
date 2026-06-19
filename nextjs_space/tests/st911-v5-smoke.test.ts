@@ -40,7 +40,7 @@ assert(csvText.length > 1000, `CSV loaded (${(csvText.length / 1024).toFixed(0)}
 
 // ─── Test 1: s2s-engine parser (loadTelemetry) ──────────────────────
 console.log('\n📊 Test 1: s2s-engine/telemetry-parser (loadTelemetry)');
-const df = loadTelemetry(csvText);
+const { dataframe: df } = loadTelemetry(csvText);
 assert(df.length > 0, `DataFrame has ${df.length} rows`);
 
 // Critical renames must map correctly
