@@ -148,6 +148,7 @@ export function gradeL2(df: TelemetryDataFrame, studentId = 'unknown', flightId 
   if (nCycles === 0) result.coachingBullets.push('No complete pattern cycles detected. L2 requires 3 cycles.');
 
   let flapPassCount = 0, trimPassCount = 0;
+  const meanApproachSpeeds: number[] = [];
   const iasArr = col(df, 'ias');
   const vsArr = col(df, 'vs');
   const altAglArr = col(df, 'alt_agl');
@@ -233,7 +234,9 @@ export function gradeL2(df: TelemetryDataFrame, studentId = 'unknown', flightId 
 
     if (!isNaN(meanAppIas)) {
       const speedScore = rangeScore(meanAppIas, 63, 67, tol.speedKias);
-      metrics.push({ name: 'mean_approach_speed_kias', value: Math.round(meanAppIas * 10) / 10, target: 65, tolerance: tol.speedKias, score: speedScore, grade: gradeLabel(speedScore), detail: `Mean approach IAS: ${meanAppIas.toFixed(1)} KIAS (target 63-67)` });
+      const roundedMeanAppIas = Math.round(meanAppIas * 10) / 10;
+      meanApproachSpeeds.push(roundedMeanAppIas);
+      metrics.push({ name: 'mean_approach_speed_kias', value: roundedMeanAppIas, target: 65, tolerance: tol.speedKias, score: speedScore, grade: gradeLabel(speedScore), detail: `Mean approach IAS: ${meanAppIas.toFixed(1)} KIAS (target 63-67)` });
     } else {
       metrics.push({ name: 'mean_approach_speed_kias', value: 0, target: 65, tolerance: tol.speedKias, score: 1, grade: 'Rough', detail: 'Could not measure approach speed' });
     }
@@ -264,6 +267,9 @@ export function gradeL2(df: TelemetryDataFrame, studentId = 'unknown', flightId 
   result.rawData.trim_pass_count = trimPassCount;
   result.rawData.flap_2of3 = flapPassCount >= 2;
   result.rawData.trim_2of3 = trimPassCount >= 2;
+  result.rawData.mean_approach_speed_kias = meanApproachSpeeds.length > 0
+    ? Math.round((meanApproachSpeeds.reduce((a, b) => a + b, 0) / meanApproachSpeeds.length) * 10) / 10
+    : 0;
   if (nCycles < 3) result.coachingBullets.push(`Only ${nCycles} pattern cycle(s) detected — L2 requires 3.`);
   if (flapPassCount < 2) result.coachingBullets.push(`Flap sequence correct in only ${flapPassCount}/3 cycles (need 2/3).`);
   if (trimPassCount < 2) result.coachingBullets.push(`Trim set correctly in only ${trimPassCount}/3 cycles (need 2/3).`);

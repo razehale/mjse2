@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     );
 
     // Store summary data for charts (sampled rows from raw parse)
-    const df = loadTelemetry(csvContent, 1.0);
+    const { dataframe: df } = loadTelemetry(csvContent, 1.0);
     const tArr = col(df, 't');
     const sampledRows: Record<string, number>[] = [];
     // Sample every 5th row for chart display
